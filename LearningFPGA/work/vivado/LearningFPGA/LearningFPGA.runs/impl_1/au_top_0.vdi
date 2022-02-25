@@ -352,3 +352,203 @@ INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 
 
 Phase 1 Build RT Design
 Checksum: PlaceDB: 32b47d18 ConstDB: 0 ShapeSum: 535b21b8 RouteDB: 0
+Post Restoration Checksum: NetGraph: 7942af07 NumContArr: b3ee8d68 Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: 12d313c6f
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:26 . Memory (MB): peak = 1804.270 ; gain = 65.410
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: 12d313c6f
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:26 . Memory (MB): peak = 1804.297 ; gain = 65.438
+
+Phase 2.2 Fix Topology Constraints
+Phase 2.2 Fix Topology Constraints | Checksum: 12d313c6f
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:26 . Memory (MB): peak = 1810.289 ; gain = 71.430
+
+Phase 2.3 Pre Route Cleanup
+Phase 2.3 Pre Route Cleanup | Checksum: 12d313c6f
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:26 . Memory (MB): peak = 1810.289 ; gain = 71.430
+ Number of Nodes with overlaps = 0
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: 16455e509
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:26 . Memory (MB): peak = 1814.375 ; gain = 75.516
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 6
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 6
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 16455e509
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:26 . Memory (MB): peak = 1814.797 ; gain = 75.938
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 16455e509
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:26 . Memory (MB): peak = 1814.797 ; gain = 75.938
+Phase 3 Initial Routing | Checksum: 171431c4a
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 0
+Phase 4.1 Global Iteration 0 | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+Phase 4 Rip-up And Reroute | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+Phase 5 Delay and Skew Optimization | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+Phase 6.1 Hold Fix Iter | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+Phase 6 Post Hold Fix | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.00358766 %
+  Global Horizontal Routing Utilization  = 0.00208225 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1814.797 ; gain = 75.938
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 19dbeee38
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1815.527 ; gain = 76.668
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 1aae4d981
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1815.527 ; gain = 76.668
+
+Phase 10 Post Router Timing
+Phase 10 Post Router Timing | Checksum: 1aae4d981
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1815.527 ; gain = 76.668
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:01:27 ; elapsed = 00:01:27 . Memory (MB): peak = 1815.527 ; gain = 76.668
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+60 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:33 ; elapsed = 00:01:30 . Memory (MB): peak = 1815.527 ; gain = 81.820
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.216 . Memory (MB): peak = 1825.531 ; gain = 10.004
+INFO: [Common 17-1381] The checkpoint 'C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.runs/impl_1/au_top_0_routed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file au_top_0_drc_routed.rpt -pb au_top_0_drc_routed.pb -rpx au_top_0_drc_routed.rpx
+Command: report_drc -file au_top_0_drc_routed.rpt -pb au_top_0_drc_routed.pb -rpx au_top_0_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.runs/impl_1/au_top_0_drc_routed.rpt.
+report_drc completed successfully
+INFO: [runtcl-4] Executing : report_methodology -file au_top_0_methodology_drc_routed.rpt -pb au_top_0_methodology_drc_routed.pb -rpx au_top_0_methodology_drc_routed.rpx
+Command: report_methodology -file au_top_0_methodology_drc_routed.rpt -pb au_top_0_methodology_drc_routed.pb -rpx au_top_0_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.runs/impl_1/au_top_0_methodology_drc_routed.rpt.
+report_methodology completed successfully
+INFO: [runtcl-4] Executing : report_power -file au_top_0_power_routed.rpt -pb au_top_0_power_summary_routed.pb -rpx au_top_0_power_routed.rpx
+Command: report_power -file au_top_0_power_routed.rpt -pb au_top_0_power_summary_routed.pb -rpx au_top_0_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+72 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [runtcl-4] Executing : report_route_status -file au_top_0_route_status.rpt -pb au_top_0_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file au_top_0_timing_summary_routed.rpt -pb au_top_0_timing_summary_routed.pb -rpx au_top_0_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [runtcl-4] Executing : report_incremental_reuse -file au_top_0_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [runtcl-4] Executing : report_clock_utilization -file au_top_0_clock_utilization_routed.rpt
+INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file au_top_0_bus_skew_routed.rpt -pb au_top_0_bus_skew_routed.pb -rpx au_top_0_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+Command: write_bitstream -force au_top_0.bit -bin_file
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Bitstream compression saved 15757472 bits.
+Writing bitstream ./au_top_0.bit...
+Writing bitstream ./au_top_0.bin...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+12 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:39 ; elapsed = 00:00:37 . Memory (MB): peak = 2274.000 ; gain = 425.512
+INFO: [Common 17-206] Exiting Vivado at Fri Feb 25 12:31:31 2022...
