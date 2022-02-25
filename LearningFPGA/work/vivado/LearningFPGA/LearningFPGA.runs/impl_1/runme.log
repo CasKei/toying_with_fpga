@@ -1,0 +1,51 @@
+
+*** Running vivado
+    with args -log au_top_0.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source au_top_0.tcl -notrace
+
+
+
+****** Vivado v2021.2.1 (64-bit)
+  **** SW Build 3414424 on Sun Dec 19 10:57:22 MST 2021
+  **** IP Build 3405791 on Sun Dec 19 15:54:35 MST 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source au_top_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 1243.164 ; gain = 9.598
+Command: link_design -top au_top_0 -part xc7a35tftg256-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a35tftg256-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1243.164 ; gain = 0.000
+INFO: [Project 1-479] Netlist was created with Vivado 2021.2.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/cassi/Downloads/Apps/library/components/au.xdc]
+Finished Parsing XDC File [C:/Users/cassi/Downloads/Apps/library/components/au.xdc]
+Parsing XDC File [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/constraint/io.xdc]
+Finished Parsing XDC File [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/constraint/io.xdc]
+Parsing XDC File [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/constraint/alchitry.xdc]
+Finished Parsing XDC File [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/constraint/alchitry.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1243.164 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+5 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1243.164 ; gain = 0.000
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1243.164 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 192aa204b
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1396.039 ; gain = 152.875
