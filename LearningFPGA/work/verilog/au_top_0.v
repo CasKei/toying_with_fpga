@@ -21,11 +21,13 @@ module au_top_0 (
   
   reg rst;
   
-  wire [2-1:0] M_fulladderROM_value;
-  reg [3-1:0] M_fulladderROM_address;
-  full_adder_ROM_1 fulladderROM (
-    .address(M_fulladderROM_address),
-    .value(M_fulladderROM_value)
+  wire [8-1:0] M_eightbitSL_s;
+  reg [8-1:0] M_eightbitSL_a;
+  reg [3-1:0] M_eightbitSL_b;
+  eight_bit_shiftleft_1 eightbitSL (
+    .a(M_eightbitSL_a),
+    .b(M_eightbitSL_b),
+    .s(M_eightbitSL_s)
   );
   
   wire [1-1:0] M_reset_cond_out;
@@ -44,10 +46,8 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
-    M_fulladderROM_address[0+0-:1] = io_dip[0+0+0-:1];
-    M_fulladderROM_address[1+0-:1] = io_dip[0+1+0-:1];
-    M_fulladderROM_address[2+0-:1] = io_dip[0+2+0-:1];
-    io_led[16+0+0-:1] = M_fulladderROM_value[0+0-:1];
-    io_led[16+1+0-:1] = M_fulladderROM_value[1+0-:1];
+    M_eightbitSL_a = io_dip[0+7-:8];
+    M_eightbitSL_b = io_dip[8+0+2-:3];
+    io_led[0+7-:8] = M_eightbitSL_s;
   end
 endmodule

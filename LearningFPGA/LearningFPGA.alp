@@ -5,6 +5,7 @@
     <src>full_adder.luc</src>
     <src top="true">au_top.luc</src>
     <src>eight_bit_adder.luc</src>
+    <src>eight_bit_shiftleft.luc</src>
     <src>full_adder_ROM.luc</src>
     <constraint lib="true">au.xdc</constraint>
     <constraint lib="true">io.acf</constraint>
