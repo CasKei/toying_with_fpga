@@ -5,7 +5,7 @@ set device xc7a35tftg256-1
 if {[file exists "$projDir/$projName"]} { file delete -force "$projDir/$projName" }
 create_project $projName "$projDir/$projName" -part $device
 set_property design_mode RTL [get_filesets sources_1]
-set verilogSources [list "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/verilog/au_top_0.v" "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/verilog/full_adder_1.v" "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/verilog/eight_bit_adder_2.v" "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/verilog/reset_conditioner_3.v" ]
+set verilogSources [list "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/verilog/au_top_0.v" "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/verilog/full_adder_ROM_1.v" "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/verilog/reset_conditioner_2.v" ]
 import_files -fileset [get_filesets sources_1] -force -norecurse $verilogSources
 set xdcSources [list "C:/Users/cassi/Downloads/Apps/library/components/au.xdc" "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/constraint/io.xdc" "C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/constraint/alchitry.xdc" ]
 read_xdc $xdcSources

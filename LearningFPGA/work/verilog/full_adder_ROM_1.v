@@ -4,25 +4,16 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module full_adder_1 (
-    input x,
-    input y,
-    input cin,
-    output reg s,
-    output reg cout
+module full_adder_ROM_1 (
+    input [2:0] address,
+    output reg [1:0] value
   );
   
   
   
-  reg i;
-  reg j;
-  reg k;
+  localparam FULL_ADDER = 16'hd668;
   
   always @* begin
-    s = x ^ y ^ cin;
-    i = x & y;
-    j = x & cin;
-    k = y & cin;
-    cout = i | j | k;
+    value = FULL_ADDER[(address)*2+1-:2];
   end
 endmodule
