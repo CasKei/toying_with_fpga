@@ -13,6 +13,7 @@ module au_top (
   
   sig rst;                  // reset signal
   full_adder fulladder;
+  eight_bit_adder eightbitadder;
   
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
@@ -38,5 +39,12 @@ module au_top (
     
     io_led[2][1] = fulladder.s;
     io_led[2][0] = fulladder.cout;
+    
+    
+    eightbitadder.x = io_dip[0];
+    eightbitadder.y = io_dip[1];
+    eightbitadder.cin = io_dip[2][0];
+    io_led[1] = eightbitadder.s;
+    io_led[2][0] = eightbitadder.cout;
   }
 }

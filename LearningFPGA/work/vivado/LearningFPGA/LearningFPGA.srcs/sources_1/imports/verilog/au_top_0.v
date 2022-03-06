@@ -34,9 +34,22 @@ module au_top_0 (
     .cout(M_fulladder_cout)
   );
   
+  wire [8-1:0] M_eightbitadder_s;
+  wire [1-1:0] M_eightbitadder_cout;
+  reg [8-1:0] M_eightbitadder_x;
+  reg [8-1:0] M_eightbitadder_y;
+  reg [1-1:0] M_eightbitadder_cin;
+  eight_bit_adder_2 eightbitadder (
+    .x(M_eightbitadder_x),
+    .y(M_eightbitadder_y),
+    .cin(M_eightbitadder_cin),
+    .s(M_eightbitadder_s),
+    .cout(M_eightbitadder_cout)
+  );
+  
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_2 reset_cond (
+  reset_conditioner_3 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -55,5 +68,10 @@ module au_top_0 (
     M_fulladder_cin = io_dip[0+2+0-:1];
     io_led[16+1+0-:1] = M_fulladder_s;
     io_led[16+0+0-:1] = M_fulladder_cout;
+    M_eightbitadder_x = io_dip[0+7-:8];
+    M_eightbitadder_y = io_dip[8+7-:8];
+    M_eightbitadder_cin = io_dip[16+0+0-:1];
+    io_led[8+7-:8] = M_eightbitadder_s;
+    io_led[16+0+0-:1] = M_eightbitadder_cout;
   end
 endmodule
