@@ -1,0 +1,22 @@
+module adder_16 (
+
+    // version with no z v n.
+    
+    input a[16],
+    input b[16],
+    input cin,
+    output s[16],
+    output cout
+  ) {
+  
+  full_adder fulladder[16]; //instantiate 16 FAs
+
+  always {
+    fulladder.a = a;
+    fulladder.b = b;
+    fulladder.cin[0] = cin;
+    fulladder.cin[15:1] = fulladder.cout[14:0];
+    s = fulladder.s;
+    cout = fulladder.cout[15];
+  }
+}
