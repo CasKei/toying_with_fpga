@@ -21,18 +21,23 @@ module au_top_0 (
   
   reg rst;
   
-  wire [8-1:0] M_eightbitSL_s;
-  reg [8-1:0] M_eightbitSL_a;
-  reg [3-1:0] M_eightbitSL_b;
-  eight_bit_shiftleft_1 eightbitSL (
-    .a(M_eightbitSL_a),
-    .b(M_eightbitSL_b),
-    .s(M_eightbitSL_s)
+  wire [1-1:0] M_slowclock_value;
+  counter_1 slowclock (
+    .clk(clk),
+    .rst(rst),
+    .value(M_slowclock_value)
+  );
+  
+  wire [8-1:0] M_seqplusvary_out;
+  seq_plus_vary_2 seqplusvary (
+    .clk(M_slowclock_value),
+    .rst(rst),
+    .out(M_seqplusvary_out)
   );
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_2 reset_cond (
+  reset_conditioner_3 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -46,8 +51,6 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
-    M_eightbitSL_a = io_dip[0+7-:8];
-    M_eightbitSL_b = io_dip[8+0+2-:3];
-    io_led[0+7-:8] = M_eightbitSL_s;
+    io_led[16+7-:8] = M_seqplusvary_out;
   end
 endmodule

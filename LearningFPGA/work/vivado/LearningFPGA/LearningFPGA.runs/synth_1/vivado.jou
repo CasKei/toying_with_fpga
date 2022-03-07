@@ -2,8 +2,8 @@
 # Vivado v2021.2.1 (64-bit)
 # SW Build 3414424 on Sun Dec 19 10:57:22 MST 2021
 # IP Build 3405791 on Sun Dec 19 15:54:35 MST 2021
-# Start of session at: Sun Mar  6 19:18:43 2022
-# Process ID: 38964
+# Start of session at: Mon Mar  7 20:26:45 2022
+# Process ID: 23676
 # Current directory: C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.runs/synth_1
 # Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
 # Log file: C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.runs/synth_1/au_top_0.vds

@@ -15,7 +15,11 @@ module au_top (
   // full_adder fulladder;
   // eight_bit_adder eightbitadder;
   // full_adder_ROM fulladderROM;
-  eight_bit_shiftleft eightbitSL;
+  // eight_bit_shiftleft eightbitSL;
+  
+  counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
+  //seq_plus_two seqplustwo(.clk(slowclock.value), .rst(rst));
+  seq_plus_vary seqplusvary(.clk(slowclock.value), .rst(rst));
   
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
@@ -56,8 +60,10 @@ module au_top (
     // io_led[2][0] = fulladderROM.value[0];
     // io_led[2][1] = fulladderROM.value[1];
 
-    eightbitSL.a = io_dip[0];
-    eightbitSL.b = io_dip[1][2:0];
-    io_led[0] = eightbitSL.s;
+    // eightbitSL.a = io_dip[0];
+    // eightbitSL.b = io_dip[1][2:0];
+    // io_led[0] = eightbitSL.s;
+    
+    io_led[2] = seqplusvary.out;
   }
 }

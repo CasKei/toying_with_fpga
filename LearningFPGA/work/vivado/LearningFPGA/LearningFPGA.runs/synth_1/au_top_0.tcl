@@ -84,8 +84,11 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.srcs/sources_1/imports/verilog/eight_bit_shiftleft_1.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.srcs/sources_1/imports/verilog/reset_conditioner_2.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.srcs/sources_1/imports/verilog/counter_1.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.srcs/sources_1/imports/verilog/eight_bit_adder_4.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.srcs/sources_1/imports/verilog/full_adder_5.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.srcs/sources_1/imports/verilog/reset_conditioner_3.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.srcs/sources_1/imports/verilog/seq_plus_vary_2.v
   C:/Users/cassi/Workspace/repostorage/toying_with_fpga/LearningFPGA/work/vivado/LearningFPGA/LearningFPGA.srcs/sources_1/imports/verilog/au_top_0.v
 }
 OPTRACE "Adding files" END { }
