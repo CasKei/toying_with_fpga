@@ -1,5 +1,6 @@
 module adder_16 (
-
+// Inputs: 16bit a, b, 6bit alufn signal
+// Outputs: 1 bit zvn
     input a[16],
     input b[16],
     input alufn[6],
@@ -16,15 +17,17 @@ module adder_16 (
     s = 16b0;
     
     case(alufn[0]) {
-      0 : s = a + b;
-      1 : s = a - b;
-      default : s = 16b0;
+      0 : s = a + b; // add
+      1 : s = a - b; // subtract
+      default : s = 16b0; // 0
     }
     
     z = ~|s; // any non-0 will make |s 1, so not|s will be true iff all 0
+    // followed lab3 but xor b with alufn to have complement when adding
     v = (a[15] & (b[15] ^ alufn[0]) & ~s[15]) | (~a[15] & ~(b[15] ^ alufn[0]) & s[15]);
-    n = s[15];
+    n = s[15]; //msb if negative
     
+    //write to out
     out = s;
   }
 }
