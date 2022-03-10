@@ -1,10 +1,65 @@
 module alu (
-    input clk,  // clock
-    input rst,  // reset
-    output out
+    input a[16],  // input 1
+    input b[16],  // input 2
+    input alufn[6], // alufn signal
+    
+    output out[16], // output
+    output zvn[3] // zvn
   ) {
 
+  // instantiate modules as parts of alu
+  adder_16 adder;
+  boolean_16 boolean;
+  shifter_16 shifter;
+  comparator_16 comparator;
+  // assign zvn
+  sig z;
+  sig v;
+  sig n;
+  
+  
   always {
-    out = 0;
+    // adder
+    adder.alufn = alufn;
+    adder.a = a;
+    adder.b = b;
+    z = adder.z;
+    v = adder.v;
+    n = adder.n;
+    
+    // zvn
+    zvn[0] = z;
+    zvn[1] = v;
+    zvn[2] = n;
+    
+    // boolean
+    boolean.alufn = alufn;
+    boolean.a = a;
+    boolean.b = b;
+    
+    // comparator
+    comparator.alufn = alufn;
+    comparator.z = z;
+    comparator.v = v;
+    comparator.n = n;
+    
+    // shifter
+    shifter.alufn = alufn;
+    shifter.a = a;
+    shifter.b = b[3:0];
+    
+    // mux selecting module using alufn[5:4]
+    case(alufn[5:4]) {
+      b00 : out = adder.out;
+      b01 : out = boolean.out;
+      b10 : out = shifter.out;
+      b11 : out = comparator.out;
+      default : out = 16b0;
+    }
+    
+    // multiplier
+    if (alufn == b000010) {
+      out = a * b;
+    }
   }
 }
