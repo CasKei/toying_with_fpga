@@ -9,14 +9,22 @@ module adder_16 (
     output n[1]
   ) {
   
-  full_adder fulladder[16]; //instantiate 16 FAs
+  // out is write only, make temp var for output
+  sig s[16];
 
   always {
-    fulladder.a = a;
-    fulladder.b = b;
-    fulladder.cin[0] = cin;
-    fulladder.cin[15:1] = fulladder.cout[14:0];
-    s = fulladder.s;
-    cout = fulladder.cout[15];
+    s = 16b0;
+    
+    case(alufn[0]) {
+      0 : s = a + b;
+      1 : s = a - b;
+      default : s = 16b0;
+    }
+    
+    z = ~|s; // any non-0 will make |s 1, so not|s will be true iff all 0
+    v = (a[15] & (b[15] ^ alufn[0]) & ~s[15]) | (~a[15] & ~(b[15] ^ alufn[0]) & s[15]);
+    n = s[15];
+    
+    out = s;
   }
 }

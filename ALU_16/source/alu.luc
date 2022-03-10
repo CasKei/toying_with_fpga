@@ -11,7 +11,7 @@ module alu (
   adder_16 adder;
   boolean_16 boolean;
   shifter_16 shifter;
-  comparator_16 comparator;
+  compare_16 comparator;
   // assign zvn
   sig z;
   sig v;
