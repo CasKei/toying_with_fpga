@@ -21,23 +21,16 @@ module au_top_0 (
   
   reg rst;
   
-  wire [1-1:0] M_slowclock_value;
-  counter_1 slowclock (
-    .clk(clk),
-    .rst(rst),
-    .value(M_slowclock_value)
-  );
-  
-  wire [8-1:0] M_seqplusvary_out;
-  seq_plus_vary_2 seqplusvary (
-    .clk(M_slowclock_value),
-    .rst(rst),
-    .out(M_seqplusvary_out)
+  wire [7-1:0] M_sevenseg_segs;
+  reg [4-1:0] M_sevenseg_char;
+  seven_seg_1 sevenseg (
+    .char(M_sevenseg_char),
+    .segs(M_sevenseg_segs)
   );
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_3 reset_cond (
+  reset_conditioner_2 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -51,6 +44,6 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
-    io_led[16+7-:8] = M_seqplusvary_out;
+    M_sevenseg_char = io_dip[0+0+3-:4];
   end
 endmodule

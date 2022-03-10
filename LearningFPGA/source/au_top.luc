@@ -16,6 +16,7 @@ module au_top (
   // eight_bit_adder eightbitadder;
   // full_adder_ROM fulladderROM;
   // eight_bit_shiftleft eightbitSL;
+  seven_seg sevenseg;
   
   //counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
   //seq_plus_two seqplustwo(.clk(slowclock.value), .rst(rst));
@@ -65,5 +66,7 @@ module au_top (
     // io_led[0] = eightbitSL.s;
     
     //io_led[2] = seqplusvary.out;
+    sevenseg.char = io_dip[0][3:0];
+
   }
 }

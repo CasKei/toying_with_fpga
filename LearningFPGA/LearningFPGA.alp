@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="LearningFPGA" board="Alchitry Au" language="Lucid" version="3">
   <files>
+    <src>seven_seg.luc</src>
     <component>counter.luc</component>
     <component>reset_conditioner.luc</component>
     <src>seq_plus_two.luc</src>

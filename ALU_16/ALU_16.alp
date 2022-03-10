@@ -7,7 +7,6 @@
     <src>alu.luc</src>
     <src>boolean_16.luc</src>
     <src>adder_16.luc</src>
-    <src>full_adder.luc</src>
     <src>shifter_16.luc</src>
     <constraint lib="true">au.xdc</constraint>
     <constraint lib="true">io.acf</constraint>
