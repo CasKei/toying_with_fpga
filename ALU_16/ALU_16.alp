@@ -2,6 +2,7 @@
 <project name="ALU_16" board="Alchitry Au" language="Lucid" version="3">
   <files>
     <src top="true">au_top.luc</src>
+    <src>compare_16.luc</src>
     <component>reset_conditioner.luc</component>
     <src>alu.luc</src>
     <src>boolean_16.luc</src>

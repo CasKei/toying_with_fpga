@@ -1,12 +1,12 @@
 module adder_16 (
 
-    // version with no z v n.
-    
     input a[16],
     input b[16],
-    input cin,
-    output s[16],
-    output cout
+    input alufn[6],
+    output out[16],
+    output z[1],
+    output v[1],
+    output n[1]
   ) {
   
   full_adder fulladder[16]; //instantiate 16 FAs

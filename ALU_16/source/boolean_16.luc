@@ -1,17 +1,17 @@
 module boolean_16 (
-    input a[16],
-    input b[16],
-    input alufn[6],
-    output out[16]
+    input a[16], // input 1
+    input b[16], // input 2
+    input alufn[6], // alufn signal
+    output out[16] // all 16 flash if true
   ) {
 
   always {
     case(alufn[3:0]){
-      b1000 : out = a & b;
-      b1110 : out = a | b;
-      b0110 : out = a ^ b;
-      b1010 : out = a;
-      default : out = 16b0;
+      b1000 : out = a & b; //AND
+      b1110 : out = a | b; //OR
+      b0110 : out = a ^ b; //XOR
+      b1010 : out = a;     //A
+      default : out = 16b0;//catch
     }
   }
 }
