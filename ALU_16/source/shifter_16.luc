@@ -1,8 +1,9 @@
 module shifter_16 (
+    // note: only 4 bits of b input.
     input a[16], // input 1
     input b[4],  // input 2 but limit to 4 bits
     input alufn[6], // alufn signal
-    output out[16] //shifted value
+    output out[16] // shifted value
   ) {
 
   always {

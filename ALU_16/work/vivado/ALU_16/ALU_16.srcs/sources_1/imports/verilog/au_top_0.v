@@ -73,7 +73,7 @@ module au_top_0 (
     M_inputstorer_value[0+7-:8] = io_dip[8+7-:8];
     M_inputstorer_value[8+7-:8] = io_dip[16+7-:8];
     M_inputstorer_rst = io_button[2+0-:1];
-    M_alu16_alufn = io_dip[0+2+5-:6];
+    M_alu16_alufn = io_dip[0+0+5-:6];
     M_alu16_a = M_inputstorer_outA;
     M_alu16_b = M_inputstorer_outB;
     io_led[8+7-:8] = M_alu16_out[0+7-:8];

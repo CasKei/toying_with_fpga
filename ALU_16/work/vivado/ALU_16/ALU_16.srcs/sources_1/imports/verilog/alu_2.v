@@ -79,9 +79,9 @@ module alu_2 (
     z = M_adder_z;
     v = M_adder_v;
     n = M_adder_n;
-    zvn[0+0-:1] = z;
+    zvn[0+0-:1] = n;
     zvn[1+0-:1] = v;
-    zvn[2+0-:1] = n;
+    zvn[2+0-:1] = z;
     M_boolean_alufn = alufn;
     M_boolean_a = a;
     M_boolean_b = b;

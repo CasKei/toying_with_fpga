@@ -13,8 +13,8 @@ module au_top (
   
   sig rst;                  // reset signal
   
-  input_storer inputstorer;
-  alu alu16;
+  input_storer inputstorer; // for storing inputs
+  alu alu16; // takes in inputs and alufn and gives output and zvn
 
   
   .clk(clk) {
@@ -36,20 +36,25 @@ module au_top (
     io_sel = 4hf;           // select no digits
 
     
+    // required i/o for input_storer
     inputstorer.clk = clk;
     inputstorer.button_a = io_button[3]; // left button stores input A 
     inputstorer.button_b = io_button[4]; // right button stores input B 
-    inputstorer.value[7:0] = io_dip[1];
-    inputstorer.value[15:8] = io_dip[2];
-    inputstorer.rst = io_button[2];
+    inputstorer.value[7:0] = io_dip[1]; // first half of input
+    inputstorer.value[15:8] = io_dip[2]; // second half of input
+    inputstorer.rst = io_button[2]; // down button to reset (manually)
     
-    
-    alu16.alufn = io_dip[0][7:2];
-    alu16.a = inputstorer.outA;
-    alu16.b = inputstorer.outB;
-    io_led[1] = alu16.out[7:0];
+    // required i/o for alu
+    alu16.alufn = io_dip[0][5:0]; // signals given in first 6 switches from right
+    alu16.a = inputstorer.outA; // get input A from dff storeA
+    alu16.b = inputstorer.outB; // get input B from dff storeB
+    io_led[1] = alu16.out[7:0]; // display 16 bit output using io_led[1] and [2]
     io_led[2] = alu16.out[15:8];
-    io_led[0][2:0] = alu16.zvn[2:0];
+    io_led[0][2:0] = alu16.zvn[2:0]; // first 3 leds show zvn. 
+    // Note that z is lit at start.
+    
+    
+    
     
   }
 }

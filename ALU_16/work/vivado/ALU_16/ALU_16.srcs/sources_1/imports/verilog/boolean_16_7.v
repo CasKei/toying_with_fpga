@@ -28,6 +28,15 @@ module boolean_16_7 (
       4'ha: begin
         out = a;
       end
+      4'h9: begin
+        out = b;
+      end
+      4'h7: begin
+        out = ~a | ~b;
+      end
+      4'h1: begin
+        out = ~a & ~b;
+      end
       default: begin
         out = 16'h0000;
       end
