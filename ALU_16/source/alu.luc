@@ -4,7 +4,9 @@ module alu (
     input alufn[6], // alufn signal
     
     output out[16], // output
-    output zvn[3] // zvn
+    output z,
+    output v,
+    output n
   ) {
 
   // instantiate modules as parts of alu
@@ -12,10 +14,7 @@ module alu (
   boolean_16 boolean;
   shifter_16 shifter;
   compare_16 comparator;
-  // assign zvn
-  sig z;
-  sig v;
-  sig n;
+
   
   always {
     
@@ -27,16 +26,12 @@ module alu (
     v = adder.v;
     n = adder.n;
     
-    // zvn
-    zvn[0] = n;
-    zvn[1] = v;
-    zvn[2] = z;
     
     // comparator
     comparator.alufn = alufn;
-    comparator.z = z;
-    comparator.v = v;
-    comparator.n = n;
+    comparator.z = adder.z;
+    comparator.v = adder.v;
+    comparator.n = adder.n;
     
     // boolean
     boolean.alufn = alufn;
@@ -50,10 +45,17 @@ module alu (
     
     // mux selecting module using alufn[5:4]
     case(alufn[5:4]) {
-      b00 : out = adder.out;
-      b01 : out = boolean.out;
-      b10 : out = shifter.out;
-      b11 : out = comparator.out;
+      b00 : 
+        out = adder.out;
+      b01 : 
+        out = boolean.out;
+        z = 0;
+        v = 0;
+        n = 0;
+      b10 : 
+        out = shifter.out;
+      b11 : 
+        out = comparator.out;
       default : out = 16b0;
     }
     
