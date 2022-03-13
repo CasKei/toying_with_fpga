@@ -12,22 +12,27 @@ module adder_16 (
   
   // out is write only, make temp var for output
   sig s[16];
+  sig alufn0[1];
 
   always {
     s = 16b0;
-    
-    case(alufn[0]) {
-      0 : s = a + b; // add
-      1 : s = a - b; // subtract
+    alufn0 = alufn[0]; //make this so that computing zvn does not rely directly on alufn
+    // boolean additional functions has alufn[0] so we avoid using this directly
+    case(alufn[1:0]) {
+      b00 : s = a + b; // add
+      b01 : s = a - b; // subtract
+      b10 : s = a * b; // multiply
       default : s = 16b0; // 0
     }
     
     z = ~|s; // any non-0 will make |s 1, so not|s will be true iff all 0
     // followed lab3 but xor b with alufn to have 2's complement b
-    v = (a[15] & (b[15] ^ alufn[0]) & ~s[15]) | (~a[15] & ~(b[15] ^ alufn[0]) & s[15]);
+    v = (a[15] & (b[15] ^ alufn0) & ~s[15]) | (~a[15] & ~(b[15] ^ alufn0) & s[15]);
     n = s[15]; //msb if negative
     
     //write to out
     out = s;
+    
+
   }
 }

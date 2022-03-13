@@ -17,8 +17,8 @@ module alu (
   sig v;
   sig n;
   
-  
   always {
+    
     // adder
     adder.alufn = alufn;
     adder.a = a;
@@ -32,16 +32,16 @@ module alu (
     zvn[1] = v;
     zvn[2] = z;
     
-    // boolean
-    boolean.alufn = alufn;
-    boolean.a = a;
-    boolean.b = b;
-    
     // comparator
     comparator.alufn = alufn;
     comparator.z = z;
     comparator.v = v;
     comparator.n = n;
+    
+    // boolean
+    boolean.alufn = alufn;
+    boolean.a = a;
+    boolean.b = b;
     
     // shifter
     shifter.alufn = alufn;
@@ -57,9 +57,6 @@ module alu (
       default : out = 16b0;
     }
     
-    // multiplier
-    if (alufn == b000010) {
-      out = a * b;
-    }
+    
   }
 }

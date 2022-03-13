@@ -44,7 +44,7 @@ module alu_2 (
   
   wire [16-1:0] M_shifter_out;
   reg [16-1:0] M_shifter_a;
-  reg [4-1:0] M_shifter_b;
+  reg [16-1:0] M_shifter_b;
   reg [6-1:0] M_shifter_alufn;
   shifter_16_8 shifter (
     .a(M_shifter_a),
@@ -82,13 +82,13 @@ module alu_2 (
     zvn[0+0-:1] = n;
     zvn[1+0-:1] = v;
     zvn[2+0-:1] = z;
-    M_boolean_alufn = alufn;
-    M_boolean_a = a;
-    M_boolean_b = b;
     M_comparator_alufn = alufn;
     M_comparator_z = z;
     M_comparator_v = v;
     M_comparator_n = n;
+    M_boolean_alufn = alufn;
+    M_boolean_a = a;
+    M_boolean_b = b;
     M_shifter_alufn = alufn;
     M_shifter_a = a;
     M_shifter_b = b[0+3-:4];
@@ -110,8 +110,5 @@ module alu_2 (
         out = 16'h0000;
       end
     endcase
-    if (alufn == 6'h02) begin
-      out = a * b;
-    end
   end
 endmodule

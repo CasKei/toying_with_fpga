@@ -10,9 +10,9 @@ module compare_16 (
     out = 16b0;
     case(alufn[3:0]) {
       default : out[0] = 0;
-      b0011 : out[0] = z;          //CMPEQ
-      b0101 : out[0] = n ^ v;      //CMPLT
-      b0111 : out[0] = z | (n ^ v);//CMPLE
+      b0011 : out[0] = z;          //CMPEQ (A=B)
+      b0101 : out[0] = n ^ v;      //CMPLT (A<B)
+      b0111 : out[0] = z | (n ^ v);//CMPLE (A<=B)
     }
   }
 }

@@ -6,7 +6,7 @@
 
 module shifter_16_8 (
     input [15:0] a,
-    input [3:0] b,
+    input [15:0] b,
     input [5:0] alufn,
     output reg [15:0] out
   );
@@ -20,13 +20,16 @@ module shifter_16_8 (
         out = a;
       end
       2'h0: begin
-        out = a << b;
+        out = a << b[0+3-:4];
+      end
+      2'h2: begin
+        out = $signed(a) <<< b[0+3-:4];
       end
       2'h1: begin
-        out = a >> b;
+        out = a >> b[0+3-:4];
       end
       2'h3: begin
-        out = $signed(a) >>> b;
+        out = $signed(a) >>> b[0+3-:4];
       end
     endcase
   end

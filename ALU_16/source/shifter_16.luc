@@ -1,7 +1,7 @@
 module shifter_16 (
     // note: only 4 bits of b input.
     input a[16], // input 1
-    input b[4],  // input 2 but limit to 4 bits
+    input b[16],  // input 2 but limit to 4 bits
     input alufn[6], // alufn signal
     output out[16] // shifted value
   ) {
@@ -9,9 +9,11 @@ module shifter_16 (
   always {
     case(alufn[1:0]){
       default : out = a;           // no shift
-      b00 : out = a << b;          // shift left
-      b01 : out = a >> b;          // shift right
-      b11 : out = $signed(a) >>> b;// force signed and shift right arithmetic
+      b00 : out = a << b[3:0];          // shift left
+      b10 : out = $signed(a) <<< b[3:0];// force signed and shift left arithmetic
+      b01 : out = a >> b[3:0];          // shift right
+      b11 : out = $signed(a) >>> b[3:0];// force signed and shift right arithmetic
     }
+    
   }
 }

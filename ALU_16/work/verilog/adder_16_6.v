@@ -18,22 +18,28 @@ module adder_16_6 (
   
   reg [15:0] s;
   
+  reg [0:0] alufn0;
+  
   always @* begin
     s = 16'h0000;
+    alufn0 = alufn[0+0-:1];
     
-    case (alufn[0+0-:1])
-      1'h0: begin
+    case (alufn[0+1-:2])
+      2'h0: begin
         s = a + b;
       end
-      1'h1: begin
+      2'h1: begin
         s = a - b;
+      end
+      2'h2: begin
+        s = a * b;
       end
       default: begin
         s = 16'h0000;
       end
     endcase
     z = ~(|s);
-    v = (a[15+0-:1] & (b[15+0-:1] ^ alufn[0+0-:1]) & ~s[15+0-:1]) | (~a[15+0-:1] & ~(b[15+0-:1] ^ alufn[0+0-:1]) & s[15+0-:1]);
+    v = (a[15+0-:1] & (b[15+0-:1] ^ alufn0) & ~s[15+0-:1]) | (~a[15+0-:1] & ~(b[15+0-:1] ^ alufn0) & s[15+0-:1]);
     n = s[15+0-:1];
     out = s;
   end

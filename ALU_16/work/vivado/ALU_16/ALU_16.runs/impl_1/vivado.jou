@@ -2,8 +2,8 @@
 # Vivado v2021.2.1 (64-bit)
 # SW Build 3414424 on Sun Dec 19 10:57:22 MST 2021
 # IP Build 3405791 on Sun Dec 19 15:54:35 MST 2021
-# Start of session at: Sun Mar 13 12:35:18 2022
-# Process ID: 32892
+# Start of session at: Sun Mar 13 16:49:00 2022
+# Process ID: 23076
 # Current directory: C:/Users/cassi/Workspace/repostorage/toying_with_fpga/ALU_16/work/vivado/ALU_16/ALU_16.runs/impl_1
 # Command line: vivado.exe -log au_top_0.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source au_top_0.tcl -notrace
 # Log file: C:/Users/cassi/Workspace/repostorage/toying_with_fpga/ALU_16/work/vivado/ALU_16/ALU_16.runs/impl_1/au_top_0.vdi
