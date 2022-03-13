@@ -22,7 +22,7 @@ module adder_16 (
       b0000 : s = a + b; // add
       b0001 : s = a - b; // subtract
       b1000 : s = a * b; // multiply
-      b0100 : s = a / b; // divide
+      b1001 : s = a / b; // divide
       default : s = 16b0; // 0
     }
     

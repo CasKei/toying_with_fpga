@@ -92,9 +92,15 @@ module alu_2 (
       end
       2'h1: begin
         out = M_boolean_out;
+        z = 1'h0;
+        v = 1'h0;
+        n = 1'h0;
       end
       2'h2: begin
         out = M_shifter_out;
+        z = 1'h0;
+        v = 1'h0;
+        n = 1'h0;
       end
       2'h3: begin
         out = M_comparator_out;

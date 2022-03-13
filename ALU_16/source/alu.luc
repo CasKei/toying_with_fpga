@@ -49,8 +49,14 @@ module alu (
         out = adder.out;
       b01 : 
         out = boolean.out;
+        z = 0;
+        v = 0;
+        n = 0;
       b10 : 
         out = shifter.out;
+        z = 0;
+        v = 0;
+        n = 0;
       b11 : 
         out = comparator.out;
       default : out = 16b0;
