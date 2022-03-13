@@ -23,7 +23,7 @@ module adder_16 (
     }
     
     z = ~|s; // any non-0 will make |s 1, so not|s will be true iff all 0
-    // followed lab3 but xor b with alufn to have complement when adding
+    // followed lab3 but xor b with alufn to have 2's complement b
     v = (a[15] & (b[15] ^ alufn[0]) & ~s[15]) | (~a[15] & ~(b[15] ^ alufn[0]) & s[15]);
     n = s[15]; //msb if negative
     
