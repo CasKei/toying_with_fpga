@@ -39,7 +39,9 @@ module au_top_0 (
   );
   
   wire [16-1:0] M_alu16_out;
-  wire [3-1:0] M_alu16_zvn;
+  wire [1-1:0] M_alu16_z;
+  wire [1-1:0] M_alu16_v;
+  wire [1-1:0] M_alu16_n;
   reg [16-1:0] M_alu16_a;
   reg [16-1:0] M_alu16_b;
   reg [6-1:0] M_alu16_alufn;
@@ -48,7 +50,9 @@ module au_top_0 (
     .b(M_alu16_b),
     .alufn(M_alu16_alufn),
     .out(M_alu16_out),
-    .zvn(M_alu16_zvn)
+    .z(M_alu16_z),
+    .v(M_alu16_v),
+    .n(M_alu16_n)
   );
   
   wire [1-1:0] M_reset_cond_out;
@@ -78,6 +82,8 @@ module au_top_0 (
     M_alu16_b = M_inputstorer_outB;
     io_led[8+7-:8] = M_alu16_out[0+7-:8];
     io_led[16+7-:8] = M_alu16_out[8+7-:8];
-    io_led[0+0+2-:3] = M_alu16_zvn;
+    io_led[0+2+0-:1] = M_alu16_z;
+    io_led[0+1+0-:1] = M_alu16_v;
+    io_led[0+0+0-:1] = M_alu16_n;
   end
 endmodule

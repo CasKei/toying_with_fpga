@@ -18,11 +18,11 @@ module adder_16 (
     s = 16b0;
     alufn0 = alufn[0]; //make this so that computing zvn does not rely directly on alufn
     // boolean additional functions has alufn[0] so we avoid using this directly
-    case(alufn[1:0]) {
-      b00 : s = a + b; // add
-      b01 : s = a - b; // subtract
-      b10 : s = a * b; // multiply
-      b11 : s = a / b; // divide
+    case(alufn[3:0]) {
+      b0000 : s = a + b; // add
+      b0001 : s = a - b; // subtract
+      b1000 : s = a * b; // multiply
+      b0100 : s = a / b; // divide
       default : s = 16b0; // 0
     }
     

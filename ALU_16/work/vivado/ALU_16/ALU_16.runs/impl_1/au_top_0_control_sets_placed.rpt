@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-| Date         : Mon Mar 14 00:11:54 2022
+| Date         : Mon Mar 14 01:08:02 2022
 | Host         : KC-LAPTOP running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               6 |            3 |
+| No           | No                    | No                     |               6 |            5 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              72 |           27 |
+| Yes          | Yes                   | No                     |              72 |           24 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,9 +73,9 @@ Table of Contents
 +----------------+----------------------------------------+-----------------------------------------+------------------+----------------+--------------+
 |  Clock Signal  |              Enable Signal             |             Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------+----------------------------------------+-----------------------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG |                                        |                                         |                3 |              6 |         2.00 |
-|  clk_IBUF_BUFG | inputstorer/btnB/E[0]                  | io_button_IBUF[2]                       |                9 |             16 |         1.78 |
-|  clk_IBUF_BUFG | inputstorer/btnA/E[0]                  | io_button_IBUF[2]                       |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG |                                        |                                         |                5 |              6 |         1.20 |
+|  clk_IBUF_BUFG | inputstorer/btnA/E[0]                  | io_button_IBUF[2]                       |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | inputstorer/btnB/E[0]                  | io_button_IBUF[2]                       |                7 |             16 |         2.29 |
 |  clk_IBUF_BUFG | inputstorer/btnA/sel                   | inputstorer/btnA/sync/clear             |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG | inputstorer/btnB/M_ctr_q[0]_i_2__0_n_0 | inputstorer/btnB/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
 +----------------+----------------------------------------+-----------------------------------------+------------------+----------------+--------------+

@@ -9,7 +9,9 @@ module alu_2 (
     input [15:0] b,
     input [5:0] alufn,
     output reg [15:0] out,
-    output reg [2:0] zvn
+    output reg [0:0] z,
+    output reg [0:0] v,
+    output reg [0:0] n
   );
   
   
@@ -66,12 +68,6 @@ module alu_2 (
     .out(M_comparator_out)
   );
   
-  reg z;
-  
-  reg v;
-  
-  reg n;
-  
   always @* begin
     M_adder_alufn = alufn;
     M_adder_a = a;
@@ -79,13 +75,10 @@ module alu_2 (
     z = M_adder_z;
     v = M_adder_v;
     n = M_adder_n;
-    zvn[0+0-:1] = n;
-    zvn[1+0-:1] = v;
-    zvn[2+0-:1] = z;
     M_comparator_alufn = alufn;
-    M_comparator_z = z;
-    M_comparator_v = v;
-    M_comparator_n = n;
+    M_comparator_z = M_adder_z;
+    M_comparator_v = M_adder_v;
+    M_comparator_n = M_adder_n;
     M_boolean_alufn = alufn;
     M_boolean_a = a;
     M_boolean_b = b;

@@ -24,17 +24,17 @@ module adder_16_6 (
     s = 16'h0000;
     alufn0 = alufn[0+0-:1];
     
-    case (alufn[0+1-:2])
-      2'h0: begin
+    case (alufn[0+3-:4])
+      4'h0: begin
         s = a + b;
       end
-      2'h1: begin
+      4'h1: begin
         s = a - b;
       end
-      2'h2: begin
+      4'h8: begin
         s = a * b;
       end
-      2'h3: begin
+      4'h4: begin
         s = a / b;
       end
       default: begin

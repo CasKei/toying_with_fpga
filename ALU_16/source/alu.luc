@@ -4,9 +4,9 @@ module alu (
     input alufn[6], // alufn signal
     
     output out[16], // output
-    output z,
-    output v,
-    output n
+    output z[1],
+    output v[1],
+    output n[1]
   ) {
 
   // instantiate modules as parts of alu
@@ -49,9 +49,6 @@ module alu (
         out = adder.out;
       b01 : 
         out = boolean.out;
-        z = 0;
-        v = 0;
-        n = 0;
       b10 : 
         out = shifter.out;
       b11 : 
