@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-| Date             : Sun Mar 13 16:50:31 2022
+| Date             : Sun Mar 13 18:33:25 2022
 | Host             : KC-LAPTOP running 64-bit major release  (build 9200)
 | Command          : report_power -file au_top_0_power_routed.rpt -pb au_top_0_power_summary_routed.pb -rpx au_top_0_power_routed.rpx
 | Design           : au_top_0
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.095        |
+| Total On-Chip Power (W)  | 0.098        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.024        |
+| Dynamic (W)              | 0.026        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
 | Max Ambient (C)          | 84.5         |
@@ -52,18 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      319 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      185 |     20800 |            0.89 |
-|   CARRY4       |    <0.001 |       14 |      8150 |            0.17 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |     0.001 |      665 |       --- |             --- |
+|   LUT as Logic |     0.001 |      436 |     20800 |            2.10 |
+|   CARRY4       |    <0.001 |       94 |      8150 |            1.15 |
 |   Register     |    <0.001 |       78 |     41600 |            0.19 |
-|   F7/F8 Muxes  |    <0.001 |        1 |     32600 |           <0.01 |
-|   Others       |     0.000 |       18 |       --- |             --- |
-| Signals        |    <0.001 |      337 |       --- |             --- |
+|   Others       |     0.000 |       20 |       --- |             --- |
+| Signals        |     0.002 |      636 |       --- |             --- |
 | DSPs           |    <0.001 |        1 |        90 |            1.11 |
 | I/O            |     0.021 |       72 |       170 |           42.35 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.095 |          |           |                 |
+| Total          |     0.098 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.013 |       0.003 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.015 |       0.005 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.007 |       0.006 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -142,10 +141,10 @@ Table of Contents
 +---------------+-----------+
 | Name          | Power (W) |
 +---------------+-----------+
-| au_top_0      |     0.024 |
-|   alu16       |     0.001 |
-|     adder     |     0.001 |
-|   inputstorer |     0.001 |
+| au_top_0      |     0.026 |
+|   alu16       |     0.002 |
+|     adder     |     0.002 |
+|   inputstorer |     0.003 |
 +---------------+-----------+
 
 

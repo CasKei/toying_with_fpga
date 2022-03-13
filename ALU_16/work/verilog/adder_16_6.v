@@ -34,6 +34,9 @@ module adder_16_6 (
       2'h2: begin
         s = a * b;
       end
+      2'h3: begin
+        s = a / b;
+      end
       default: begin
         s = 16'h0000;
       end
