@@ -1,9 +1,7 @@
 module compare_16 (
-    //input z, //get from subtracting
-    //input v, //get from subtracting
-    //input n, //get from subtracting
-    input a[16],
-    input b[16],
+    input z, //get from subtracting
+    input v, //get from subtracting
+    input n, //get from subtracting
     
     input alufn[6], // alufn signal
     output out[16] //15MSBs all 0, only LSB show result
@@ -11,19 +9,12 @@ module compare_16 (
 
   always {
     out = 16b0;
-    //case(alufn[3:0]) {
-      //default : out[0] = 0;
-      //b0011 : out[0] = z;          //CMPEQ (A=B)
-      //b0101 : out[0] = n ^ v;      //CMPLT (A<B)
-      //b0111 : out[0] = z | (n ^ v);//CMPLE (A<=B)
-    //}
-    
     case(alufn[3:0]) {
       default : out[0] = 0;
-      b0011 : out[0] = (a == b);
-      b0101 : out[0] = a < b;
-      b0111 : out[0] = a <= b;
+      b0011 : out[0] = z;          //CMPEQ (A=B)
+      b0101 : out[0] = n ^ v;      //CMPLT (A<B)
+      b0111 : out[0] = z | (n ^ v);//CMPLE (A<=B)
     }
-    
+
   }
 }

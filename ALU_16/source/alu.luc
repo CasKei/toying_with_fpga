@@ -34,11 +34,9 @@ module alu (
     
     // comparator
     comparator.alufn = alufn;
-    //comparator.z = z;
-    //comparator.v = v;
-    //comparator.n = n;
-    comparator.a = a;
-    comparator.b = b;
+    comparator.z = z;
+    comparator.v = v;
+    comparator.n = n;
     
     // boolean
     boolean.alufn = alufn;
