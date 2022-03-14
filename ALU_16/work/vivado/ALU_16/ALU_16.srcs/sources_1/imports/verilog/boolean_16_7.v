@@ -8,6 +8,7 @@ module boolean_16_7 (
     input [15:0] a,
     input [15:0] b,
     input [5:0] alufn,
+    input [0:0] sim_error,
     output reg [15:0] out
   );
   
@@ -17,25 +18,53 @@ module boolean_16_7 (
     
     case (alufn[0+3-:4])
       4'h8: begin
-        out = a & b;
+        if (sim_error == 1'h0) begin
+          out = a & b;
+        end else begin
+          out = ~(a & b);
+        end
       end
       4'he: begin
-        out = a | b;
+        if (sim_error == 1'h0) begin
+          out = a | b;
+        end else begin
+          out = ~(a | b);
+        end
       end
       4'h6: begin
-        out = a ^ b;
+        if (sim_error == 1'h0) begin
+          out = a ^ b;
+        end else begin
+          out = ~(a ^ b);
+        end
       end
       4'ha: begin
-        out = a;
+        if (sim_error == 1'h0) begin
+          out = a;
+        end else begin
+          out = ~a;
+        end
       end
       4'h9: begin
-        out = b;
+        if (sim_error == 1'h0) begin
+          out = b;
+        end else begin
+          out = ~b;
+        end
       end
       4'h7: begin
-        out = ~a | ~b;
+        if (sim_error == 1'h0) begin
+          out = ~a | ~b;
+        end else begin
+          out = ~(~a | ~b);
+        end
       end
       4'h1: begin
-        out = ~a & ~b;
+        if (sim_error == 1'h0) begin
+          out = ~a & ~b;
+        end else begin
+          out = ~(~a & ~b);
+        end
       end
       default: begin
         out = 16'h0000;

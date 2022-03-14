@@ -8,6 +8,7 @@ module shifter_16_8 (
     input [15:0] a,
     input [15:0] b,
     input [5:0] alufn,
+    input [0:0] sim_error,
     output reg [15:0] out
   );
   
@@ -20,16 +21,32 @@ module shifter_16_8 (
         out = a;
       end
       2'h0: begin
-        out = a << b[0+3-:4];
+        if (sim_error == 1'h0) begin
+          out = a << b[0+3-:4];
+        end else begin
+          out = a << b[0+3-:4] + 1'h1;
+        end
       end
       2'h2: begin
-        out = $signed(a) <<< b[0+3-:4];
+        if (sim_error == 1'h0) begin
+          out = $signed(a) <<< b[0+3-:4];
+        end else begin
+          out = $signed(a) <<< b[0+3-:4] + 1'h1;
+        end
       end
       2'h1: begin
-        out = a >> b[0+3-:4];
+        if (sim_error == 1'h0) begin
+          out = a >> b[0+3-:4];
+        end else begin
+          out = a >> b[0+3-:4] + 1'h1;
+        end
       end
       2'h3: begin
-        out = $signed(a) >>> b[0+3-:4];
+        if (sim_error == 1'h0) begin
+          out = $signed(a) >>> b[0+3-:4];
+        end else begin
+          out = $signed(a) >>> b[0+3-:4] + 1'h1;
+        end
       end
     endcase
   end
