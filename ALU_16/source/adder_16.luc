@@ -4,6 +4,8 @@ module adder_16 (
     input a[16],
     input b[16],
     input alufn[6],
+    input sim_error[1], // io_dip[0][6] messes up the output
+
     output out[16],
     output z[1],
     output v[1],
@@ -13,6 +15,7 @@ module adder_16 (
   // out is write only, make temp var for output
   sig s[16];
   sig alufn0[1];
+  
   sig extended_a[32]; // for multiplying and dividing signed numbers
   sig extended_b[32];
   sig muldiv_extended[32];
@@ -20,7 +23,7 @@ module adder_16 (
   always {
     s = 16b0;
     alufn0 = alufn[0]; //make this so that computing zvn does not rely directly on alufn
-    // boolean additional functions has alufn[0] so we avoid using this directly
+    
     extended_a = 32b0;
     extended_b = 32b0;
     muldiv_extended = 32b0;
@@ -60,8 +63,10 @@ module adder_16 (
     n = s[15]; //msb if negative
     
     //write to out
-    out = s;
-    
-
+    if (sim_error == 0) {
+      out = s;
+    } else {
+      s[0] = !s[0];
+      out = s;
   }
 }
