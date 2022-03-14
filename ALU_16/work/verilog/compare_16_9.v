@@ -8,6 +8,7 @@ module compare_16_9 (
     input z,
     input v,
     input n,
+    input [0:0] sim_error,
     input [5:0] alufn,
     output reg [15:0] out
   );
@@ -22,13 +23,25 @@ module compare_16_9 (
         out[0+0-:1] = 1'h0;
       end
       4'h3: begin
-        out[0+0-:1] = z;
+        if (sim_error == 1'h0) begin
+          out[0+0-:1] = z;
+        end else begin
+          out[0+0-:1] = ~z;
+        end
       end
       4'h5: begin
-        out[0+0-:1] = n ^ v;
+        if (sim_error == 1'h0) begin
+          out[0+0-:1] = n ^ v;
+        end else begin
+          out[0+0-:1] = ~(n ^ v);
+        end
       end
       4'h7: begin
-        out[0+0-:1] = z | (n ^ v);
+        if (sim_error == 1'h0) begin
+          out[0+0-:1] = z | (n ^ v);
+        end else begin
+          out[0+0-:1] = ~(z | (n ^ v));
+        end
       end
     endcase
   end
