@@ -14,7 +14,7 @@ module auto_tester (
 
     rom1 inputs;
     rom2 answers;
-    alu alu;
+    alu alu16;
     sig a[16], b[16], alufn[6], s[16], z, v, n, out[16];
     
     always {
@@ -639,6 +639,7 @@ module auto_tester (
                 feeder.d = feeder.START;
               }  
       }
+    //asdadasdasdasdasdas
     }
   }
 
