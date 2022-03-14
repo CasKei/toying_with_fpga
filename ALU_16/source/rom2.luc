@@ -21,7 +21,7 @@ module rom2 ( //check if output is correct
                   b0000000000000001001,  //13 - Comparator (Less than equals, true)
                   b0000000000000000000,  //12 - Comparator (Less than, false)
                   b0000000000000001001,  //11 - Comparator (Less than, true)
-                  b0000000000000000001,  //10 - Comparator (equal, false)
+                  b0000000000000000011,  //10 - Comparator (equal, false)
                   b0000000000000001100,  //9 - Comparator (equal, true)
                   b0000000000000000100,  //8 - Subtraction(Zero)
                   b0000000000000001010,  //7 - Subtraction(negative overflow)
