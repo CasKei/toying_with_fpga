@@ -13,30 +13,43 @@ module adder_16 (
   // out is write only, make temp var for output
   sig s[16];
   sig alufn0[1];
+  sig extended_a[32]; // for multiplying and dividing signed numbers
+  sig extended_b[32];
+  sig muldiv_extended[32];
 
   always {
     s = 16b0;
     alufn0 = alufn[0]; //make this so that computing zvn does not rely directly on alufn
     // boolean additional functions has alufn[0] so we avoid using this directly
-
+    extended_a = 32b0;
+    extended_b = 32b0;
+    muldiv_extended = 32b0;
 
     //Note: unsure if nested cases are acceptable, and if 'default' is mandatory to put in every case,
     //but yeah hopefully this works??? It leaves out ALUFN[2] and ALUFN[1].
     case(alufn[3]) {
 
       b0:
-      case(alufn[0]) {
-        b0 : s = a + b; // add
-        b1 : s = a - b; // subtract
-        default : s = 16b0; // 0
-      }
+        case(alufn[0]) {
+          b0 : s = a + b; // add
+          b1 : s = a - b; // subtract
+          default : s = 16b0; // 0
+        }
       
       b1:
-      case(alufn[0]) {
-        b0: s = a * b; // multiply
-        b1: s = a / b; // divide
-        default : s = 16b0; // 0
-      } 
+        extended_a[15:0] = a;
+        extended_b[15:0] = b;
+        
+        case(alufn[0]) {
+          
+          b0: 
+            muldiv_extended =  extended_a * extended_b; // multiply
+            s = muldiv_extended[15:0];
+          b1: 
+            muldiv_extended = extended_a / extended_b; // divide
+            s = muldiv_extended[15:0];
+          default : s = 16b0; // 0
+        } 
 
       default : s = 16b0; // 0
     }

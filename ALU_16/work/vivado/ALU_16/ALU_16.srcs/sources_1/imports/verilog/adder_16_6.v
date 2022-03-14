@@ -20,22 +20,51 @@ module adder_16_6 (
   
   reg [0:0] alufn0;
   
+  reg [31:0] extended_a;
+  
+  reg [31:0] extended_b;
+  
+  reg [31:0] muldiv_extended;
+  
   always @* begin
     s = 16'h0000;
     alufn0 = alufn[0+0-:1];
+    extended_a = 32'h00000000;
+    extended_b = 32'h00000000;
+    muldiv_extended = 32'h00000000;
     
-    case (alufn[0+3-:4])
-      4'h0: begin
-        s = a + b;
+    case (alufn[3+0-:1])
+      1'h0: begin
+        
+        case (alufn[0+0-:1])
+          1'h0: begin
+            s = a + b;
+          end
+          1'h1: begin
+            s = a - b;
+          end
+          default: begin
+            s = 16'h0000;
+          end
+        endcase
       end
-      4'h1: begin
-        s = a - b;
-      end
-      4'h8: begin
-        s = a * b;
-      end
-      4'h9: begin
-        s = a / b;
+      1'h1: begin
+        extended_a[0+15-:16] = a;
+        extended_b[0+15-:16] = b;
+        
+        case (alufn[0+0-:1])
+          1'h0: begin
+            muldiv_extended = extended_a * extended_b;
+            s = muldiv_extended[0+15-:16];
+          end
+          1'h1: begin
+            muldiv_extended = extended_a / extended_b;
+            s = muldiv_extended[0+15-:16];
+          end
+          default: begin
+            s = 16'h0000;
+          end
+        endcase
       end
       default: begin
         s = 16'h0000;

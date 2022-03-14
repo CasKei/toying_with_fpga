@@ -68,18 +68,18 @@ module input_storer_1 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_storeB_q <= 1'h0;
+      M_storeA_q <= 1'h0;
     end else begin
-      M_storeB_q <= M_storeB_d;
+      M_storeA_q <= M_storeA_d;
     end
   end
   
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_storeA_q <= 1'h0;
+      M_storeB_q <= 1'h0;
     end else begin
-      M_storeA_q <= M_storeA_d;
+      M_storeB_q <= M_storeB_d;
     end
   end
   
