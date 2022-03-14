@@ -1,0 +1,190 @@
+module auto_tester (
+    input clk,  // clock
+    input rst,  // reset
+    input switch[1],
+    output result[2];
+    
+  )
+ 
+  {
+    fsm feeder(.clk(clk), .rst(rst)) = {START, ADD, ADD1, ADD2, ADD3, SUB, SUB1, SUB2, SUB3,
+                                      CMPEQT, CMPEQF, CMPLTT, CMPLTF, CMPLET, CMPLEF, CMPLETE,
+                                      AND, OR, XOR, NOR, NAND, B, A,
+                                      SHL, SHR, SLA, SRA, PASS, FAIL};
+
+    rom1 inputs;
+    rom2 answers;
+    alu alu;
+    sig a[16], b[16], alufn[6], s[16], z, v, n, out[16];
+    
+    always {
+      inputs.selector = b00000; 
+      answers.selector = b00000;
+      alu.a = b0000000000000000;
+      alu.b = b0000000000000000;
+      alu.alufn = b000000;
+      case (feeder.q) { // checks the current state of the FSM, feeder
+        feeder.START: // starting state
+          if (switch[0]){
+            feeder.d = feeder.ADD; // commence the auto tester by testing Test Case #0
+          }  
+          else {
+            feeder.d = feeder.START;
+          }
+        feeder.ADD:
+          inputs.selector = b00000;
+          answers.selector = b00000;
+          a = inputs.out[37:22];// A[15:0]
+          b = inputs.out[21:6];// B[15:0]
+          alufn = inputs.out[5:0];// ALUFN[5:0]
+          s = answers.out[18:3]; // ALU[15:0]
+          z = answers.out[2]; // Z
+          v = answers.out[1]; // V
+          n = answers.out[0]; // N
+          
+          alu.alufn = alufn;
+          alu.a = a;
+          alu.b = b;
+          out = alu.out; // assign the alu output of the alu to alu_actual
+
+          if (out == s & alu.z == z & alu.v == v & alu.n == n){
+            feeder.d = feeder.ADD1; // if correct go to next state
+          }
+        
+          else{
+            feeder.d = feeder.FAIL; //if fail go to FAIL state
+          }
+
+        feeder.ADD1:
+        feeder.ADD2:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.ADD3:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.SUB:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.SUB1:
+          if (switch[0]){ 
+                feeder.d = feeder.S0;
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.SUB2:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.SUB2:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.SUB3:
+          if (switch[0]){ 
+                feeder.d = feeder.S0;
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.CMPEQT:
+          if (switch[0]){ 
+                feeder.d = feeder.S0;
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.CMPEQF:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.CMPLTT:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.CMPLTF:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.CMPLET:
+          if (switch[0]){ 
+                feeder.d = feeder.S0; 
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.CMPLEF:
+          if (switch[0]){
+                feeder.d = feeder.S0;
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.CMPLETE:
+          if (switch[0]){
+                feeder.d = feeder.S0;
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.AND:
+          if (switch[0]){
+                feeder.d = feeder.S0;
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.OR:
+          if (switch[0]){
+                feeder.d = feeder.S0;
+              }  
+              else {
+                feeder.d = feeder.START;
+              }
+        feeder.XOR: 
+        feeder.NOR:
+        feeder.NAND:
+        feeder.B:
+        feeder.A:
+        feeder.SHL:
+        feeder.SHR:
+        feeder.SLA:
+        feeder.SRA:
+        feeder.PASS:
+          result = b01;
+        feeder.FAIL:
+          result = b00;
+          if (switch[0]){
+                feeder.d = feeder.START;
+              }  
+      }
+    }
+  }
+}
