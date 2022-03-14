@@ -8,6 +8,7 @@ module adder_16_6 (
     input [15:0] a,
     input [15:0] b,
     input [5:0] alufn,
+    input [0:0] sim_error,
     output reg [15:0] out,
     output reg [0:0] z,
     output reg [0:0] v,
@@ -73,6 +74,11 @@ module adder_16_6 (
     z = ~(|s);
     v = (a[15+0-:1] & (b[15+0-:1] ^ alufn0) & ~s[15+0-:1]) | (~a[15+0-:1] & ~(b[15+0-:1] ^ alufn0) & s[15+0-:1]);
     n = s[15+0-:1];
-    out = s;
+    if (sim_error == 1'h0) begin
+      out = s;
+    end else begin
+      s[0+0-:1] = !s[0+0-:1];
+      out = s;
+    end
   end
 endmodule

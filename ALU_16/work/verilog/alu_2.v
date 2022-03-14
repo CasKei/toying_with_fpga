@@ -8,6 +8,7 @@ module alu_2 (
     input [15:0] a,
     input [15:0] b,
     input [5:0] alufn,
+    input [0:0] sim_error,
     output reg [15:0] out,
     output reg [0:0] z,
     output reg [0:0] v,
@@ -23,10 +24,12 @@ module alu_2 (
   reg [16-1:0] M_adder_a;
   reg [16-1:0] M_adder_b;
   reg [6-1:0] M_adder_alufn;
+  reg [1-1:0] M_adder_sim_error;
   adder_16_6 adder (
     .a(M_adder_a),
     .b(M_adder_b),
     .alufn(M_adder_alufn),
+    .sim_error(M_adder_sim_error),
     .out(M_adder_out),
     .z(M_adder_z),
     .v(M_adder_v),
@@ -37,10 +40,12 @@ module alu_2 (
   reg [16-1:0] M_boolean_a;
   reg [16-1:0] M_boolean_b;
   reg [6-1:0] M_boolean_alufn;
+  reg [1-1:0] M_boolean_sim_error;
   boolean_16_7 boolean (
     .a(M_boolean_a),
     .b(M_boolean_b),
     .alufn(M_boolean_alufn),
+    .sim_error(M_boolean_sim_error),
     .out(M_boolean_out)
   );
   
@@ -48,10 +53,12 @@ module alu_2 (
   reg [16-1:0] M_shifter_a;
   reg [16-1:0] M_shifter_b;
   reg [6-1:0] M_shifter_alufn;
+  reg [1-1:0] M_shifter_sim_error;
   shifter_16_8 shifter (
     .a(M_shifter_a),
     .b(M_shifter_b),
     .alufn(M_shifter_alufn),
+    .sim_error(M_shifter_sim_error),
     .out(M_shifter_out)
   );
   
@@ -59,11 +66,13 @@ module alu_2 (
   reg [1-1:0] M_comparator_z;
   reg [1-1:0] M_comparator_v;
   reg [1-1:0] M_comparator_n;
+  reg [1-1:0] M_comparator_sim_error;
   reg [6-1:0] M_comparator_alufn;
   compare_16_9 comparator (
     .z(M_comparator_z),
     .v(M_comparator_v),
     .n(M_comparator_n),
+    .sim_error(M_comparator_sim_error),
     .alufn(M_comparator_alufn),
     .out(M_comparator_out)
   );
@@ -72,6 +81,7 @@ module alu_2 (
     M_adder_alufn = alufn;
     M_adder_a = a;
     M_adder_b = b;
+    M_adder_sim_error = sim_error;
     z = M_adder_z;
     v = M_adder_v;
     n = M_adder_n;
@@ -79,12 +89,15 @@ module alu_2 (
     M_comparator_z = M_adder_z;
     M_comparator_v = M_adder_v;
     M_comparator_n = M_adder_n;
+    M_comparator_sim_error = sim_error;
     M_boolean_alufn = alufn;
     M_boolean_a = a;
     M_boolean_b = b;
+    M_boolean_sim_error = sim_error;
     M_shifter_alufn = alufn;
     M_shifter_a = a;
     M_shifter_b = b[0+3-:4];
+    M_shifter_sim_error = sim_error;
     
     case (alufn[4+1-:2])
       2'h0: begin

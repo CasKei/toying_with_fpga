@@ -45,10 +45,12 @@ module au_top_0 (
   reg [16-1:0] M_alu16_a;
   reg [16-1:0] M_alu16_b;
   reg [6-1:0] M_alu16_alufn;
+  reg [1-1:0] M_alu16_sim_error;
   alu_2 alu16 (
     .a(M_alu16_a),
     .b(M_alu16_b),
     .alufn(M_alu16_alufn),
+    .sim_error(M_alu16_sim_error),
     .out(M_alu16_out),
     .z(M_alu16_z),
     .v(M_alu16_v),
@@ -71,6 +73,7 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
+    M_alu16_sim_error = io_dip[0+6+0-:1];
     M_inputstorer_clk = clk;
     M_inputstorer_button_a = io_button[3+0-:1];
     M_inputstorer_button_b = io_button[4+0-:1];
