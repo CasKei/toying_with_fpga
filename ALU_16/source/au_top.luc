@@ -67,14 +67,9 @@ module au_top (
     if (autotester.result == b01) {
       io_led[0][7] = autotester.result;
     }'
-<<<<<<< Updated upstream
-    else if (autotester.result == b00) {
-      io_led[0][6] = autotester.result;
-    }
-     
-=======
+
     else if (autotester.result == b00) {}
     else {}
->>>>>>> Stashed changes
+
   }
 }
