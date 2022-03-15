@@ -22,17 +22,14 @@ module auto_tester (
       answers.selector = b00000;
       alu16.a = b0000000000000000;
       alu16.b = b0000000000000000;
-      alu16.sim_error = b000000;
+      alu16.sim_error = sim_error;
       alu16.alufn = b000000;
       result = b00;
       case (feeder.q) { // checks the current state of the FSM, feeder
         feeder.START: // starting state
-          if (switch[0]){
+          if (switch){
             feeder.d = feeder.ADD; // commence the auto tester by testing Test Case #0
           }  
-          else if (sim_error[0]) {
-            
-          }
           else {
             feeder.d = feeder.START;
           }
@@ -640,10 +637,10 @@ module auto_tester (
           result = b01;
         feeder.FAIL:
           result = b00;
-          if (switch[0]){
+          if (switch){
                 feeder.d = feeder.START;
               }  
       }
-    //asdadasdasdasdasdas
+    
     }
   }

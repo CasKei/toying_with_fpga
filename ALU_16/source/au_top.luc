@@ -65,11 +65,14 @@ module au_top (
     // autotester
     autotester.switch = io_dip[0][7];
     if (autotester.result == b01) {
-      io_led[0][7] = autotester.result;
-    }'
-
-    else if (autotester.result == b00) {}
-    else {}
+      io_led[0][7] = autotester.result; // pass
+    }
+    else if (autotester.result == b00) {
+      io_led[0][6] = autotester.result; // fail
+    }
+    else {
+      io_led[0][7:6] = 2b0; // default
+    }
 
   }
 }
