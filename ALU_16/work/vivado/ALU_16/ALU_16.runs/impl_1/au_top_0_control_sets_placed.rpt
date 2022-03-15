@@ -1,19 +1,12 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
-<<<<<<< HEAD
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 | Date         : Tue Mar 15 16:12:57 2022
 | Host         : LAPTOP-D6VM0O5J running 64-bit major release  (build 9200)
-=======
---------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-| Date         : Tue Mar 15 13:20:13 2022
-| Host         : KC-LAPTOP running 64-bit major release  (build 9200)
->>>>>>> 9032322cdb2ce51368fadec423f541537c2ec4f5
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
 | Device       : xc7a35t
---------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 Control Set Information
 
@@ -67,14 +60,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               6 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
-<<<<<<< HEAD
 | No           | Yes                   | No                     |              30 |           10 |
-=======
-| No           | Yes                   | No                     |              65 |           18 |
->>>>>>> 9032322cdb2ce51368fadec423f541537c2ec4f5
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              77 |           26 |
+| Yes          | Yes                   | No                     |              77 |           27 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -84,17 +73,10 @@ Table of Contents
 +------------------------------+-------------------------------------------------+-----------------------------------------+------------------+----------------+--------------+
 |         Clock Signal         |                  Enable Signal                  |             Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
 +------------------------------+-------------------------------------------------+-----------------------------------------+------------------+----------------+--------------+
-<<<<<<< HEAD
 |  clk_IBUF_BUFG               |                                                 | reset_cond/M_reset_cond_in              |                3 |              4 |         1.33 |
 |  slowclock/M_ctr_q_reg[25]_0 | autotester/FSM_sequential_M_feeder_q[4]_i_1_n_0 | reset_cond/Q[0]                         |                2 |              5 |         2.50 |
 |  clk_IBUF_BUFG               |                                                 |                                         |                4 |              6 |         1.50 |
 |  clk_IBUF_BUFG               | inputstorer/btnA/E[0]                           | io_button_IBUF[2]                       |               10 |             16 |         1.60 |
-=======
-|  clk_IBUF_BUFG               |                                                 | reset_cond/M_reset_cond_in              |                2 |              4 |         2.00 |
-|  slowclock/M_ctr_q_reg[60]_0 | autotester/FSM_sequential_M_feeder_q[4]_i_1_n_0 | reset_cond/Q[0]                         |                3 |              5 |         1.67 |
-|  clk_IBUF_BUFG               |                                                 |                                         |                4 |              6 |         1.50 |
-|  clk_IBUF_BUFG               | inputstorer/btnA/E[0]                           | io_button_IBUF[2]                       |                8 |             16 |         2.00 |
->>>>>>> 9032322cdb2ce51368fadec423f541537c2ec4f5
 |  clk_IBUF_BUFG               | inputstorer/btnB/E[0]                           | io_button_IBUF[2]                       |                5 |             16 |         3.20 |
 |  clk_IBUF_BUFG               | inputstorer/btnA/sel                            | inputstorer/btnA/sync/clear             |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG               | inputstorer/btnB/M_ctr_q[0]_i_2__0_n_0          | inputstorer/btnB/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |

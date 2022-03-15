@@ -42,7 +42,7 @@ module boolean_16 (
         if (sim_error == 0) {
           out = ~a | ~b;      // NAND
         } else {
-          out = ~(~a | ~b);   // ERROR
+          out = ~(~a | ~b);   // sim_error
         }
       b0001 : 
         if (sim_error == 0) {
@@ -50,7 +50,7 @@ module boolean_16 (
         } else {
           out = ~(~a & ~b);   // ERROR
         }
-      default : out = 16b0;   //catch
+      default : out = 16b0; //catch
     }
   }
 }
