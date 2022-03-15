@@ -96,7 +96,7 @@ module auto_tester_4 (
     M_answers_selector = 5'h00;
     M_alu16_a = 16'h0000;
     M_alu16_b = 16'h0000;
-    M_alu16_sim_error = 6'h00;
+    M_alu16_sim_error = sim_error;
     M_alu16_alufn = 6'h00;
     result = 2'h0;
     
@@ -105,11 +105,7 @@ module auto_tester_4 (
         if (switch) begin
           M_feeder_d = ADD_feeder;
         end else begin
-          if (sim_error) begin
-            
-          end else begin
-            M_feeder_d = START_feeder;
-          end
+          M_feeder_d = START_feeder;
         end
       end
       ADD_feeder: begin

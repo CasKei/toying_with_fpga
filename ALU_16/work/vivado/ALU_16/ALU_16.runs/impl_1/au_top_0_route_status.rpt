@@ -1,19 +1,11 @@
 Design Route Status
                                                :      # nets :
    ------------------------------------------- : ----------- :
-<<<<<<< HEAD
-   # of logical nets.......................... :        2728 :
-       # of nets not needing routing.......... :         865 :
-           # of internally routed nets........ :         865 :
-       # of routable nets..................... :        1863 :
-           # of fully routed nets............. :        1863 :
-=======
-   # of logical nets.......................... :        2780 :
-       # of nets not needing routing.......... :         895 :
-           # of internally routed nets........ :         895 :
-       # of routable nets..................... :        1885 :
-           # of fully routed nets............. :        1885 :
->>>>>>> parent of c743c1d (oh nu)
+   # of logical nets.......................... :        2865 :
+       # of nets not needing routing.......... :         928 :
+           # of internally routed nets........ :         928 :
+       # of routable nets..................... :        1937 :
+           # of fully routed nets............. :        1937 :
        # of nets with routing errors.......... :           0 :
    ------------------------------------------- : ----------- :
 
