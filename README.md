@@ -2,14 +2,14 @@
  
 So you're telling me toddlers can make a 16 bit ALU.
 
-Group 16:
-Anshu Arun Gate (1005268)
-Cassie Chong Kenci (1005301)
-Christy Lau Jin Yun (1005330)
-Goh Nicholas (1005194)
-Ishan Monnappa Kodira (1005284)
-Lawrence Chen Qing Zhao (1005012)
-Lek Jie Wei (1005007)
+Group 16:\
+Anshu Arun Gate (1005268)\
+Cassie Chong Kenci (1005301)\
+Christy Lau Jin Yun (1005330)\
+Goh Nicholas (1005194)\
+Ishan Monnappa Kodira (1005284)\
+Lawrence Chen Qing Zhao (1005012)\
+Lek Jie Wei (1005007)\
 Nathan Chang (1005149)
 
 This repository contains the code for a 16-bit ALU programmed using FPGA.
