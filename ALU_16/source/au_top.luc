@@ -15,6 +15,9 @@ module au_top (
   
   input_storer inputstorer; // for storing inputs
   alu alu16; // takes in inputs and alufn and gives output and zvn
+  auto_tester autotester;
+  counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
+  
 
   
   .clk(clk) {
@@ -37,6 +40,7 @@ module au_top (
 
     // Error simulation
     alu16.sim_error = io_dip[0][6];
+    autotester.sim_error = io_dip[0][6];
     
     // required i/o for input_storer
     inputstorer.clk = clk;
@@ -56,6 +60,10 @@ module au_top (
     io_led[0][1] = alu16.v;
     io_led[0][0] = alu16.n;
     // Note that z is lit at start.
+    
+    io_dip[0][7] = autotester.switch;
+    
+    
     
     
   }
