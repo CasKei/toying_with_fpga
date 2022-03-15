@@ -7,7 +7,7 @@
 module auto_tester_4 (
     input clk,
     input rst,
-    input [0:0] switch,
+    input [1:0] switch,
     input [0:0] sim_error,
     output reg [0:0] result
   );
@@ -96,20 +96,16 @@ module auto_tester_4 (
     M_answers_selector = 5'h00;
     M_alu16_a = 16'h0000;
     M_alu16_b = 16'h0000;
-    M_alu16_sim_error = 6'h00;
+    M_alu16_sim_error = sim_error;
     M_alu16_alufn = 6'h00;
-    result = 2'h0;
+    result = 2'h1;
     
     case (M_feeder_q)
       START_feeder: begin
         if (switch) begin
           M_feeder_d = ADD_feeder;
         end else begin
-          if (sim_error) begin
-            
-          end else begin
-            M_feeder_d = START_feeder;
-          end
+          M_feeder_d = START_feeder;
         end
       end
       ADD_feeder: begin
@@ -128,6 +124,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = ADD1_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -148,6 +145,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = ADD2_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -168,6 +166,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = ADD3_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -188,6 +187,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = SUB_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -208,6 +208,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = SUB1_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -228,6 +229,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = SUB2_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -248,6 +250,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = SUB3_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -268,6 +271,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = CMPEQT_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -288,6 +292,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = CMPEQF_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -308,6 +313,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = CMPLTT_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -328,6 +334,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = CMPLTF_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -348,6 +355,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = CMPLET_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -368,6 +376,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = CMPLEF_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -388,6 +397,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = CMPLETE_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -408,6 +418,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = AND_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -428,6 +439,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = OR_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -448,6 +460,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = XOR_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -468,6 +481,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = NOR_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -488,6 +502,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = NAND_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -508,6 +523,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = B_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -528,6 +544,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = A_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -548,6 +565,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = SHL_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -568,6 +586,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = SHR_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -588,6 +607,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = SLA_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -608,6 +628,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = SRA_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -628,6 +649,7 @@ module auto_tester_4 (
         out = M_alu16_out;
         if (out == s & M_alu16_z == z & M_alu16_v == v & M_alu16_n == n) begin
           M_feeder_d = PASS_feeder;
+          result = 2'h1;
         end else begin
           M_feeder_d = FAIL_feeder;
         end
@@ -636,10 +658,7 @@ module auto_tester_4 (
         result = 2'h1;
       end
       FAIL_feeder: begin
-        result = 2'h0;
-        if (switch) begin
-          M_feeder_d = START_feeder;
-        end
+        result = 2'h2;
       end
     endcase
   end

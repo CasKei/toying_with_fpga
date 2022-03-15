@@ -1,7 +1,7 @@
 module auto_tester (
     input clk,  // clock
     input rst,  // reset
-    input switch[1],
+    input switch[2],
     input sim_error[1],
     output result[1]
   )
@@ -24,7 +24,7 @@ module auto_tester (
       alu16.b = b0000000000000000;
       alu16.sim_error = sim_error;
       alu16.alufn = b000000;
-      result = b00;
+      result = b01;
       case (feeder.q) { // checks the current state of the FSM, feeder
         feeder.START: // starting state
           if (switch){
@@ -51,6 +51,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.ADD1; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -75,6 +76,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.ADD2; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -99,6 +101,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.ADD3; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -122,6 +125,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.SUB; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -145,6 +149,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.SUB1; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -168,6 +173,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.SUB2; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -191,6 +197,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.SUB3; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -214,6 +221,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.CMPEQT; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -237,6 +245,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.CMPEQF; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -260,6 +269,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.CMPLTT; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -283,6 +293,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.CMPLTF; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -306,6 +317,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.CMPLET; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -329,6 +341,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.CMPLEF; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -352,6 +365,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.CMPLETE; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -375,6 +389,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.AND; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -398,6 +413,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.OR; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -421,6 +437,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.XOR; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -444,6 +461,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.NOR; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -467,6 +485,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.NAND; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -490,6 +509,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.B; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -513,6 +533,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.A; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -536,6 +557,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.SHL; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -559,6 +581,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.SHR; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -582,6 +605,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.SLA; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -605,6 +629,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.SRA; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -628,6 +653,7 @@ module auto_tester (
 
           if (out == s & alu16.z == z & alu16.v == v & alu16.n == n){
             feeder.d = feeder.PASS; // if correct go to next state
+            result = b01;
           }
         
           else{
@@ -636,10 +662,7 @@ module auto_tester (
         feeder.PASS:
           result = b01;
         feeder.FAIL:
-          result = b00;
-          if (switch){
-                feeder.d = feeder.START;
-              }  
+          result = b10;
       }
     
     }

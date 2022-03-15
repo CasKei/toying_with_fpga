@@ -65,7 +65,7 @@ module au_top_0 (
   );
   
   wire [1-1:0] M_autotester_result;
-  reg [1-1:0] M_autotester_switch;
+  reg [2-1:0] M_autotester_switch;
   reg [1-1:0] M_autotester_sim_error;
   auto_tester_4 autotester (
     .clk(M_slowclock_value),
@@ -111,10 +111,10 @@ module au_top_0 (
     if (M_autotester_result == 2'h1) begin
       io_led[0+7+0-:1] = M_autotester_result;
     end else begin
-      if (M_autotester_result == 2'h0) begin
-        
+      if (M_autotester_result == 2'h2) begin
+        io_led[0+6+0-:1] = M_autotester_result;
       end else begin
-        
+        io_led[0+6+1-:2] = 2'h0;
       end
     end
   end
