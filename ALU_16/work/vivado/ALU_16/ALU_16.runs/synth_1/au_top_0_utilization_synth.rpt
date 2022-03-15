@@ -1,8 +1,14 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 | Date         : Tue Mar 15 16:12:09 2022
 | Host         : LAPTOP-D6VM0O5J running 64-bit major release  (build 9200)
+=======
+| Tool Version : Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+| Date         : Tue Mar 15 13:17:39 2022
+| Host         : KC-LAPTOP running 64-bit major release  (build 9200)
+>>>>>>> 9032322cdb2ce51368fadec423f541537c2ec4f5
 | Command      : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
 | Design       : au_top_0
 | Device       : xc7a35tftg256-1
@@ -31,13 +37,22 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
+<<<<<<< HEAD
 | Slice LUTs*             | 1537 |     0 |          0 |     20800 |  7.39 |
 |   LUT as Logic          | 1537 |     0 |          0 |     20800 |  7.39 |
+=======
+| Slice LUTs*             | 1541 |     0 |          0 |     20800 |  7.41 |
+|   LUT as Logic          | 1541 |     0 |          0 |     20800 |  7.41 |
+>>>>>>> 9032322cdb2ce51368fadec423f541537c2ec4f5
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
 | Slice Registers         |  113 |     0 |          0 |     41600 |  0.27 |
 |   Register as Flip Flop |  113 |     0 |          0 |     41600 |  0.27 |
 |   Register as Latch     |    0 |     0 |          0 |     41600 |  0.00 |
+<<<<<<< HEAD
 | F7 Muxes                |   42 |     0 |          0 |     16300 |  0.26 |
+=======
+| F7 Muxes                |   41 |     0 |          0 |     16300 |  0.25 |
+>>>>>>> 9032322cdb2ce51368fadec423f541537c2ec4f5
 | F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
 +-------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -148,16 +163,28 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
+<<<<<<< HEAD
 | LUT6     |  631 |                 LUT |
 | LUT3     |  625 |                 LUT |
 | LUT5     |  239 |                 LUT |
 | CARRY4   |  191 |          CarryLogic |
 | FDRE     |  109 |        Flop & Latch |
+=======
+| LUT6     |  638 |                 LUT |
+| LUT3     |  625 |                 LUT |
+| LUT5     |  239 |                 LUT |
+| CARRY4   |  200 |          CarryLogic |
+| FDRE     |  144 |        Flop & Latch |
+>>>>>>> 9032322cdb2ce51368fadec423f541537c2ec4f5
 | LUT4     |   74 |                 LUT |
 | LUT1     |   71 |                 LUT |
 | LUT2     |   69 |                 LUT |
 | OBUF     |   45 |                  IO |
+<<<<<<< HEAD
 | MUXF7    |   42 |               MuxFx |
+=======
+| MUXF7    |   41 |               MuxFx |
+>>>>>>> 9032322cdb2ce51368fadec423f541537c2ec4f5
 | IBUF     |   30 |                  IO |
 | FDSE     |    4 |        Flop & Latch |
 | DSP48E1  |    2 |    Block Arithmetic |
