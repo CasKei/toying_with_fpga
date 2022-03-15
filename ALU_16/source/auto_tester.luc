@@ -11,7 +11,7 @@ module auto_tester (
                                       CMPEQT, CMPEQF, CMPLTT, CMPLTF, CMPLET, CMPLEF, CMPLETE,
                                       AND, OR, XOR, NOR, NAND, B, A,
                                       SHL, SHR, SLA, SRA, PASS, FAIL};
-
+    
     rom1 inputs;
     rom2 answers;
     alu alu16;
