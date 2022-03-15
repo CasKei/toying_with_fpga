@@ -28,7 +28,7 @@ module compare_16 (
         if (sim_error == 0) {
           out[0] = z | (n ^ v);//CMPLE (A<=B)
         } else {
-          out[0] = ~(z | (n ^ v));
+          out[0] = ~(z | (n ^ v)); // ERROR
         }
     }
 

@@ -112,9 +112,9 @@ module au_top_0 (
       io_led[0+7+0-:1] = M_autotester_result;
     end else begin
       if (M_autotester_result == 2'h0) begin
-        
+        io_led[0+6+0-:1] = M_autotester_result;
       end else begin
-        
+        io_led[0+6+1-:2] = 2'h0;
       end
     end
   end
