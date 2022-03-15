@@ -3,8 +3,8 @@ module rom1 ( //feed into fsm
     output out[38]        //output 38 bits (A+B+ALUFN)
   ) {
   
-  const INPUTS = {b10000000000000000000000000000010000011,  //28 - Divider
-                  b00000000010101110000000000000010000010,  //27 - Multiplier 
+  const INPUTS = {b10000000000000000000000000001000001001,  //28 - Divider
+                  b00000000010101110000000000000010001000,  //27 - Multiplier 
                   b00000000000111000000000000001011100010,  //26 - Shifter (Arithmetic Left Shift)
                   b10000000000001000000000000001010100011,  //25 - Shifter (Arithmetic Right Shift)
                   b00001111000001000000000000001000100001,  //24 - Shifter (Shift right)
