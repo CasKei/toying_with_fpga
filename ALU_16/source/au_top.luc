@@ -13,15 +13,16 @@ module au_top (
   
   sig rst;                  // reset signal
   
+  
   input_storer inputstorer; // for storing inputs
   alu alu16; // takes in inputs and alufn and gives output and zvn
-  auto_tester autotester;
   counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
+  auto_tester autotester(.clk(slowclock.value), .rst(rst)); //auto_tester autotester;
   
 
   
   .clk(clk) {
-    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // The reset conditi  oner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
   }
@@ -61,10 +62,12 @@ module au_top (
     io_led[0][0] = alu16.n;
     // Note that z is lit at start.
     
-    io_dip[0][7] = autotester.switch;
-    
-    
-    
-    
+    autotester.switch = io_dip[0][7];
+    if (autotester.result == b01) {
+      io_led[0][7] = autotester.result;
+    }'
+    else if (autotester.result == b00) {
+    }
+     
   }
 }

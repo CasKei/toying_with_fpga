@@ -3,7 +3,7 @@ module auto_tester (
     input rst,  // reset
     input switch[1],
     input sim_error[1],
-    output result[2]
+    output result[1]
   )
  
   {
@@ -22,6 +22,7 @@ module auto_tester (
       answers.selector = b00000;
       alu16.a = b0000000000000000;
       alu16.b = b0000000000000000;
+      alu16.sim_error = b000000;
       alu16.alufn = b000000;
       case (feeder.q) { // checks the current state of the FSM, feeder
         feeder.START: // starting state
