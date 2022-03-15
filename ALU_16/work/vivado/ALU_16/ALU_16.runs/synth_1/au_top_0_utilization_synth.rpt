@@ -31,13 +31,22 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
+<<<<<<< HEAD
 | Slice LUTs*             | 1459 |     0 |          0 |     20800 |  7.01 |
 |   LUT as Logic          | 1459 |     0 |          0 |     20800 |  7.01 |
+=======
+| Slice LUTs*             | 1537 |     0 |          0 |     20800 |  7.39 |
+|   LUT as Logic          | 1537 |     0 |          0 |     20800 |  7.39 |
+>>>>>>> parent of c743c1d (oh nu)
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
 | Slice Registers         |  148 |     0 |          0 |     41600 |  0.36 |
 |   Register as Flip Flop |  148 |     0 |          0 |     41600 |  0.36 |
 |   Register as Latch     |    0 |     0 |          0 |     41600 |  0.00 |
+<<<<<<< HEAD
 | F7 Muxes                |   20 |     0 |          0 |     16300 |  0.12 |
+=======
+| F7 Muxes                |   42 |     0 |          0 |     16300 |  0.26 |
+>>>>>>> parent of c743c1d (oh nu)
 | F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
 +-------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -148,6 +157,7 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
+<<<<<<< HEAD
 | LUT6     |  606 |                 LUT |
 | LUT3     |  605 |                 LUT |
 | CARRY4   |  200 |          CarryLogic |
@@ -157,6 +167,18 @@ Table of Contents
 | LUT1     |   74 |                 LUT |
 | LUT4     |   61 |                 LUT |
 | OBUF     |   45 |                  IO |
+=======
+| LUT6     |  631 |                 LUT |
+| LUT3     |  625 |                 LUT |
+| LUT5     |  239 |                 LUT |
+| CARRY4   |  191 |          CarryLogic |
+| FDRE     |  109 |        Flop & Latch |
+| LUT4     |   74 |                 LUT |
+| LUT1     |   71 |                 LUT |
+| LUT2     |   69 |                 LUT |
+| OBUF     |   45 |                  IO |
+| MUXF7    |   42 |               MuxFx |
+>>>>>>> parent of c743c1d (oh nu)
 | IBUF     |   30 |                  IO |
 | MUXF7    |   20 |               MuxFx |
 | FDSE     |    4 |        Flop & Latch |

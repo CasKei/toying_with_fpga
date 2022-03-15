@@ -60,7 +60,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               6 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
+<<<<<<< HEAD
 | No           | Yes                   | No                     |              65 |           19 |
+=======
+| No           | Yes                   | No                     |              30 |           10 |
+>>>>>>> parent of c743c1d (oh nu)
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |              77 |           27 |
@@ -74,10 +78,17 @@ Table of Contents
 |         Clock Signal         |                  Enable Signal                  |             Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
 +------------------------------+-------------------------------------------------+-----------------------------------------+------------------+----------------+--------------+
 |  clk_IBUF_BUFG               |                                                 | reset_cond/M_reset_cond_in              |                3 |              4 |         1.33 |
+<<<<<<< HEAD
 |  slowclock/M_ctr_q_reg[60]_0 | autotester/FSM_sequential_M_feeder_q[4]_i_1_n_0 | reset_cond/Q[0]                         |                3 |              5 |         1.67 |
 |  clk_IBUF_BUFG               |                                                 |                                         |                4 |              6 |         1.50 |
 |  clk_IBUF_BUFG               | inputstorer/btnA/E[0]                           | io_button_IBUF[2]                       |                8 |             16 |         2.00 |
 |  clk_IBUF_BUFG               | inputstorer/btnB/E[0]                           | io_button_IBUF[2]                       |                6 |             16 |         2.67 |
+=======
+|  slowclock/M_ctr_q_reg[25]_0 | autotester/FSM_sequential_M_feeder_q[4]_i_1_n_0 | reset_cond/Q[0]                         |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG               |                                                 |                                         |                4 |              6 |         1.50 |
+|  clk_IBUF_BUFG               | inputstorer/btnA/E[0]                           | io_button_IBUF[2]                       |               10 |             16 |         1.60 |
+|  clk_IBUF_BUFG               | inputstorer/btnB/E[0]                           | io_button_IBUF[2]                       |                5 |             16 |         3.20 |
+>>>>>>> parent of c743c1d (oh nu)
 |  clk_IBUF_BUFG               | inputstorer/btnA/sel                            | inputstorer/btnA/sync/clear             |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG               | inputstorer/btnB/M_ctr_q[0]_i_2__0_n_0          | inputstorer/btnB/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG               |                                                 | reset_cond/Q[0]                         |               16 |             61 |         3.81 |

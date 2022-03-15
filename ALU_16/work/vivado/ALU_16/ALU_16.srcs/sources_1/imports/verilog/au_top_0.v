@@ -111,8 +111,13 @@ module au_top_0 (
     if (M_autotester_result == 2'h1) begin
       io_led[0+7+0-:1] = M_autotester_result;
     end else begin
+<<<<<<< HEAD
       if (M_autotester_result == 2'h0) begin
         
+=======
+      if (M_autotester_result == 2'h2) begin
+        io_led[0+6+0-:1] = M_autotester_result;
+>>>>>>> parent of c743c1d (oh nu)
       end else begin
         
       end

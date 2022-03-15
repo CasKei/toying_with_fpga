@@ -6,7 +6,11 @@
 <Project Version="7" Minor="56" Path="C:/Users/nicho/Documents/GitHub/toying_with_fpga/ALU_16/work/vivado/ALU_16/ALU_16.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
+<<<<<<< HEAD
     <Option Name="Id" Val="b6fd4f3269ad408eaf474bcceeb5d956"/>
+=======
+    <Option Name="Id" Val="a27409c05f0b4e6f99c92dd69736cf03"/>
+>>>>>>> parent of c743c1d (oh nu)
     <Option Name="Part" Val="xc7a35tftg256-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -88,7 +92,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/adder_16_8.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/adder_16_8.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -97,7 +105,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/alu_2.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/alu_2.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -106,7 +118,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/auto_tester_4.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/auto_tester_4.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -115,7 +131,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/boolean_16_9.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/boolean_16_9.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -124,7 +144,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/button_conditioner_7.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/button_conditioner_7.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -133,7 +157,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/compare_16_11.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/compare_16_11.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -142,7 +170,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/counter_3.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/counter_3.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -151,7 +183,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/edge_detector_6.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/edge_detector_6.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -160,7 +196,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/input_storer_1.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/input_storer_1.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -169,7 +209,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/pipeline_14.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/pipeline_14.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -178,7 +222,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_5.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_5.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -187,7 +235,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/rom1_12.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/rom1_12.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -196,7 +248,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/rom2_13.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/rom2_13.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -205,7 +261,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/shifter_16_10.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/shifter_16_10.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -214,7 +274,11 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/au_top_0.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/au_top_0.v"/>
+<<<<<<< HEAD
           <Attr Name="ImportTime" Val="1647315480"/>
+=======
+          <Attr Name="ImportTime" Val="1647331852"/>
+>>>>>>> parent of c743c1d (oh nu)
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
+<<<<<<< HEAD
     <Process Command="vivado.bat" Owner="nicho" Host="LAPTOP-D6VM0O5J" Pid="24072" HostCore="16" HostMemory="017042837504">
+=======
+    <Process Command="vivado.bat" Owner="nicho" Host="LAPTOP-D6VM0O5J" Pid="17768" HostCore="16" HostMemory="017042837504">
+>>>>>>> parent of c743c1d (oh nu)
     </Process>
 </ProcessHandle>

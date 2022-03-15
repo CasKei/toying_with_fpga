@@ -30,14 +30,23 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
+<<<<<<< HEAD
 | Total On-Chip Power (W)  | 0.134        |
+=======
+| Total On-Chip Power (W)  | 0.100        |
+>>>>>>> parent of c743c1d (oh nu)
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.062        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
+<<<<<<< HEAD
 | Max Ambient (C)          | 84.4         |
 | Junction Temperature (C) | 25.6         |
+=======
+| Max Ambient (C)          | 84.5         |
+| Junction Temperature (C) | 25.5         |
+>>>>>>> parent of c743c1d (oh nu)
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,6 +62,7 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.002 |        3 |       --- |             --- |
+<<<<<<< HEAD
 | Slice Logic    |     0.019 |     2000 |       --- |             --- |
 |   LUT as Logic |     0.018 |     1441 |     20800 |            6.93 |
 |   CARRY4       |    <0.001 |      200 |      8150 |            2.45 |
@@ -64,6 +74,19 @@ Table of Contents
 | I/O            |     0.022 |       75 |       170 |           44.12 |
 | Static Power   |     0.072 |          |           |                 |
 | Total          |     0.134 |          |           |                 |
+=======
+| Slice Logic    |     0.001 |     2087 |       --- |             --- |
+|   LUT as Logic |     0.001 |     1531 |     20800 |            7.36 |
+|   CARRY4       |    <0.001 |      191 |      8150 |            2.34 |
+|   Register     |    <0.001 |      113 |     41600 |            0.27 |
+|   F7/F8 Muxes  |    <0.001 |       42 |     32600 |            0.13 |
+|   Others       |     0.000 |       34 |       --- |             --- |
+| Signals        |     0.002 |     1881 |       --- |             --- |
+| DSPs           |    <0.001 |        2 |        90 |            2.22 |
+| I/O            |     0.022 |       75 |       170 |           44.12 |
+| Static Power   |     0.072 |          |           |                 |
+| Total          |     0.100 |          |           |                 |
+>>>>>>> parent of c743c1d (oh nu)
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +96,11 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+<<<<<<< HEAD
 | Vccint    |       1.000 |     0.050 |       0.040 |      0.010 |       NA    | Unspecified | NA         |
+=======
+| Vccint    |       1.000 |     0.016 |       0.006 |      0.010 |       NA    | Unspecified | NA         |
+>>>>>>> parent of c743c1d (oh nu)
 | Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.007 |       0.006 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -142,6 +169,7 @@ Table of Contents
 +---------------+-----------+
 | Name          | Power (W) |
 +---------------+-----------+
+<<<<<<< HEAD
 | au_top_0      |     0.062 |
 |   alu16       |     0.002 |
 |     adder     |     0.002 |
@@ -150,6 +178,11 @@ Table of Contents
 |       adder   |     0.005 |
 |     answers   |     0.003 |
 |     inputs    |     0.025 |
+=======
+| au_top_0      |     0.028 |
+|   alu16       |     0.002 |
+|     adder     |     0.002 |
+>>>>>>> parent of c743c1d (oh nu)
 |   inputstorer |     0.003 |
 +---------------+-----------+
 
