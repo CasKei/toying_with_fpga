@@ -25,7 +25,7 @@ module alu_2 (
   reg [16-1:0] M_adder_b;
   reg [6-1:0] M_adder_alufn;
   reg [1-1:0] M_adder_sim_error;
-  adder_16_6 adder (
+  adder_16_8 adder (
     .a(M_adder_a),
     .b(M_adder_b),
     .alufn(M_adder_alufn),
@@ -41,7 +41,7 @@ module alu_2 (
   reg [16-1:0] M_boolean_b;
   reg [6-1:0] M_boolean_alufn;
   reg [1-1:0] M_boolean_sim_error;
-  boolean_16_7 boolean (
+  boolean_16_9 boolean (
     .a(M_boolean_a),
     .b(M_boolean_b),
     .alufn(M_boolean_alufn),
@@ -54,7 +54,7 @@ module alu_2 (
   reg [16-1:0] M_shifter_b;
   reg [6-1:0] M_shifter_alufn;
   reg [1-1:0] M_shifter_sim_error;
-  shifter_16_8 shifter (
+  shifter_16_10 shifter (
     .a(M_shifter_a),
     .b(M_shifter_b),
     .alufn(M_shifter_alufn),
@@ -68,7 +68,7 @@ module alu_2 (
   reg [1-1:0] M_comparator_n;
   reg [1-1:0] M_comparator_sim_error;
   reg [6-1:0] M_comparator_alufn;
-  compare_16_9 comparator (
+  compare_16_11 comparator (
     .z(M_comparator_z),
     .v(M_comparator_v),
     .n(M_comparator_n),

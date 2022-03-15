@@ -57,9 +57,27 @@ module au_top_0 (
     .n(M_alu16_n)
   );
   
+  wire [1-1:0] M_slowclock_value;
+  counter_3 slowclock (
+    .clk(clk),
+    .rst(rst),
+    .value(M_slowclock_value)
+  );
+  
+  wire [1-1:0] M_autotester_result;
+  reg [1-1:0] M_autotester_switch;
+  reg [1-1:0] M_autotester_sim_error;
+  auto_tester_4 autotester (
+    .clk(M_slowclock_value),
+    .rst(rst),
+    .switch(M_autotester_switch),
+    .sim_error(M_autotester_sim_error),
+    .result(M_autotester_result)
+  );
+  
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_3 reset_cond (
+  reset_conditioner_5 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -74,6 +92,7 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     M_alu16_sim_error = io_dip[0+6+0-:1];
+    M_autotester_sim_error = io_dip[0+6+0-:1];
     M_inputstorer_clk = clk;
     M_inputstorer_button_a = io_button[3+0-:1];
     M_inputstorer_button_b = io_button[4+0-:1];
@@ -88,5 +107,15 @@ module au_top_0 (
     io_led[0+2+0-:1] = M_alu16_z;
     io_led[0+1+0-:1] = M_alu16_v;
     io_led[0+0+0-:1] = M_alu16_n;
+    M_autotester_switch = io_dip[0+7+0-:1];
+    if (M_autotester_result == 2'h1) begin
+      io_led[0+7+0-:1] = M_autotester_result;
+    end else begin
+      if (M_autotester_result == 2'h0) begin
+        
+      end else begin
+        
+      end
+    end
   end
 endmodule

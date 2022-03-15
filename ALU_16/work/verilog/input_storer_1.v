@@ -18,7 +18,7 @@ module input_storer_1 (
   
   wire [1-1:0] M_detector_a_out;
   reg [1-1:0] M_detector_a_in;
-  edge_detector_4 detector_a (
+  edge_detector_6 detector_a (
     .clk(clk),
     .in(M_detector_a_in),
     .out(M_detector_a_out)
@@ -26,21 +26,21 @@ module input_storer_1 (
   
   wire [1-1:0] M_detector_b_out;
   reg [1-1:0] M_detector_b_in;
-  edge_detector_4 detector_b (
+  edge_detector_6 detector_b (
     .clk(clk),
     .in(M_detector_b_in),
     .out(M_detector_b_out)
   );
   
   wire [1-1:0] M_btnA_out;
-  button_conditioner_5 btnA (
+  button_conditioner_7 btnA (
     .clk(clk),
     .in(button_a),
     .out(M_btnA_out)
   );
   
   wire [1-1:0] M_btnB_out;
-  button_conditioner_5 btnB (
+  button_conditioner_7 btnB (
     .clk(clk),
     .in(button_b),
     .out(M_btnB_out)

@@ -24,11 +24,15 @@ module auto_tester (
       alu16.b = b0000000000000000;
       alu16.sim_error = b000000;
       alu16.alufn = b000000;
+      result = b00;
       case (feeder.q) { // checks the current state of the FSM, feeder
         feeder.START: // starting state
           if (switch[0]){
             feeder.d = feeder.ADD; // commence the auto tester by testing Test Case #0
           }  
+          else if (sim_error[0]) {
+            
+          }
           else {
             feeder.d = feeder.START;
           }
