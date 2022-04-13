@@ -26,6 +26,12 @@ module adder_16 (
           b1 : s = a - b; // subtract
           default : s = 16b0; // 0
         }
+      b1:
+        case(alufn[0]) {
+          b0 : s = a * b; // multiply
+          default : s = 16b0;
+        }
+      default : s = 16b0;
     }
     
     z = ~|s; // any non-0 will make |s 1, so not|s will be true iff all 0

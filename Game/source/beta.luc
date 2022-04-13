@@ -52,7 +52,7 @@ module beta (
     game_controlunit.p2_holdbutton = p2_holdbutton;
     
     game_controlunit.diceroll = edge_detector_diceroll.out;
-   
+    
     
     //output of CU to increase 7segment
     decimal_counter_increase = game_controlunit.decimal_counter_increase;

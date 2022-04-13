@@ -14,9 +14,9 @@ module game_CU (
     
     input diceroll,
     
-    output alufn[6], //why 6?
-    output asel[3], //why 3?
-    output bsel[3], //why 3?
+    output alufn[6], //why 6? alufn
+    output asel[2], //why 3? no it 2
+    output bsel[3], //why 3? yes 3
     output alu_out_sel[2],
     output regfile_write_address[4],
     output regfile_read_address_a[4],
@@ -29,7 +29,7 @@ module game_CU (
     
   ) {
   
-  
+
   
   .clk(clk){
     fsm game_fsm={
@@ -71,7 +71,7 @@ module game_CU (
   always {
     
     // standard setting unless otherwise overwritten by each case
-    alufn = 0;
+    alufn = 0;  //risky
     asel = 0;
     bsel = 0;
     we_regfile = 0;
@@ -94,12 +94,20 @@ module game_CU (
     
     case(game_fsm.q){
     
+    game_fsm.IDLE:
+    if (p1_rolldicebutton){
+      game_fsm.d = game_fsm.P1_TURN;
+    }
+    else{
+      game_fsm.d = game_fsm.IDLE;
+    }
+      
     game_fsm.P1_TURN:
     alufn = b000000;    // addition       
     regfile_read_address_a = b0111;              
-    bsel = b00;                                  
+    bsel = b001;                                  
     asel = b00;
-    we_regfile = b01;
+    we_regfile = b1;
     regfile_write_address = b0111;
     if (p1_rolldicebutton){
       game_fsm.d = game_fsm.P1_CHANGE_DICE_SCORE;
@@ -109,7 +117,7 @@ module game_CU (
     }
     
     game_fsm.P1_CHANGE_DICE_SCORE:
-      if (diceroll == 1 ){
+      if (diceroll == 0 ){
         game_fsm.d = game_fsm.RESET_CURRENT_P1SCORE;
         }
       else{
@@ -117,70 +125,74 @@ module game_CU (
         }
      
     game_fsm.P1_BRANCH_DICEROLL:
-      if(diceroll == 2){
+      if(diceroll == 1){
           alufn = b000000;
           asel = b00;
           bsel = b010;
           we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
+          regfile_read_address_a = b0010;
+          regfile_write_address = b0010;
           alu_out_sel = b00;
+          game_fsm.d = game_fsm.SUM_P1POSSIBLESCORE;
           }
-        else if (diceroll == 3){
+        else if (diceroll == 2){
           alufn = b000000;
           asel = b00;
           bsel = b011;
           we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
+          regfile_read_address_a = b0010;
+          regfile_write_address = b0010;
           alu_out_sel = b00;          
-          
+          game_fsm.d = game_fsm.SUM_P1POSSIBLESCORE;
           }
-        else if (diceroll == 4){
+        else if (diceroll == 3){
           alufn = b000000;
           asel = b00;
           bsel = b100;
           we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
+          regfile_read_address_a = b0010;
+          regfile_write_address = b0010;
           alu_out_sel = b00;
+          game_fsm.d = game_fsm.SUM_P1POSSIBLESCORE;
         }
-        else if (diceroll == 5){
+        else if (diceroll == 4){
           alufn = b000000;
           asel = b00;
           bsel = b101;
           we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
+          regfile_read_address_a = b0010;
+          regfile_write_address = b0010;
           alu_out_sel = b00;
+          game_fsm.d = game_fsm.SUM_P1POSSIBLESCORE;
           }
-        else if(diceroll == 6){
+        else if(diceroll == 5){
           alufn = b000000;
           asel = b00;
           bsel = b110;
           we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
+          regfile_read_address_a = b0010;
+          regfile_write_address = b0010;
           alu_out_sel = b00;
+          game_fsm.d = game_fsm.SUM_P1POSSIBLESCORE;
         }
           
       
     
-    game_fsm.INCREASE_P1_CURRENTSCORE:
-    alufn = b000000;                           //ADD
-    regfile_read_address_b = b1111;            //P1 score reg
-    regfile_read_address_a = b0010;            //counter reg
-    bsel = b00;                                //P1 score reg
-    asel = b00;                                //counter  reg
-    we_regfile = 1;
-    regfile_write_address = b0010;                   //P1 score reg
-    game_fsm.d = game_fsm.SUM_P1POSSIBLESCORE;
+    //game_fsm.INCREASE_P1_CURRENTSCORE:
+    //alufn = b000000;                           //ADD
+    //regfile_read_address_b = b1111;            //P1 score reg
+    //regfile_read_address_a = b0010;            //counter reg
+    //bsel = b000;                                //P1 score reg
+    //asel = b00;                                //counter  reg
+    //we_regfile = 1;
+    //regfile_write_address = b0010;                   //P1 score reg
+    //game_fsm.d = game_fsm.SUM_P1POSSIBLESCORE;
     
     game_fsm.SUM_P1POSSIBLESCORE:
     alufn = b000000;
     regfile_read_address_a = b0000;
     regfile_read_address_b = b0010;
-    bsel = b00; // p1's button
+    bsel = b000; // p1's button
     asel = b00; // plus 1
     we_regfile = 1;
     regfile_write_address = b1111;
@@ -189,7 +201,7 @@ module game_CU (
     game_fsm.CHECKP150:
     alufn = b110111;                           //CMPLE
     regfile_read_address_b = b1111;            //P2 button count reg
-    bsel = b00;                                //constant 3
+    bsel = b000;                                //constant 3
     asel = b11;
     we_regfile = 1;
     regfile_write_address = b1111;                   //temp reg
@@ -197,37 +209,38 @@ module game_CU (
         
     game_fsm.BRANCH_P1CONDITION:
     regfile_read_address_b = b1111;
-    we_regfile = b00;
+    we_regfile = b0;
     if(regfile_datain[0]){
-      game_fsm.d = game_fsm.P1_TURN;
-    }
-    else{
       game_fsm.d = game_fsm.CHECK_WINNER;
     }
+    else{
+      game_fsm.d = game_fsm.P1_TURN;
+    }
+        
     game_fsm.INCREASE_P1ACCSCORE:
     alufn = b000000;
     asel = b00;
-    bsel = b00;
+    bsel = b000;
     we_regfile = b1;
-    regfile_read_address_a = b00;
-    regfile_read_address_b = b10;
-    regfile_write_address = b00;
+    regfile_read_address_a = b0000;
+    regfile_read_address_b = b0010;
+    regfile_write_address = b0000;
     game_fsm.d = game_fsm.RESET_CURRENT_P1SCORE;
     
     game_fsm.RESET_CURRENT_P1SCORE:
-    alufn = b001000;
+    alufn = b001000;  // multiply
     asel = b00;
-    bsel = b00;
-    regfile_read_address_a = b10;
-    we_regfile = b01;
-    regfile_write_address = b10;
+    bsel = b001;
+    regfile_read_address_a = b0010;
+    we_regfile = b1;
+    regfile_write_address = b0010;
     game_fsm.d = game_fsm.P2_TURN;
     
     game_fsm.P2_TURN:
     alufn = b000000;
     asel = b00;
-    bsel = b10;
-    we_regfile = b01;
+    bsel = b010;
+    we_regfile = b1;
     regfile_read_address_a = b0111;
     regfile_write_address =  b0111;
     if (p2_rolldicebutton){
@@ -239,68 +252,74 @@ module game_CU (
     }
     
    game_fsm.P2_CHANGE_DICE_SCORE:
-      if (p2_rolldicebutton == 1 ){
+      if (diceroll == 0 ){
         game_fsm.d = game_fsm.RESET_CURRENT_P2SCORE;
-        }
+      }
       else{
         game_fsm.d = game_fsm.P2_BRANCH_DICEROLL;
-        }
+      }
      
     game_fsm.P2_BRANCH_DICEROLL:
-      if(diceroll == 2){
+      if(diceroll == 1){
           alufn = b000000;
           asel = b00;
           bsel = b010;
           we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
+          regfile_read_address_a = b0011;
+          regfile_write_address = b0011;
           alu_out_sel = b00;
-          }
-        else if (diceroll == 3){
-          alufn = b000000;
-          asel = b00;
-          bsel = b011;
-          we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
-          alu_out_sel = b00;          
+          game_fsm.d = game_fsm.SUM_P2POSSIBLESCORE;
           
-          }
-        else if (diceroll == 4){
-          alufn = b000000;
-          asel = b00;
-          bsel = b100;
-          we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
-          alu_out_sel = b00;
-        }
-        else if (p2_rolldicebutton == 5){
-          alufn = b000000;
-          asel = b00;
-          bsel = b101;
-          we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
-          alu_out_sel = b00;
-          }
-        else if(diceroll == 6){
-          alufn = b000000;
-          asel = b00;
-          bsel = b110;
-          we_regfile = b1;
-          regfile_read_address_a = b1000;
-          regfile_write_address = b1000;
-          alu_out_sel = b00;
-        }
-    game_fsm.INCREASE_P2_CURRENTSCORE:
-    alufn = b000000;
-    asel = b00;
-    bsel = b00;
-    we_regfile = b01;
-    regfile_read_address_a = b0011;
-    regfile_read_address_b = b1111;
-    regfile_write_address = b0011;
+      }
+      else if (diceroll == 2){
+        alufn = b000000;
+        asel = b00;
+        bsel = b011;
+        we_regfile = b1;
+        regfile_read_address_a = b0011;
+        regfile_write_address = b0011;
+        alu_out_sel = b00;
+          game_fsm.d = game_fsm.SUM_P2POSSIBLESCORE;
+      }
+      else if (diceroll == 3){
+        alufn = b000000;
+        asel = b00;
+        bsel = b100;
+        we_regfile = b1;
+        regfile_read_address_a = b0011  ;
+        regfile_write_address = b0011;
+        alu_out_sel = b00;
+          game_fsm.d = game_fsm.SUM_P2POSSIBLESCORE;
+      }
+      else if (diceroll == 4){
+        alufn = b000000;
+        asel = b00;
+        bsel = b101;
+        we_regfile = b1;
+        regfile_read_address_a = b0011;
+        regfile_write_address = b0011;
+        alu_out_sel = b00;
+        game_fsm.d = game_fsm.SUM_P2POSSIBLESCORE;
+      }
+      else if(diceroll == 5){
+        alufn = b000000;
+        asel = b00;
+        bsel = b110;
+        we_regfile = b1;
+        regfile_read_address_a = b0011;
+        regfile_write_address = b0011;
+        alu_out_sel = b00;
+        game_fsm.d = game_fsm.SUM_P2POSSIBLESCORE;
+      }
+        
+    //game_fsm.INCREASE_P2_CURRENTSCORE:
+    //alufn = b000000;
+    //asel = b00;
+    //bsel = b00;
+    //we_regfile = b01;
+    //regfile_read_address_a = b0011;
+    //regfile_read_address_b = b1111;
+    //regfile_write_address = b0011;
     
     game_fsm.SUM_P2POSSIBLESCORE:
     alufn = b000000;
@@ -311,20 +330,29 @@ module game_CU (
     regfile_read_address_b = b0011;
     regfile_write_address = b1111;
     game_fsm.d = game_fsm.CHECKP250;
+        
+        
+    game_fsm.CHECKP250:
+    alufn = b110111;                           //CMPLE
+    regfile_read_address_b = b1111;            //P2 button count reg
+    bsel = b000;                                //constant 3
+    asel = b11;
+    we_regfile = 1;
+    regfile_write_address = b1111;                   //temp reg
+    game_fsm.d = game_fsm.BRANCH_P2CONDITION;
     
     game_fsm.BRANCH_P2CONDITION:
-    we_regfile = b00;
+    we_regfile = b0;
     regfile_read_address_b = b1111;
     if (regfile_datain[0])
-      game_fsm.d = game_fsm.P2_TURN;
-    
-    else
       game_fsm.d = game_fsm.CHECK_WINNER;
+    else
+      game_fsm.d = game_fsm.P2_TURN;
     
     game_fsm.CHECK_WINNER:
     alufn = b110101;                 //CMPLT
-    regfile_read_address_a = b0000;  //P1 score reg
-    regfile_read_address_b = b0001;  //P2 score reg
+    regfile_read_address_a = b0010;  //P1 score reg
+    regfile_read_address_b = b0011;  //P2 score reg
     asel = b00;
     bsel = b00;
     we_regfile = 1;
@@ -335,12 +363,12 @@ module game_CU (
     we_regfile = b00;
     regfile_read_address_b = b1111; //temp reg
     if (regfile_datain[0]){
-      //P2 Wins
-      game_fsm.d = game_fsm.P2WINS;
-    }
-    else{
       //P1 Wins
       game_fsm.d = game_fsm.P1WINS;
+    }
+    else{
+      //P2 Wins
+      game_fsm.d = game_fsm.P2WINS;
     }
     
     
@@ -359,13 +387,13 @@ module game_CU (
     game_fsm.P1LOSE:
     we_regfile = 1;
     regfile_write_address = b0000;     //P1 score reg
-    alu_out_sel = b11;           //P1 losingsignal
+    alu_out_sel = b10;           //P1 losingsignal
     game_fsm.d = game_fsm.GAMEOVER;
     
     game_fsm.P2LOSE:
     we_regfile = 1;
     regfile_write_address = b0001;     //P2 score reg
-    alu_out_sel = b11;           //P2 losing signal
+    alu_out_sel = b10;           //P2 losing signal
     game_fsm.d = game_fsm.GAMEOVER;
     
     
@@ -374,14 +402,7 @@ module game_CU (
     
     game_fsm.d = game_fsm.GAMEOVER;
     
-    game_fsm.IDLE:
-    if (p1_rolldicebutton){
-      game_fsm.d = game_fsm.P1_TURN;
-    }
-    else{
-      game_fsm.d = game_fsm.IDLE;
-    }
-    
+
   }
 }
 }
