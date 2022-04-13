@@ -1,8 +1,13 @@
 module sevensegment (
-    input char[4],
+    input clk,
+    input rst,
+    input char,
     output segs[7]
   ) {
+  
+ .clk(clk), .rst(rst) {
 
+  }
   always {
     case (char) {
       0: segs = 7b0111111;

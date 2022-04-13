@@ -3,7 +3,7 @@ module decimalcounter (
     input rst,      // reset
     input inc,      // increment the counter
     output ovf,     // counter overflowed
-    output value[5] // current value
+    output value[4] // current value
   ) {
  
   .clk(clk), .rst(rst) {

@@ -21,12 +21,102 @@ module au_top_0 (
   
   reg rst;
   
+  wire [7-1:0] M_seg_segs;
+  reg [1-1:0] M_seg_char;
+  sevensegment_1 seg (
+    .clk(clk),
+    .rst(rst),
+    .char(M_seg_char),
+    .segs(M_seg_segs)
+  );
+  wire [8-1:0] M_b_p_A_acc_out;
+  wire [8-1:0] M_b_p_A_cur_out;
+  wire [8-1:0] M_b_p_B_acc_out;
+  wire [8-1:0] M_b_p_B_cur_out;
+  wire [1-1:0] M_b_dice12;
+  wire [1-1:0] M_b_decimal_counter_increase;
+  wire [1-1:0] M_b_decimal_counter_rst;
+  reg [1-1:0] M_b_p1_rolldicebutton;
+  reg [1-1:0] M_b_p1_holdbutton;
+  reg [1-1:0] M_b_p2_rolldicebutton;
+  reg [1-1:0] M_b_p2_holdbutton;
+  beta_2 b (
+    .clk(clk),
+    .rst(rst),
+    .p1_rolldicebutton(M_b_p1_rolldicebutton),
+    .p1_holdbutton(M_b_p1_holdbutton),
+    .p2_rolldicebutton(M_b_p2_rolldicebutton),
+    .p2_holdbutton(M_b_p2_holdbutton),
+    .p_A_acc_out(M_b_p_A_acc_out),
+    .p_A_cur_out(M_b_p_A_cur_out),
+    .p_B_acc_out(M_b_p_B_acc_out),
+    .p_B_cur_out(M_b_p_B_cur_out),
+    .dice12(M_b_dice12),
+    .decimal_counter_increase(M_b_decimal_counter_increase),
+    .decimal_counter_rst(M_b_decimal_counter_rst)
+  );
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_1 reset_cond (
+  reset_conditioner_3 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
+  );
+  wire [1-1:0] M_edgep1_roll_out;
+  reg [1-1:0] M_edgep1_roll_in;
+  edge_detector_4 edgep1_roll (
+    .clk(clk),
+    .in(M_edgep1_roll_in),
+    .out(M_edgep1_roll_out)
+  );
+  wire [1-1:0] M_edgep1_hold_out;
+  reg [1-1:0] M_edgep1_hold_in;
+  edge_detector_4 edgep1_hold (
+    .clk(clk),
+    .in(M_edgep1_hold_in),
+    .out(M_edgep1_hold_out)
+  );
+  wire [1-1:0] M_edgep2_roll_out;
+  reg [1-1:0] M_edgep2_roll_in;
+  edge_detector_4 edgep2_roll (
+    .clk(clk),
+    .in(M_edgep2_roll_in),
+    .out(M_edgep2_roll_out)
+  );
+  wire [1-1:0] M_edgep2_hold_out;
+  reg [1-1:0] M_edgep2_hold_in;
+  edge_detector_4 edgep2_hold (
+    .clk(clk),
+    .in(M_edgep2_hold_in),
+    .out(M_edgep2_hold_out)
+  );
+  wire [1-1:0] M_p1_roll_out;
+  reg [1-1:0] M_p1_roll_in;
+  button_conditioner_5 p1_roll (
+    .clk(clk),
+    .in(M_p1_roll_in),
+    .out(M_p1_roll_out)
+  );
+  wire [1-1:0] M_p1_hold_out;
+  reg [1-1:0] M_p1_hold_in;
+  button_conditioner_5 p1_hold (
+    .clk(clk),
+    .in(M_p1_hold_in),
+    .out(M_p1_hold_out)
+  );
+  wire [1-1:0] M_p2_roll_out;
+  reg [1-1:0] M_p2_roll_in;
+  button_conditioner_5 p2_roll (
+    .clk(clk),
+    .in(M_p2_roll_in),
+    .out(M_p2_roll_out)
+  );
+  wire [1-1:0] M_p2_hold_out;
+  reg [1-1:0] M_p2_hold_in;
+  button_conditioner_5 p2_hold (
+    .clk(clk),
+    .in(M_p2_hold_in),
+    .out(M_p2_hold_out)
   );
   
   always @* begin
@@ -37,5 +127,20 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
+    M_p1_roll_in = io_button[3+0-:1];
+    M_p1_hold_in = io_button[2+0-:1];
+    M_p2_roll_in = io_button[4+0-:1];
+    M_p2_hold_in = io_button[0+0-:1];
+    M_edgep1_roll_in = M_p1_roll_out;
+    M_edgep1_hold_in = M_p1_hold_out;
+    M_edgep2_roll_in = M_p2_roll_out;
+    M_edgep2_hold_in = M_p2_hold_out;
+    M_b_p1_rolldicebutton = M_edgep1_roll_out;
+    M_b_p1_holdbutton = M_edgep1_hold_out;
+    M_b_p2_rolldicebutton = M_edgep2_roll_out;
+    M_b_p2_holdbutton = M_edgep2_hold_out;
+    M_seg_char = M_b_dice12;
+    io_seg = ~M_seg_segs;
+    io_sel = 4'he;
   end
 endmodule

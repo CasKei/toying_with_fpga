@@ -13,13 +13,14 @@ module au_top (
   
   sig rst;                  // reset signal
   
+  
+  
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     .rst(rst) {
-       multisevensegment seg;
+       sevensegment seg;
        beta b;
-       
     }
     
     reset_conditioner reset_cond;
@@ -32,7 +33,9 @@ module au_top (
     button_conditioner p1_roll; 
     button_conditioner p1_hold;
     button_conditioner p2_roll;
-    button_conditioner p2_hold;  
+    button_conditioner p2_hold; 
+    
+
   }
   
   always {
@@ -67,8 +70,9 @@ module au_top (
     
     
     
-    seg.values = game_CU
-    
+    seg.char = b.dice12;
+    io_seg = ~seg.segs;
+    io_sel = ~4h1;
     
     
     

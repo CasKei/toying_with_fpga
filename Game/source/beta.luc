@@ -13,6 +13,8 @@ module beta (
     output p_B_acc_out[8],
     output p_B_cur_out[8],
     
+    output dice12,
+    
     output decimal_counter_increase,
     output decimal_counter_rst
 
@@ -61,6 +63,9 @@ module beta (
     
     
     //Setup REGFILE unit 
+    
+    
+    
     players.we = game_controlunit.we_regfile;
     players.write_address = game_controlunit.regfile_write_address;
    
@@ -124,6 +129,9 @@ module beta (
     p_A_acc_out = players.all_scores[7:0];
     p_A_cur_out = players.all_scores[15:8];   
     p_B_acc_out = players.all_scores[23:16];
-    p_B_cur_out = players.all_scores[31:24];   
+    p_B_cur_out = players.all_scores[31:24];  
+    dice12 = randoc.out;
+    
+     
   }
 }
