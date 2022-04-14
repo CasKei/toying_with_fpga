@@ -215,7 +215,7 @@ module game_CU (
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
         
-        // 
+        // bool? = 
         
         
         
