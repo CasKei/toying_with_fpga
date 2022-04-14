@@ -23,14 +23,14 @@ module game_CU (
   edge_detector det_p1hold(#RISE(1), #FALL(0), .clk(clk));
   edge_detector det_p2roll(#RISE(1), #FALL(0), .clk(clk));
   edge_detector det_p2hold(#RISE(1), #FALL(0), .clk(clk));
-  edge_detector det_rst(#RISE(1), #FALL(0), .clk(clk));
+  //edge_detector det_rst(#RISE(1), #FALL(0), .clk(clk));
 
   // button conditiners for all buttons
   button_conditioner p1roll (.clk(clk), .in(p1rollbtn));
   button_conditioner p1hold (.clk(clk), .in(p1holdbtn));
   button_conditioner p2roll (.clk(clk), .in(p2rollbtn));
   button_conditioner p2hold (.clk(clk), .in(p2holdbtn));
-  button_conditioner reset (.clk(clk), .in(rstgamebtn));
+  //button_conditioner reset (.clk(clk), .in(rstgamebtn));
   
   // registers (dffs) to store data
   dff st_p1curr[8] (#INIT(0), .clk(clk), .rst(rst));
@@ -83,37 +83,71 @@ module game_CU (
     // assignments if needed
     alu.a = 0;
     alu.b = 0;
-    alu.alufn = b111111;
+    alu.alufn = b111111; // no operation
+    
     
     // detect buttons
     det_p1roll.in = p1roll.out;
     det_p1hold.in = p1hold.out;
     det_p2roll.in = p2roll.out;
     det_p2hold.in = p2hold.out;
-    det_rst.in = reset.out;
+
     
     
-    // fsm
+// fsm
     case(game.q) {
     
-      // IDLE
+// IDLE
       game.IDLE:
-        // fixed outputs
-        
-        
-        
+        // fixed outputs: playerturn 0, p1curr, p1acc, p2curr, p2acc
+        // all init values are 0, so outputs here shld be all 0
+        playerturn = st_turn.q; // 0 is player 1 turn
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
+        currdice = st_currdice.q;
         
         if (det_p1roll.out || det_p1hold.out || det_p2roll.out || det_p2hold.out) {
           // use this to start game to P1_TURN
+          // basically press any button to initiate game
+          game.d = game.P1_TURN;
+        } else {
+          game.d = game.IDLE;
+        }
+        
+// P1_TURN (P1 starts game. Only starting state.)
+      game.P1_TURN:
+        // show all currently stored outputs
+        playerturn = st_turn.q; // 0 is player 1 turn
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
+        currdice = st_currdice.q;
+        
+        if (det_p1roll.out) {
+          st_currdice.d = diceroll.out;
+          currdice = st_currdice.q;
+          game.d = game.P1_CHANGE_DICE_SCORE;
+        } else if (det_p1hold.out) {
+          game.d = game.INCREASE_P1ACCSCORE;
+        } else {
           game.d = game.P1_TURN;
         }
-        game.d = game.IDLE;
-        
-        
-     // P1_TURN
-     game.P1_TURN:
-       // fixed outputs: playerturn 0, p1curr, p1acc, p2curr, p2acc
+
+               
        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     

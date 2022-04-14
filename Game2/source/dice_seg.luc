@@ -11,8 +11,6 @@ module dice_seg (
       3: segs = 7b1100110; //4
       4: segs = 7b1101101; //5
       5: segs = 7b1111101; //6
-      6: segs = 7b0000111; //7
-      7: segs = 7b1111111; //8
       default: segs = 7b0000000;
     }
   }
