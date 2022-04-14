@@ -116,7 +116,7 @@ module game_CU (
           game.d = game.IDLE;
         }
         
-// P1_TURN (P1 starts game. Only starting state.)
+// P1_TURN (P1 can choose roll or hold, else stay in state)
       game.P1_TURN:
         // show all currently stored outputs
         playerturn = st_turn.q; // 0 is player 1 turn
@@ -124,7 +124,7 @@ module game_CU (
         p1acc      = st_p1acc.q;       
         p2curr     = st_p2curr.q;
         p2acc      = st_p2acc.q;
-        currdice = st_currdice.q;
+        currdice   = st_currdice.q;
         
         if (det_p1roll.out) {
           st_currdice.d = diceroll.out;
@@ -136,14 +136,35 @@ module game_CU (
           game.d = game.P1_TURN;
         }
 
-               
-       
+// P1_CHANGE_DICE_SCORE (P1 has rolled and currdice is stored and displayed)
+      game.P1_CHANGE_DICE_SCORE:
+        // show all currently stored outputs
+        playerturn = st_turn.q; // 0 is player 1 turn
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
+        currdice   = st_currdice.q;
+        
+        // if currdice is 1: RESET_CURRENT_P1SCORE,
+        //else : P1_BRANCH_DICEROLL
+        if (st_currdice.q == 1) {
+          game.d = game.RESET_CURRENT_P1SCORE;
+        } else if (st_currdice.q == 0){
+          // this is an error, but catch and restart game
+          game.d = game.IDLE;
+        } else if (st_currdice.q == 2||st_currdice.q == 3||st_currdice.q == 4||st_currdice.q == 5||st_currdice.q == 6){
+          // rolled 2 to 6
+          game.d = game.P1_BRANCH_DICEROLL;
+        } else {
+          // final catch
+          game.d = game.P1_CHANGE_DICE_SCORE;
+        }
         
         
         
         
-        
-        
+        game.P1_BRANCH_DICEROLL:
         
         
         
