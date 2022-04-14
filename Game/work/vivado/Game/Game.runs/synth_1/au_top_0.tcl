@@ -84,23 +84,16 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/adder_16_11.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/alu_16_6.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/beta_2.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/boolean_16_12.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/button_conditioner_5.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/compare_16_14.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/counter_16.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/edge_detector_15.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/edge_detector_4.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/game_CU_7.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/button_conditioner_6.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/counter_8.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/dice_4.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/dice_seg_3.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/edge_detector_5.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/edge_detector_7.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/game_CU_1.v
   C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/pipeline_10.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/pn_gen_17.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/randomnumber_9.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/regfile_8.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/reset_conditioner_3.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/sevensegment_1.v
-  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/shifter_16_13.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/pn_gen_9.v
+  C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/reset_conditioner_2.v
   C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game/work/vivado/Game/Game.srcs/sources_1/imports/verilog/au_top_0.v
 }
 OPTRACE "Adding files" END { }

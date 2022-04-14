@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-| Date             : Wed Apr 13 16:34:10 2022
+| Date             : Thu Apr 14 17:55:00 2022
 | Host             : KC-LAPTOP running 64-bit major release  (build 9200)
 | Command          : report_power -file au_top_0_power_routed.rpt -pb au_top_0_power_summary_routed.pb -rpx au_top_0_power_routed.rpx
 | Design           : au_top_0
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.081        |
+| Total On-Chip Power (W)  | 0.075        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.009        |
+| Dynamic (W)              | 0.003        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
 | Max Ambient (C)          | 84.6         |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      243 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       42 |     20800 |            0.20 |
-|   Register     |    <0.001 |      171 |     41600 |            0.41 |
-|   CARRY4       |    <0.001 |       10 |      8150 |            0.12 |
-|   Others       |     0.000 |       11 |       --- |             --- |
-| Signals        |    <0.001 |      203 |       --- |             --- |
-| I/O            |     0.007 |       48 |       170 |           28.24 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      286 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       56 |     20800 |            0.27 |
+|   Register     |    <0.001 |      192 |     41600 |            0.46 |
+|   CARRY4       |    <0.001 |       12 |      8150 |            0.15 |
+|   Others       |     0.000 |       18 |       --- |             --- |
+| Signals        |    <0.001 |      224 |       --- |             --- |
+| I/O            |    <0.001 |       49 |       170 |           28.82 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.081 |          |           |                 |
+| Total          |     0.075 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Vccint    |       1.000 |     0.012 |       0.002 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -140,10 +140,10 @@ Table of Contents
 +---------------------+-----------+
 | Name                | Power (W) |
 +---------------------+-----------+
-| au_top_0            |     0.009 |
-|   b                 |     0.002 |
-|     randoc          |     0.002 |
-|       random_number |     0.002 |
+| au_top_0            |     0.003 |
+|   game              |     0.002 |
+|     dicedice        |     0.002 |
+|       random_number |     0.001 |
 +---------------------+-----------+
 
 

@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-| Date         : Wed Apr 13 16:33:09 2022
+| Date         : Thu Apr 14 17:54:23 2022
 | Host         : KC-LAPTOP running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |     7 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    21 |
+| Unused register locations in slices containing registers |    24 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -40,11 +40,11 @@ Table of Contents
 |       Fanout       | Count |
 +--------------------+-------+
 | Total control sets |     7 |
-| >= 0 to < 4        |     1 |
-| >= 4 to < 6        |     2 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     0 |
-| >= 10 to < 12      |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
 | >= 16              |     4 |
@@ -58,28 +58,28 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               1 |            1 |
+| No           | No                    | No                     |               9 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              26 |            7 |
-| Yes          | No                    | No                     |              43 |           13 |
+| No           | Yes                   | No                     |              35 |           11 |
+| Yes          | No                    | No                     |              21 |            9 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             101 |           24 |
+| Yes          | Yes                   | No                     |             127 |           29 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+-------------------------------------------+----------------------------+------------------+----------------+--------------+
-|  Clock Signal  |               Enable Signal               |      Set/Reset Signal      | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------+-------------------------------------------+----------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG |                                           |                            |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG |                                           | reset_cond/M_reset_cond_in |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | b/randoc/edge_detector_rng/M_last_q_reg_0 | reset_cond/Q[0]            |                3 |              5 |         1.67 |
-|  clk_IBUF_BUFG | b/randoc/clockk/M_edge_detector_rng_out   |                            |                4 |             16 |         4.00 |
-|  clk_IBUF_BUFG |                                           | reset_cond/Q[0]            |                6 |             22 |         3.67 |
-|  clk_IBUF_BUFG | b/randoc/edge_detector_rng/M_last_q_reg_0 |                            |                9 |             27 |         3.00 |
-|  clk_IBUF_BUFG | b/randoc/clockk/M_edge_detector_rng_out   | reset_cond/Q[0]            |               21 |             96 |         4.57 |
-+----------------+-------------------------------------------+----------------------------+------------------+----------------+--------------+
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                Enable Signal                |        Set/Reset Signal       | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG |                                             | reset_cond/M_reset_cond_in    |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG |                                             |                               |                4 |              9 |         2.25 |
+|  clk_IBUF_BUFG | game/dicedice/slowerclock/M_ctr_q_reg[24]_0 | reset_cond/Q[0]               |                6 |             11 |         1.83 |
+|  clk_IBUF_BUFG | game/dicedice/btnA/sel                      | game/dicedice/btnA/sync/clear |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | game/dicedice/slowerclock/M_ctr_q_reg[24]_0 |                               |                9 |             21 |         2.33 |
+|  clk_IBUF_BUFG |                                             | reset_cond/Q[0]               |                9 |             31 |         3.44 |
+|  clk_IBUF_BUFG | game/dicedice/edge_rng/E[0]                 | reset_cond/Q[0]               |               18 |             96 |         5.33 |
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+--------------+
 
 

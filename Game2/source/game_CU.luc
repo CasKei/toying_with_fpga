@@ -1,0 +1,123 @@
+module game_CU (
+    input clk,  // clock
+    input rst,  // reset
+    
+    // button inputs
+    input p1rollbtn,
+    input p1holdbtn,
+    input p2rollbtn,
+    input p2holdbtn,    
+    input rstgamebtn,
+    
+    // outputs
+    output playerturn[1],
+    output p1curr[8],
+    output p1acc[8],
+    output p2curr[8],
+    output p2acc[8],  
+    output currdice[3]
+  ) {
+
+  // edge detectors for all buttons
+  edge_detector det_p1roll(#RISE(1), #FALL(0), .clk(clk));
+  edge_detector det_p1hold(#RISE(1), #FALL(0), .clk(clk));
+  edge_detector det_p2roll(#RISE(1), #FALL(0), .clk(clk));
+  edge_detector det_p2hold(#RISE(1), #FALL(0), .clk(clk));
+  edge_detector det_rst(#RISE(1), #FALL(0), .clk(clk));
+
+  // button conditiners for all buttons
+  button_conditioner p1roll (.clk(clk), .in(p1rollbtn));
+  button_conditioner p1hold (.clk(clk), .in(p1holdbtn));
+  button_conditioner p2roll (.clk(clk), .in(p2rollbtn));
+  button_conditioner p2hold (.clk(clk), .in(p2holdbtn));
+  button_conditioner reset (.clk(clk), .in(rstgamebtn));
+  
+  // registers (dffs) to store data
+  dff st_p1curr[8] (#INIT(0), .clk(clk), .rst(rst));
+  dff st_p1acc[8] (#INIT(0), .clk(clk), .rst(rst));
+  dff st_p2curr[8] (#INIT(0), .clk(clk), .rst(rst));
+  dff st_p2acc[8] (#INIT(0), .clk(clk), .rst(rst));
+  dff st_currdice[3] (#INIT(0), .clk(clk), .rst(rst));
+  dff st_turn[1] (#INIT(0), .clk(clk), .rst(rst));
+  
+  // instantiate modules
+  alu_16 alu;
+  dice diceroll(.clk(clk), .rst(rst));
+  
+  // instantiate fsm
+  fsm game (.clk(clk), .rst(rst)) = {
+    IDLE,
+    P1_TURN,
+    P1_CHANGE_DICE_SCORE,
+    P1_BRANCH_DICEROLL,
+    //CHECK_P1BUTTONCOUNT,
+    BRANCH_P1BUTTON,
+    INCREASE_P1ACCSCORE,
+    RESET_CURRENT_P1SCORE,
+    INCREASE_P1_CURRENTSCORE,
+    SUM_P1POSSIBLESCORE,
+    CHECKP150,
+    BRANCH_P1CONDITION,
+    //P2 states
+    P2_TURN,
+    P2_CHANGE_DICE_SCORE,
+    P2_BRANCH_DICEROLL,
+    BRANCH_P2BUTTON,
+    INCREASE_P2ACCSCORE,
+    RESET_CURRENT_P2SCORE,
+    INCREASE_P2_CURRENTSCORE,
+    SUM_P2POSSIBLESCORE,
+    CHECKP250,
+    BRANCH_P2CONDITION,
+    RESET_COUNTER,
+    CHECK_WINNER,
+    BRANCH_WINNER,
+    P1WINS,
+    P2LOSE,
+    P2WINS,
+    P1LOSE,
+    GAMEOVER
+  };
+  
+  always {
+    // assignments if needed
+    alu.a = 0;
+    alu.b = 0;
+    alu.alufn = b111111;
+    
+    // detect buttons
+    det_p1roll.in = p1roll.out;
+    det_p1hold.in = p1hold.out;
+    det_p2roll.in = p2roll.out;
+    det_p2hold.in = p2hold.out;
+    det_rst.in = reset.out;
+    
+    
+    // fsm
+    case(game.q) {
+    
+      // IDLE
+      game.IDLE:
+        // fixed outputs
+        
+        
+        
+        
+        if (det_p1roll.out || det_p1hold.out || det_p2roll.out || det_p2hold.out) {
+          // use this to start game to P1_TURN
+          game.d = game.P1_TURN;
+        }
+        game.d = game.IDLE;
+        
+        
+     // P1_TURN
+     game.P1_TURN:
+       // fixed outputs: playerturn 0, p1curr, p1acc, p2curr, p2acc
+       
+    }
+    
+    
+    
+    
+  }
+}

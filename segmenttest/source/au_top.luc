@@ -17,18 +17,15 @@ module au_top (
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
-    reset_conditioner reset_cond;
-       
-    edge_detector edge_detector (#RISE(1), #FALL(0));
-       
+    reset_conditioner reset_cond;    
     .rst(rst) {
-      multi_seven_seg seg;
-      multi_dec_ctr dec_ctr;
-      counter ctr (#SIZE(1), #DIV(24));
-    }
+      dice dice8;
+    }  
   } 
+  dice_seg displayroll;
+
   
-  sig result [24];
+
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -37,16 +34,17 @@ module au_top (
     usb_tx = usb_rx;        // loop serial port
        
     led = 8h00;             // turn LEDs off
+    io_led = 3x{{8h00}};    // turn LEDs off
        
-    edge_detector.in = ctr.value;
-    dec_ctr.inc = edge_detector.out;
-    seg.values = dec_ctr.digits;
+    
+    dice8.rollbtn = 0;
+    dice8.rollbtn = io_button[0];
+    
+    displayroll.char = dice8.out;
+    
+    io_seg = ~displayroll.segs;
+    io_sel = ~4h1;
        
-    io_seg = ~seg.seg; // connect segments to the driver
-    io_sel = ~seg.sel; // connect digit select to the driver
        
-    result = io_dip[1] * io_dip[0]; // multiply the switch values
-       
-    io_led = $build(result, 3); // convert result from a 24-bit array to a 3x8 array
   }
 }

@@ -28,51 +28,32 @@ module au_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
-  wire [1-1:0] M_edge_detector_out;
-  reg [1-1:0] M_edge_detector_in;
-  edge_detector_2 edge_detector (
-    .clk(clk),
-    .in(M_edge_detector_in),
-    .out(M_edge_detector_out)
-  );
-  wire [7-1:0] M_seg_seg;
-  wire [4-1:0] M_seg_sel;
-  reg [16-1:0] M_seg_values;
-  multi_seven_seg_3 seg (
+  wire [3-1:0] M_dice8_out;
+  reg [1-1:0] M_dice8_rollbtn;
+  dice_2 dice8 (
     .clk(clk),
     .rst(rst),
-    .values(M_seg_values),
-    .seg(M_seg_seg),
-    .sel(M_seg_sel)
-  );
-  wire [16-1:0] M_dec_ctr_digits;
-  reg [1-1:0] M_dec_ctr_inc;
-  multi_dec_ctr_4 dec_ctr (
-    .clk(clk),
-    .rst(rst),
-    .inc(M_dec_ctr_inc),
-    .digits(M_dec_ctr_digits)
-  );
-  wire [1-1:0] M_ctr_value;
-  counter_5 ctr (
-    .clk(clk),
-    .rst(rst),
-    .value(M_ctr_value)
+    .rollbtn(M_dice8_rollbtn),
+    .out(M_dice8_out)
   );
   
-  reg [23:0] result;
+  wire [7-1:0] M_displayroll_segs;
+  reg [3-1:0] M_displayroll_char;
+  dice_seg_3 displayroll (
+    .char(M_displayroll_char),
+    .segs(M_displayroll_segs)
+  );
   
   always @* begin
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
     usb_tx = usb_rx;
     led = 8'h00;
-    M_edge_detector_in = M_ctr_value;
-    M_dec_ctr_inc = M_edge_detector_out;
-    M_seg_values = M_dec_ctr_digits;
-    io_seg = ~M_seg_seg;
-    io_sel = ~M_seg_sel;
-    result = io_dip[8+7-:8] * io_dip[0+7-:8];
-    io_led = result;
+    io_led = 24'h000000;
+    M_dice8_rollbtn = 1'h0;
+    M_dice8_rollbtn = io_button[0+0-:1];
+    M_displayroll_char = M_dice8_out;
+    io_seg = ~M_displayroll_segs;
+    io_sel = 4'he;
   end
 endmodule

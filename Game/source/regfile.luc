@@ -13,7 +13,6 @@ module regfile (
     
     //debug
     
-    output all_scores[32],
     output all_buttons[4],
 
     output counter_out[16]
@@ -78,11 +77,7 @@ module regfile (
       
     
     //For debugging
-    all_scores[15:0] = p_A__accScore.q;
-    all_scores[31:16] = p_B__accScore.q;
-    all_buttons[0] = p_A__curScore.q[0];
-    all_buttons[1] = p_B__curScore.q[1];
-    all_buttons[3:2] = diceScore.q[3:2];
+    all_buttons[3] = diceScore.q[3];
 
     counter_out = player_turn.q;
   }

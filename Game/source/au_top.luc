@@ -19,26 +19,26 @@ module au_top (
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     .rst(rst) {
-       sevensegment seg;
-       beta b;
+        game_CU game;
     }
     
     reset_conditioner reset_cond;
     
-    edge_detector edgep1_roll (#RISE(1), #FALL(0));
-    edge_detector edgep1_hold (#RISE(1), #FALL(0));
-    edge_detector edgep2_roll (#RISE(1), #FALL(0));
-    edge_detector edgep2_hold (#RISE(1), #FALL(0));
-
-    button_conditioner p1_roll; 
-    button_conditioner p1_hold;
-    button_conditioner p2_roll;
-    button_conditioner p2_hold; 
-    
 
   }
+  dice_seg display;
   
   always {
+  
+    game.p1_rolldicebutton = io_button[0];
+    game.p1_holdbutton = io_button[1];
+    game.p2_rolldicebutton = io_button[2];
+    game.p2_holdbutton = io_button[3];
+    game.regfile_datain = 0;
+    
+    
+    
+    
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
     
@@ -51,33 +51,10 @@ module au_top (
     io_sel = 4hf;           // select no digits
     
     
-    
-    p1_roll.in = io_button[3];
-    p1_hold.in = io_button[2];
-    p2_roll.in = io_button[4];
-    p2_hold.in = io_button[0];
-    
-    edgep1_roll.in = p1_roll.out;
-    edgep1_hold.in = p1_hold.out;
-    edgep2_roll.in = p2_roll.out;
-    edgep2_hold.in = p2_hold.out;
-    
-    b.p1_rolldicebutton = edgep1_roll.out;
-    b.p1_holdbutton = edgep1_hold.out;
-    b.p2_rolldicebutton = edgep2_roll.out;
-    b.p2_holdbutton = edgep2_hold.out;
-    
-    
-    
-    
-    seg.char = b.dice12;
-    io_seg = ~seg.segs;
+
+    io_seg = ~display.segs;
+    display.char = game.diceout;
     io_sel = ~4h1;
-    
-    
-    
-    
-    
     
     
   }

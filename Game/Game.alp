@@ -8,17 +8,16 @@
     <component>reset_conditioner.luc</component>
     <src>regfile.luc</src>
     <src>compare_16.luc</src>
-    <src>decimalcounter.luc</src>
     <component>button_conditioner.luc</component>
-    <src>sevensegment.luc</src>
     <src>beta.luc</src>
     <component>decoder.luc</component>
     <src>game_CU.luc</src>
     <component>counter.luc</component>
+    <src>dice.luc</src>
     <src>adder_16.luc</src>
     <component>pipeline.luc</component>
     <component>edge_detector.luc</component>
-    <src>randomnumber.luc</src>
+    <src>dice_seg.luc</src>
     <src>boolean_16.luc</src>
     <constraint lib="true">au.xdc</constraint>
     <constraint>custom.acf</constraint>
