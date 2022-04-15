@@ -18,12 +18,12 @@ module game_CU (
     output currdice[3]
   ) {
 
-  // edge detectors for all buttons
-  edge_detector det_p1roll (#RISE(1), #FALL(0), .clk(clk));
-  edge_detector det_p1hold (#RISE(1), #FALL(0), .clk(clk));
-  edge_detector det_p2roll (#RISE(1), #FALL(0), .clk(clk));
-  edge_detector det_p2hold (#RISE(1), #FALL(0), .clk(clk));
-  //edge_detector det_rst(#RISE(1), #FALL(0), .clk(clk));
+  // edge detectors
+  edge_detector det_p1roll   (#RISE(1), #FALL(0), .clk(clk));
+  edge_detector det_p1hold   (#RISE(1), #FALL(0), .clk(clk));
+  edge_detector det_p2roll   (#RISE(1), #FALL(0), .clk(clk));
+  edge_detector det_p2hold   (#RISE(1), #FALL(0), .clk(clk));
+  edge_detector det_diceroll (#RISE(1), #FALL(0), .clk(clk));
 
   // button conditiners for all buttons
   button_conditioner p1roll (.clk(clk), .in(p1rollbtn));
@@ -42,8 +42,10 @@ module game_CU (
   dff st_win[1]      (#INIT(0), .clk(clk), .rst(rst));
   dff temp[16]       (#INIT(0), .clk(clk), .rst(rst));
   
-  const ZERO = 0;
-  const WIN = 50; 
+  
+  var a;
+  var b;
+  var alufn;
   
   // instantiate modules
   alu_16 alu;
@@ -71,11 +73,12 @@ module game_CU (
   };
   
   always {
+  
     // assignments if needed
-    alu.a     = 0;
-    alu.b     = 0;
-    alu.alufn = b111111; // no operation
-    temp.d    = alu.out;
+    alu.a     = a;
+    alu.b     = b;
+    alu.alufn = alufn; // no operation
+    //alu_out    = alu.out;
     playerturn = 0;
     p1curr     = 0;
     p1acc      = 0;
@@ -83,12 +86,13 @@ module game_CU (
     p2acc      = 0;
     currdice   = 0;
     
-    // detect buttons
+    
+    // detect
     det_p1roll.in = p1roll.out;
     det_p1hold.in = p1hold.out;
     det_p2roll.in = p2roll.out;
     det_p2hold.in = p2hold.out;
-    diceroll.rollbtn = 0;
+    det_diceroll.in = diceroll.out;
     
     
 // fsm
@@ -120,16 +124,9 @@ module game_CU (
 // else : stay in state
       game.P1_TURN:
         st_turn.d = 0;
-        // show all currently stored outputs
-        playerturn = st_turn.q; // 0 is player 1 turn
-        p1curr     = st_p1curr.q;
-        p1acc      = st_p1acc.q;       
-        //p2curr     = st_p2curr.q;
-        //p2acc      = st_p2acc.q;
-        currdice   = st_currdice.q;
+
         
         if (det_p1roll.out) { // roll
-          diceroll.rollbtn = det_p1roll.out;
           st_currdice.d = diceroll.out; // st_currdice updated
           currdice = st_currdice.q;
           game.d = game.P1_ROLL;
@@ -138,7 +135,13 @@ module game_CU (
         } else {
           game.d = game.P1_TURN;
         }
-
+        // show all currently stored outputs
+        playerturn = st_turn.q; // 0 is player 1 turn
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
+        //p2curr     = st_p2curr.q;
+        //p2acc      = st_p2acc.q;
+        currdice   = st_currdice.q;
         
 // P2_TURN (P2 can choose roll or hold, else stay in state)
 // if roll: run dice, store dice.out in st_currdice and show
@@ -155,7 +158,6 @@ module game_CU (
         currdice   = st_currdice.q;
         
         if (det_p2roll.out) { // roll
-          diceroll.rollbtn = det_p2roll.out;
           st_currdice.d = diceroll.out; // st_currdice updated
           currdice = st_currdice.q;
           game.d = game.P2_ROLL;
@@ -278,7 +280,7 @@ module game_CU (
         
         // P1CURR = P1CURR * ZERO
         alu.a = st_p1curr.q;
-        alu.b = ZERO;
+        alu.b = 0;
         alu.alufn = b001000;
         st_p1curr.d = alu.out; // p1curr back to 0
         
@@ -300,7 +302,7 @@ module game_CU (
         
         // P2CURR = P2CURR * ZERO
         alu.a = st_p1curr.q;
-        alu.b = ZERO;
+        alu.b = 0;
         alu.alufn = b001000;
         st_p1curr.d = alu.out; // p1curr back to 0
         
@@ -328,6 +330,12 @@ module game_CU (
         alu.alufn = b000000;
         st_p1acc.d = alu.out; // update
         
+        // P1CURR = P1CURR * ZERO
+        alu.a = st_p1curr.q;
+        alu.b = 0;
+        alu.alufn = b001000;
+        st_p1curr.d = alu.out;
+        
         // move to check if new P1ACC can win (CHKP150)
         game.d = game.CHKP150;
         
@@ -350,6 +358,12 @@ module game_CU (
         alu.alufn = b000000;
         st_p2acc.d = alu.out; // update
         
+        // P2CURR = P2CURR * ZERO
+        alu.a = st_p2curr.q;
+        alu.b = 0;
+        alu.alufn = b001000;
+        st_p2curr.d = alu.out;
+        
         // move to check if new P2ACC can win (CHKP250)
         game.d = game.CHKP250;        
         
@@ -359,7 +373,7 @@ module game_CU (
         
            
 // CHKP150 (p1acc is updated, check if >= 50)
-// win = CMPLE( WIN , st_p1acc.q)
+// win = CMPLE( 50 , st_p1acc.q)
 // if win: move to P1WIN, else: move to P2_TURN
       game.CHKP150:
         // show all currently stored outputs
@@ -370,21 +384,21 @@ module game_CU (
         //p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
 
-        // win = CMPLE( WIN , st_p1acc.q)
-        alu.a = WIN;
+        // win = CMPLE( 50 , st_p1acc.q)
+        alu.a = 50;
         alu.b = st_p1acc.q;
         alu.alufn = b110111;
         st_win.d = alu.out;
         
-        if (st_win.q == 1) {
-          game.d = game.P1WIN;
-        } else {
+        if (st_win.q == 0) {
           game.d = game.P2_TURN;
+        } else {
+          game.d = game.P1WIN;
         }
         
         
 // CHKP250 (p1acc is updated, check if >= 50)
-// win = CMPLE( WIN , st_p2acc.q)
+// win = CMPLE( 50 , st_p2acc.q)
 // if win: move to P1WIN, else: move to P2_TURN
       game.CHKP250:
         // show all currently stored outputs
@@ -395,16 +409,16 @@ module game_CU (
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
 
-        // win = CMPLE( WIN , st_p2acc.q)
-        alu.a = WIN;
+        // win = CMPLE( 50 , st_p2acc.q)
+        alu.a = 50;
         alu.b = st_p2acc.q;
         alu.alufn = b110111;
         st_win.d = alu.out;
         
-        if (st_win.q == 1) {
-          game.d = game.P2WIN;
-        } else {
+        if (st_win.q == 0) {
           game.d = game.P1_TURN;
+        } else {
+          game.d = game.P2WIN;
         }
         
         
@@ -438,8 +452,7 @@ module game_CU (
         game.d = game.P2WIN; // stay here
     }
     
-    
-    
+
     
   }
 }

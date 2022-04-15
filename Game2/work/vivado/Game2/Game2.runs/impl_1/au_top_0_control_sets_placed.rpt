@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-| Date         : Fri Apr 15 13:31:03 2022
+| Date         : Fri Apr 15 17:26:32 2022
 | Host         : KC-LAPTOP running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    15 |
-|    Minimum number of control sets                        |    15 |
+| Total control sets                                       |    14 |
+|    Minimum number of control sets                        |    14 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    39 |
+| Unused register locations in slices containing registers |    36 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    15 |
+| Total control sets |    14 |
 | >= 0 to < 4        |     0 |
-| >= 4 to < 6        |     0 |
+| >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     4 |
 | >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
-| >= 14 to < 16      |     1 |
-| >= 16              |     9 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     8 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,36 +58,35 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              21 |            9 |
+| No           | No                    | No                     |              18 |           10 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              33 |           10 |
-| Yes          | No                    | No                     |              21 |            7 |
+| No           | Yes                   | No                     |              30 |            9 |
+| Yes          | No                    | No                     |              21 |            6 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             254 |           74 |
+| Yes          | Yes                   | No                     |             223 |           58 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+-------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
-|  Clock Signal  |               Enable Signal               |              Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------+-------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG | game/alu/adder/FSM_onehot_M_game_q_reg[7] | io_button_IBUF[1]                         |                4 |              8 |         2.00 |
-|  clk_IBUF_BUFG | game/M_st_p2curr_d                        | io_button_IBUF[1]                         |                5 |              8 |         1.60 |
-|  clk_IBUF_BUFG | game/M_st_p1acc_d                         | io_button_IBUF[1]                         |                5 |              8 |         1.60 |
-|  clk_IBUF_BUFG | game/M_st_p2acc_d                         | io_button_IBUF[1]                         |                5 |              8 |         1.60 |
-|  clk_IBUF_BUFG | game/diceroll/edge_rng/M_last_q_reg_0     | io_button_IBUF[1]                         |                6 |             11 |         1.83 |
-|  clk_IBUF_BUFG | game/FSM_onehot_M_game_q[14]_i_1_n_0      | io_button_IBUF[1]                         |                6 |             15 |         2.50 |
-|  clk_IBUF_BUFG | game/p2hold/M_ctr_q[0]_i_2__2_n_0         | game/p2hold/sync/M_pipe_q_reg[1]_0        |                5 |             20 |         4.00 |
-|  clk_IBUF_BUFG | game/p2roll/M_ctr_q[0]_i_2__1_n_0         | game/p2roll/sync/M_pipe_q_reg[1]_0        |                5 |             20 |         4.00 |
-|  clk_IBUF_BUFG | game/diceroll/btnA/M_ctr_q[0]_i_2__3_n_0  | game/diceroll/btnA/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
-|  clk_IBUF_BUFG | game/p1hold/M_ctr_q[0]_i_2__0_n_0         | game/p1hold/sync/M_pipe_q_reg[1]_0        |                5 |             20 |         4.00 |
-|  clk_IBUF_BUFG | game/p1roll/sel                           | game/p1roll/sync/clear                    |                5 |             20 |         4.00 |
-|  clk_IBUF_BUFG |                                           |                                           |                9 |             21 |         2.33 |
-|  clk_IBUF_BUFG | game/diceroll/edge_rng/M_last_q_reg_0     |                                           |                7 |             21 |         3.00 |
-|  clk_IBUF_BUFG |                                           | io_button_IBUF[1]                         |               10 |             33 |         3.30 |
-|  clk_IBUF_BUFG | game/diceroll/slowerclock/E[0]            | io_button_IBUF[1]                         |               18 |             96 |         5.33 |
-+----------------+-------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
++----------------+--------------------------------------------------+------------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                   Enable Signal                  |          Set/Reset Signal          | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+--------------------------------------------------+------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | game/FSM_sequential_M_game_q[3]_i_1_n_0          | io_button_IBUF[1]                  |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | game/alu/adder/E[0]                              | io_button_IBUF[1]                  |                5 |              8 |         1.60 |
+|  clk_IBUF_BUFG | game/alu/adder/FSM_sequential_M_game_q_reg[1][0] | io_button_IBUF[1]                  |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | game/M_st_p2acc_d                                | io_button_IBUF[1]                  |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | game/M_st_p1acc_d                                | io_button_IBUF[1]                  |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | game/diceroll/slowerclock/M_ctr_q_reg[24]_0      | io_button_IBUF[1]                  |                5 |             11 |         2.20 |
+|  clk_IBUF_BUFG |                                                  |                                    |               10 |             18 |         1.80 |
+|  clk_IBUF_BUFG | game/p2roll/M_ctr_q_reg[4]_0                     | game/p2roll/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | game/p1hold/M_ctr_q_reg[4]_0                     | game/p1hold/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | game/p1roll/sel                                  | game/p1roll/sync/clear             |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | game/p2hold/M_ctr_q_reg[4]_0                     | game/p2hold/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | game/diceroll/slowerclock/M_ctr_q_reg[24]_0      |                                    |                6 |             21 |         3.50 |
+|  clk_IBUF_BUFG |                                                  | io_button_IBUF[1]                  |                9 |             30 |         3.33 |
+|  clk_IBUF_BUFG | game/diceroll/edge_rng/E[0]                      | io_button_IBUF[1]                  |               16 |             96 |         6.00 |
++----------------+--------------------------------------------------+------------------------------------+------------------+----------------+--------------+
 
 

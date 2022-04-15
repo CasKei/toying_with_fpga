@@ -19,6 +19,7 @@ module au_top (
     reset_conditioner reset_cond;
   }
   
+  
   game_CU game (.clk(clk), .rst(io_button[1]));
   dice_seg seg;
   

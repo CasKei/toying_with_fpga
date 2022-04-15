@@ -9,7 +9,6 @@
      SEED = 128h843233523a613966423b622562592c62
 */
 module dice_7 (
-    input rollbtn,
     input clk,
     input rst,
     output reg [2:0] out
@@ -17,23 +16,6 @@ module dice_7 (
   
   localparam SEED = 128'h843233523a613966423b622562592c62;
   
-  
-  reg [2:0] M_dice_out_d, M_dice_out_q = 1'h0;
-  
-  wire [1-1:0] M_detector_a_out;
-  reg [1-1:0] M_detector_a_in;
-  edge_detector_4 detector_a (
-    .clk(clk),
-    .in(M_detector_a_in),
-    .out(M_detector_a_out)
-  );
-  
-  wire [1-1:0] M_btnA_out;
-  button_conditioner_5 btnA (
-    .clk(clk),
-    .in(rollbtn),
-    .out(M_btnA_out)
-  );
   
   wire [1-1:0] M_edge_rng_out;
   reg [1-1:0] M_edge_rng_in;
@@ -71,7 +53,6 @@ module dice_7 (
   always @* begin
     M_numhold_d = M_numhold_q;
     M_seed_d = M_seed_q;
-    M_dice_out_d = M_dice_out_q;
     
     out = 3'h7;
     M_random_number_seed = M_seed_q;
@@ -82,21 +63,8 @@ module dice_7 (
       M_seed_d = M_seed_q + 1'h1;
     end
     M_numhold_d = M_random_number_num[0+4-:5] / 3'h6 + 1'h1;
-    M_detector_a_in = M_btnA_out;
-    if (M_detector_a_out) begin
-      M_dice_out_d = M_numhold_q;
-    end
-    out = M_dice_out_q;
+    out = M_numhold_q;
   end
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_dice_out_q <= 1'h0;
-    end else begin
-      M_dice_out_q <= M_dice_out_d;
-    end
-  end
-  
   
   always @(posedge clk) begin
     M_seed_q <= M_seed_d;
