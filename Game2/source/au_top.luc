@@ -19,6 +19,9 @@ module au_top (
     reset_conditioner reset_cond;
   }
   
+  game_CU game (.clk(clk), .rst(io_button[1]));
+  dice_seg seg;
+  
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
@@ -30,5 +33,23 @@ module au_top (
     io_led = 3x{{8h00}};    // turn LEDs off
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
+    
+    
+    // test
+    game.p1rollbtn = io_button[3];
+    game.p2rollbtn = io_button[4];
+    game.p1holdbtn = io_button[0];
+    game.p2holdbtn = io_button[2];
+    seg.char = game.currdice;
+    
+    io_led[0][0] = game.playerturn;
+    io_led[0][1] = ~game.playerturn;
+    io_led[1] = game.p1curr;
+    io_led[1] = game.p2curr;
+    io_led[2] = game.p1acc;
+    io_led[2] = game.p2acc;
+    io_seg = ~seg.segs;
+    io_sel = ~4h1;
+
   }
 }

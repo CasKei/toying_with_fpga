@@ -32,7 +32,7 @@ SEED = 128h843233523a613966423b622562592c62: SEED.WIDTH == 128 && SEED[95:0] != 
       if(edge_seed.out) {
         seed.d = seed.q + 1;
       }
-      numhold.d = random_number.num[4:0] / 6;
+      numhold.d = random_number.num[4:0] / 6 + 1;
 
       detector_a.in = btnA.out;
       if (detector_a.out) {
