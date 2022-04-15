@@ -39,13 +39,14 @@ module game_CU (
   dff st_p2acc[8]    (#INIT(0), .clk(clk), .rst(rst));
   dff st_currdice[3] (#INIT(0), .clk(clk), .rst(rst));
   dff st_turn[1]     (#INIT(0), .clk(clk), .rst(rst));
-  dff st_win[1]      (#INIT(0), .clk(clk), .rst(rst));
+  //dff st_win[1]      (#INIT(0), .clk(clk), .rst(rst));
   dff temp[16]       (#INIT(0), .clk(clk), .rst(rst));
   
   
-  var a;
-  var b;
-  var alufn;
+  var a[16];
+  var b[16];
+  var alufn[6];
+  var win[2];
   
   // instantiate modules
   alu_16 alu;
@@ -79,6 +80,9 @@ module game_CU (
     alu.b     = b;
     alu.alufn = alufn; // no operation
     //alu_out    = alu.out;
+    win       = 0;
+    
+    
     playerturn = 0;
     p1curr     = 0;
     p1acc      = 0;
@@ -108,6 +112,7 @@ module game_CU (
         //p2curr     = st_p2curr.q;
         //p2acc      = st_p2acc.q;
         //currdice = st_currdice.q;
+
         
         if (det_p1roll.out || det_p1hold.out || det_p2roll.out || det_p2hold.out) {
           // use this to start game to P1_TURN
@@ -139,8 +144,8 @@ module game_CU (
         playerturn = st_turn.q; // 0 is player 1 turn
         p1curr     = st_p1curr.q;
         p1acc      = st_p1acc.q;       
-        //p2curr     = st_p2curr.q;
-        //p2acc      = st_p2acc.q;
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
         
 // P2_TURN (P2 can choose roll or hold, else stay in state)
@@ -151,8 +156,8 @@ module game_CU (
         st_turn.d = 1;
         // show all currently stored outputs
         playerturn = st_turn.q; // 1 is player 2 turn
-        //p1curr     = st_p1curr.q;
-        //p1acc      = st_p1acc.q;       
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
         p2curr     = st_p2curr.q;
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
@@ -175,8 +180,8 @@ module game_CU (
         playerturn = st_turn.q; // 0 is player 1 turn
         p1curr     = st_p1curr.q;
         p1acc      = st_p1acc.q;       
-        //p2curr     = st_p2curr.q;
-        //p2acc      = st_p2acc.q;
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
         currdice   = st_currdice.q; // now has updated value from TURN
         
         // if currdice is 1: RESET_CURRENT_P1SCORE,
@@ -200,8 +205,8 @@ module game_CU (
       game.P2_ROLL:
         // show all currently stored outputs
         playerturn = st_turn.q; // 1 is player 2 turn
-        //p1curr     = st_p1curr.q;
-        //p1acc      = st_p1acc.q;       
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
         p2curr     = st_p2curr.q;
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q; // now has updated value from TURN
@@ -218,7 +223,7 @@ module game_CU (
           game.d = game.UPDATEP2CURR;
         } else {
           // final catch
-          game.d = game.P1_ROLL;
+          game.d = game.P2_ROLL;
         }
         
          
@@ -230,8 +235,8 @@ module game_CU (
         playerturn = st_turn.q; // 0 is player 1 turn
         p1curr     = st_p1curr.q;
         p1acc      = st_p1acc.q;       
-        //p2curr     = st_p2curr.q;
-        //p2acc      = st_p2acc.q;
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
         
         // p1curr = old p1curr + currdice
@@ -250,8 +255,8 @@ module game_CU (
       game.UPDATEP2CURR:
         // show all currently stored outputs
         playerturn = st_turn.q; // 1 is player 2 turn
-        //p1curr     = st_p1curr.q;
-        //p1acc      = st_p1acc.q;       
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
         p2curr     = st_p2curr.q;
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
@@ -274,8 +279,8 @@ module game_CU (
         playerturn = st_turn.q; // 0 is player 1 turn
         p1curr     = st_p1curr.q;
         p1acc      = st_p1acc.q;       
-        //p2curr     = st_p2curr.q;
-        //p2acc      = st_p2acc.q;
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
         
         // P1CURR = P1CURR * ZERO
@@ -294,17 +299,17 @@ module game_CU (
       game.RESET_P2CURR:
         // show all currently stored outputs
         playerturn = st_turn.q; // 1 is player 2 turn
-        //p1curr     = st_p1curr.q;
-        //p1acc      = st_p1acc.q;       
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
         p2curr     = st_p2curr.q;
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
         
         // P2CURR = P2CURR * ZERO
-        alu.a = st_p1curr.q;
+        alu.a = st_p2curr.q;
         alu.b = 0;
         alu.alufn = b001000;
-        st_p1curr.d = alu.out; // p1curr back to 0
+        st_p2curr.d = alu.out; // p1curr back to 0
         
         // move to P1_TURN
         game.d = game.P1_TURN;
@@ -320,8 +325,8 @@ module game_CU (
         playerturn = st_turn.q; // 0 is player 1 turn
         p1curr     = st_p1curr.q; // has sum of all added rolls
         p1acc      = st_p1acc.q;       
-        //p2curr     = st_p2curr.q;
-        //p2acc      = st_p2acc.q;
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
         
         // P1ACC = P1ACC + P1CURR
@@ -346,8 +351,8 @@ module game_CU (
       game.UPDATEP2ACC:
         // show all currently stored outputs
         playerturn = st_turn.q; // 1 is player 2 turn
-        //p1curr     = st_p1curr.q; // has sum of all added rolls
-        //p1acc      = st_p1acc.q;       
+        p1curr     = st_p1curr.q; // has sum of all added rolls
+        p1acc      = st_p1acc.q;       
         p2curr     = st_p2curr.q;
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
@@ -380,20 +385,22 @@ module game_CU (
         playerturn = st_turn.q; // 0 is player 1 turn
         p1curr     = st_p1curr.q;
         p1acc      = st_p1acc.q;       
-        //p2curr     = st_p2curr.q;
-        //p2acc      = st_p2acc.q;
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
 
         // win = CMPLE( 50 , st_p1acc.q)
         alu.a = 50;
         alu.b = st_p1acc.q;
         alu.alufn = b110111;
-        st_win.d = alu.out;
+        win = alu.out[0];
         
-        if (st_win.q == 0) {
+        if (win == 0) {
           game.d = game.P2_TURN;
-        } else {
+        } else if (win == 1) {
           game.d = game.P1WIN;
+        } else {
+          game.d = game.IDLE;
         }
         
         
@@ -403,8 +410,8 @@ module game_CU (
       game.CHKP250:
         // show all currently stored outputs
         playerturn = st_turn.q; // 1 is player 2 turn
-        //p1curr     = st_p1curr.q;
-        //p1acc      = st_p1acc.q;       
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
         p2curr     = st_p2curr.q;
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
@@ -413,12 +420,14 @@ module game_CU (
         alu.a = 50;
         alu.b = st_p2acc.q;
         alu.alufn = b110111;
-        st_win.d = alu.out;
+        win = alu.out[0] + 1;
         
-        if (st_win.q == 0) {
+        if (win == 0) {
           game.d = game.P1_TURN;
-        } else {
+        } else if (win == 2) {
           game.d = game.P2WIN;
+        } else {
+          game.d = game.IDLE;
         }
         
         
@@ -428,8 +437,8 @@ module game_CU (
         playerturn = st_turn.q; // 0 is player 1 turn
         p1curr     = st_p1curr.q;
         p1acc      = st_p1acc.q;       
-        //p2curr     = st_p2curr.q;
-        //p2acc      = st_p2acc.q;
+        p2curr     = st_p2curr.q;
+        p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;
         
         st_turn.d = 0; // make sure p1 light up
@@ -441,8 +450,8 @@ module game_CU (
       game.P2WIN:
         // show all currently stored outputs
         playerturn = st_turn.q; // 1 is player 2 turn
-        //p1curr     = st_p1curr.q;
-        //p1acc      = st_p1acc.q;       
+        p1curr     = st_p1curr.q;
+        p1acc      = st_p1acc.q;       
         p2curr     = st_p2curr.q;
         p2acc      = st_p2acc.q;
         currdice   = st_currdice.q;

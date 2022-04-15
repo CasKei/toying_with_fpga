@@ -75,11 +75,9 @@ module au_top_0 (
     M_game_p2holdbtn = io_button[2+0-:1];
     M_seg_char = M_game_currdice;
     io_led[0+0+0-:1] = M_game_playerturn;
-    io_led[0+1+0-:1] = ~M_game_playerturn;
-    io_led[8+7-:8] = M_game_p1curr;
+    io_led[0+7+0-:1] = ~M_game_playerturn;
     io_led[8+7-:8] = M_game_p2curr;
-    io_led[16+7-:8] = M_game_p1acc;
-    io_led[16+7-:8] = M_game_p2acc;
+    io_led[16+7-:8] = M_game_p1curr;
     io_seg = ~M_seg_segs;
     io_sel = 4'he;
   end

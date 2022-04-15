@@ -101,15 +101,15 @@ module game_CU_2 (
   
   reg [0:0] M_st_turn_d, M_st_turn_q = 1'h0;
   
-  reg [0:0] M_st_win_d, M_st_win_q = 1'h0;
-  
   reg [15:0] M_temp_d, M_temp_q = 1'h0;
   
-  integer a;
+  integer [15:0] a;
   
-  integer b;
+  integer [15:0] b;
   
-  integer alufn;
+  integer [5:0] alufn;
+  
+  integer [1:0] win;
   
   wire [16-1:0] M_alu_out;
   wire [1-1:0] M_alu_z;
@@ -156,7 +156,6 @@ module game_CU_2 (
   
   always @* begin
     M_game_d = M_game_q;
-    M_st_win_d = M_st_win_q;
     M_st_currdice_d = M_st_currdice_q;
     M_st_turn_d = M_st_turn_q;
     M_st_p2curr_d = M_st_p2curr_q;
@@ -167,6 +166,7 @@ module game_CU_2 (
     M_alu_a = a;
     M_alu_b = b;
     M_alu_alufn = alufn;
+    win = 1'h0;
     playerturn = 1'h0;
     p1curr = 1'h0;
     p1acc = 1'h0;
@@ -203,11 +203,15 @@ module game_CU_2 (
         playerturn = M_st_turn_q;
         p1curr = M_st_p1curr_q;
         p1acc = M_st_p1acc_q;
+        p2curr = M_st_p2curr_q;
+        p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
       end
       P2_TURN_game: begin
         M_st_turn_d = 1'h1;
         playerturn = M_st_turn_q;
+        p1curr = M_st_p1curr_q;
+        p1acc = M_st_p1acc_q;
         p2curr = M_st_p2curr_q;
         p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
@@ -227,6 +231,8 @@ module game_CU_2 (
         playerturn = M_st_turn_q;
         p1curr = M_st_p1curr_q;
         p1acc = M_st_p1acc_q;
+        p2curr = M_st_p2curr_q;
+        p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
         if (M_st_currdice_q == 1'h1) begin
           M_game_d = RESET_P1CURR_game;
@@ -244,6 +250,8 @@ module game_CU_2 (
       end
       P2_ROLL_game: begin
         playerturn = M_st_turn_q;
+        p1curr = M_st_p1curr_q;
+        p1acc = M_st_p1acc_q;
         p2curr = M_st_p2curr_q;
         p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
@@ -256,7 +264,7 @@ module game_CU_2 (
             if (M_st_currdice_q == 2'h2 || M_st_currdice_q == 2'h3 || M_st_currdice_q == 3'h4 || M_st_currdice_q == 3'h5 || M_st_currdice_q == 3'h6) begin
               M_game_d = UPDATEP2CURR_game;
             end else begin
-              M_game_d = P1_ROLL_game;
+              M_game_d = P2_ROLL_game;
             end
           end
         end
@@ -265,6 +273,8 @@ module game_CU_2 (
         playerturn = M_st_turn_q;
         p1curr = M_st_p1curr_q;
         p1acc = M_st_p1acc_q;
+        p2curr = M_st_p2curr_q;
+        p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
         M_alu_a = M_st_p1curr_q;
         M_alu_b = M_st_currdice_q;
@@ -274,6 +284,8 @@ module game_CU_2 (
       end
       UPDATEP2CURR_game: begin
         playerturn = M_st_turn_q;
+        p1curr = M_st_p1curr_q;
+        p1acc = M_st_p1acc_q;
         p2curr = M_st_p2curr_q;
         p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
@@ -287,6 +299,8 @@ module game_CU_2 (
         playerturn = M_st_turn_q;
         p1curr = M_st_p1curr_q;
         p1acc = M_st_p1acc_q;
+        p2curr = M_st_p2curr_q;
+        p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
         M_alu_a = M_st_p1curr_q;
         M_alu_b = 1'h0;
@@ -296,19 +310,23 @@ module game_CU_2 (
       end
       RESET_P2CURR_game: begin
         playerturn = M_st_turn_q;
+        p1curr = M_st_p1curr_q;
+        p1acc = M_st_p1acc_q;
         p2curr = M_st_p2curr_q;
         p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
-        M_alu_a = M_st_p1curr_q;
+        M_alu_a = M_st_p2curr_q;
         M_alu_b = 1'h0;
         M_alu_alufn = 6'h08;
-        M_st_p1curr_d = M_alu_out;
+        M_st_p2curr_d = M_alu_out;
         M_game_d = P1_TURN_game;
       end
       UPDATEP1ACC_game: begin
         playerturn = M_st_turn_q;
         p1curr = M_st_p1curr_q;
         p1acc = M_st_p1acc_q;
+        p2curr = M_st_p2curr_q;
+        p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
         M_alu_a = M_st_p1acc_q;
         M_alu_b = M_st_p1curr_q;
@@ -322,6 +340,8 @@ module game_CU_2 (
       end
       UPDATEP2ACC_game: begin
         playerturn = M_st_turn_q;
+        p1curr = M_st_p1curr_q;
+        p1acc = M_st_p1acc_q;
         p2curr = M_st_p2curr_q;
         p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
@@ -339,42 +359,58 @@ module game_CU_2 (
         playerturn = M_st_turn_q;
         p1curr = M_st_p1curr_q;
         p1acc = M_st_p1acc_q;
+        p2curr = M_st_p2curr_q;
+        p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
         M_alu_a = 6'h32;
         M_alu_b = M_st_p1acc_q;
         M_alu_alufn = 6'h37;
-        M_st_win_d = M_alu_out;
-        if (M_st_win_q == 1'h0) begin
+        win = M_alu_out[0+0-:1];
+        if (win == 1'h0) begin
           M_game_d = P2_TURN_game;
         end else begin
-          M_game_d = P1WIN_game;
+          if (win == 1'h1) begin
+            M_game_d = P1WIN_game;
+          end else begin
+            M_game_d = IDLE_game;
+          end
         end
       end
       CHKP250_game: begin
         playerturn = M_st_turn_q;
+        p1curr = M_st_p1curr_q;
+        p1acc = M_st_p1acc_q;
         p2curr = M_st_p2curr_q;
         p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
         M_alu_a = 6'h32;
         M_alu_b = M_st_p2acc_q;
         M_alu_alufn = 6'h37;
-        M_st_win_d = M_alu_out;
-        if (M_st_win_q == 1'h0) begin
+        win = M_alu_out[0+0-:1] + 1'h1;
+        if (win == 1'h0) begin
           M_game_d = P1_TURN_game;
         end else begin
-          M_game_d = P2WIN_game;
+          if (win == 2'h2) begin
+            M_game_d = P2WIN_game;
+          end else begin
+            M_game_d = IDLE_game;
+          end
         end
       end
       P1WIN_game: begin
         playerturn = M_st_turn_q;
         p1curr = M_st_p1curr_q;
         p1acc = M_st_p1acc_q;
+        p2curr = M_st_p2curr_q;
+        p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
         M_st_turn_d = 1'h0;
         M_game_d = P1WIN_game;
       end
       P2WIN_game: begin
         playerturn = M_st_turn_q;
+        p1curr = M_st_p1curr_q;
+        p1acc = M_st_p1acc_q;
         p2curr = M_st_p2curr_q;
         p2acc = M_st_p2acc_q;
         currdice = M_st_currdice_q;
@@ -386,45 +422,9 @@ module game_CU_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_st_win_q <= 1'h0;
-    end else begin
-      M_st_win_q <= M_st_win_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_st_p1acc_q <= 1'h0;
-    end else begin
-      M_st_p1acc_q <= M_st_p1acc_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_game_q <= 1'h0;
-    end else begin
-      M_game_q <= M_game_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
       M_st_turn_q <= 1'h0;
     end else begin
       M_st_turn_q <= M_st_turn_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_st_currdice_q <= 1'h0;
-    end else begin
-      M_st_currdice_q <= M_st_currdice_d;
     end
   end
   
@@ -440,6 +440,33 @@ module game_CU_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
+      M_st_p2curr_q <= 1'h0;
+    end else begin
+      M_st_p2curr_q <= M_st_p2curr_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_st_currdice_q <= 1'h0;
+    end else begin
+      M_st_currdice_q <= M_st_currdice_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_st_p1acc_q <= 1'h0;
+    end else begin
+      M_st_p1acc_q <= M_st_p1acc_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
       M_temp_q <= 1'h0;
     end else begin
       M_temp_q <= M_temp_d;
@@ -449,18 +476,18 @@ module game_CU_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_st_p1curr_q <= 1'h0;
+      M_game_q <= 1'h0;
     end else begin
-      M_st_p1curr_q <= M_st_p1curr_d;
+      M_game_q <= M_game_d;
     end
   end
   
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_st_p2curr_q <= 1'h0;
+      M_st_p1curr_q <= 1'h0;
     end else begin
-      M_st_p2curr_q <= M_st_p2curr_d;
+      M_st_p1curr_q <= M_st_p1curr_d;
     end
   end
   
