@@ -17,31 +17,25 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tftg256-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 8268
+INFO: [Synth 8-7075] Helper process launched with PID 30660
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/au_top_0.v:7]
 INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_1' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/reset_conditioner_1.v:11]
 INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_1' (1#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/reset_conditioner_1.v:11]
-INFO: [Synth 8-6157] synthesizing module 'dice_2' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/dice_2.v:11]
-INFO: [Synth 8-6157] synthesizing module 'edge_detector_4' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/edge_detector_4.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'edge_detector_4' (2#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/edge_detector_4.v:12]
-INFO: [Synth 8-6157] synthesizing module 'button_conditioner_5' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/button_conditioner_5.v:13]
-INFO: [Synth 8-6157] synthesizing module 'pipeline_9' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/pipeline_9.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'pipeline_9' (3#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/pipeline_9.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'button_conditioner_5' (4#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/button_conditioner_5.v:13]
-INFO: [Synth 8-6157] synthesizing module 'edge_detector_6' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/edge_detector_6.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'edge_detector_6' (5#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/edge_detector_6.v:12]
-INFO: [Synth 8-6157] synthesizing module 'counter_7' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/counter_7.v:14]
-INFO: [Synth 8-6155] done synthesizing module 'counter_7' (6#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/counter_7.v:14]
-INFO: [Synth 8-6157] synthesizing module 'pn_gen_8' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/pn_gen_8.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'pn_gen_8' (7#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/pn_gen_8.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'dice_2' (8#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/dice_2.v:11]
-INFO: [Synth 8-6157] synthesizing module 'dice_seg_3' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/dice_seg_3.v:7]
-INFO: [Synth 8-226] default block is never used [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/dice_seg_3.v:16]
-INFO: [Synth 8-6155] done synthesizing module 'dice_seg_3' (9#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/dice_seg_3.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (10#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6157] synthesizing module 'seven_seg_test_dosth_2' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/seven_seg_test_dosth_2.v:7]
+INFO: [Synth 8-6157] synthesizing module 'multi_seven_seg_3' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/multi_seven_seg_3.v:12]
+INFO: [Synth 8-6157] synthesizing module 'counter_4' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/counter_4.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'counter_4' (2#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/counter_4.v:14]
+INFO: [Synth 8-6157] synthesizing module 'seven_seg_5' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/seven_seg_5.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'seven_seg_5' (3#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/seven_seg_5.v:7]
+INFO: [Synth 8-6157] synthesizing module 'decoder_6' [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/decoder_6.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'decoder_6' (4#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/decoder_6.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'multi_seven_seg_3' (5#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/multi_seven_seg_3.v:12]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/seven_seg_test_dosth_2.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'seven_seg_test_dosth_2' (6#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/seven_seg_test_dosth_2.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (7#1) [C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.srcs/sources_1/imports/verilog/au_top_0.v:7]
 WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
@@ -74,14 +68,11 @@ WARNING: [Synth 8-3917] design au_top_0 has port io_led[3] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[2] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[1] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[0] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 0
 WARNING: [Synth 8-7129] Port io_button[4] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_button[3] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_button[2] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_button[1] in module au_top_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port io_button[0] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_dip[23] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_dip[22] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_dip[21] in module au_top_0 is either unconnected or has no load
@@ -107,18 +98,18 @@ WARNING: [Synth 8-7129] Port io_dip[2] in module au_top_0 is either unconnected 
 WARNING: [Synth 8-7129] Port io_dip[1] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_dip[0] in module au_top_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1244.070 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -135,50 +126,43 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1244.070 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tftg256-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-223] decloning instance 'dice8/edge_rng' (edge_detector_6) to 'dice8/edge_seed'
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input    2 Bit       Adders := 1     
-+---XORs : 
-	   2 Input     32 Bit         XORs := 2     
-	   4 Input     32 Bit         XORs := 1     
+	   2 Input   18 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 4     
+	               18 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 1     
-	   8 Input    7 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 2     
+	   2 Input   18 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -228,14 +212,11 @@ WARNING: [Synth 8-3917] design au_top_0 has port io_led[2] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[1] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[0] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 0
 WARNING: [Synth 8-7129] Port io_button[4] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_button[3] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_button[2] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_button[1] in module au_top_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port io_button[0] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_dip[23] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_dip[22] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_dip[21] in module au_top_0 is either unconnected or has no load
@@ -261,25 +242,39 @@ WARNING: [Synth 8-7129] Port io_dip[2] in module au_top_0 is either unconnected 
 WARNING: [Synth 8-7129] Port io_dip[1] in module au_top_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port io_dip[0] in module au_top_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1244.070 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++-----------------------+----------------------+---------------+----------------+
+|Module Name            | RTL Object           | Depth x Width | Implemented As | 
++-----------------------+----------------------+---------------+----------------+
+|seven_seg_test_dosth_2 | M_seg_display_values | 128x8         | LUT            | 
++-----------------------+----------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -297,37 +292,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -344,39 +339,38 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |    12|
-|3     |LUT1   |     4|
-|4     |LUT2   |     3|
-|5     |LUT3   |    18|
-|6     |LUT4   |     7|
-|7     |LUT5   |    23|
-|8     |LUT6   |     5|
-|9     |FDRE   |   133|
-|10    |FDSE   |    56|
-|11    |IBUF   |     4|
-|12    |OBUF   |    45|
+|2     |CARRY4 |     5|
+|3     |LUT1   |     3|
+|4     |LUT2   |     6|
+|5     |LUT4   |     3|
+|6     |LUT5   |    17|
+|7     |LUT6   |     1|
+|8     |FDRE   |    18|
+|9     |FDSE   |     4|
+|10    |IBUF   |     3|
+|11    |OBUF   |    45|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1244.070 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 66 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:47 . Memory (MB): peak = 1243.660 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Synthesis finished with 0 errors, 0 critical warnings and 63 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:44 . Memory (MB): peak = 1244.070 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1244.070 ; gain = 0.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1243.660 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1244.070 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1243.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1244.070 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 6e01293b
+Synth Design complete, checksum: 6ce3cfca
 INFO: [Common 17-83] Releasing license: Synthesis
-38 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
+31 Infos, 124 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1243.660 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1244.070 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/cassi/Workspace/repostorage/toying_with_fpga/segmenttest/work/vivado/segmenttest/segmenttest.runs/synth_1/au_top_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Apr 14 14:04:08 2022...
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 15 22:31:39 2022...

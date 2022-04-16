@@ -28,20 +28,15 @@ module au_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
-  wire [3-1:0] M_dice8_out;
-  reg [1-1:0] M_dice8_rollbtn;
-  dice_2 dice8 (
+  wire [8-1:0] M_segtest_seg_tolight;
+  wire [4-1:0] M_segtest_sel_tolight;
+  reg [8-1:0] M_segtest_value;
+  seven_seg_test_dosth_2 segtest (
     .clk(clk),
     .rst(rst),
-    .rollbtn(M_dice8_rollbtn),
-    .out(M_dice8_out)
-  );
-  
-  wire [7-1:0] M_displayroll_segs;
-  reg [3-1:0] M_displayroll_char;
-  dice_seg_3 displayroll (
-    .char(M_displayroll_char),
-    .segs(M_displayroll_segs)
+    .value(M_segtest_value),
+    .seg_tolight(M_segtest_seg_tolight),
+    .sel_tolight(M_segtest_sel_tolight)
   );
   
   always @* begin
@@ -50,10 +45,8 @@ module au_top_0 (
     usb_tx = usb_rx;
     led = 8'h00;
     io_led = 24'h000000;
-    M_dice8_rollbtn = 1'h0;
-    M_dice8_rollbtn = io_button[0+0-:1];
-    M_displayroll_char = M_dice8_out;
-    io_seg = ~M_displayroll_segs;
-    io_sel = 4'he;
+    M_segtest_value = 7'h48;
+    io_seg = M_segtest_seg_tolight;
+    io_sel = M_segtest_sel_tolight;
   end
 endmodule

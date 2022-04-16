@@ -110,14 +110,11 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/custom.xdc
+set_property used_in_implementation false [get_files C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/custom.xdc]
+
 read_xdc C:/Users/cassi/Downloads/Apps/library/components/au.xdc
 set_property used_in_implementation false [get_files C:/Users/cassi/Downloads/Apps/library/components/au.xdc]
-
-read_xdc C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/io.xdc
-set_property used_in_implementation false [get_files C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/io.xdc]
-
-read_xdc C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/alchitry.xdc
-set_property used_in_implementation false [get_files C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/alchitry.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

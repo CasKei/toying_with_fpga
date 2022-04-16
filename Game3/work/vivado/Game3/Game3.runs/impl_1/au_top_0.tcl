@@ -137,9 +137,8 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/vivado/Game3/Game3.runs/synth_1/au_top_0.dcp
 OPTRACE "read constraints: implementation" START { }
+  read_xdc C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/custom.xdc
   read_xdc C:/Users/cassi/Downloads/Apps/library/components/au.xdc
-  read_xdc C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/io.xdc
-  read_xdc C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game3/work/constraint/alchitry.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

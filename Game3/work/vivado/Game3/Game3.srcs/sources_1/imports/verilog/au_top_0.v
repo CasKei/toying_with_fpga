@@ -13,8 +13,15 @@ module au_top_0 (
     output reg [23:0] io_led,
     output reg [7:0] io_seg,
     output reg [3:0] io_sel,
-    input [4:0] io_button,
-    input [23:0] io_dip
+    input p1rollbutton,
+    input p1holdbutton,
+    input p2rollbutton,
+    input p2holdbutton,
+    input resetbutton,
+    output reg [6:0] display_dice_seg,
+    output reg [0:0] display_dice_sel,
+    output reg display_p1turn_led,
+    output reg display_p2turn_led
   );
   
   
@@ -30,6 +37,7 @@ module au_top_0 (
   );
   
   wire [1-1:0] M_game_playerturn;
+  wire [2-1:0] M_game_playerwin;
   wire [8-1:0] M_game_p1curr;
   wire [8-1:0] M_game_p1acc;
   wire [8-1:0] M_game_p2curr;
@@ -41,12 +49,13 @@ module au_top_0 (
   reg [1-1:0] M_game_p2holdbtn;
   game_CU_2 game (
     .clk(clk),
-    .rst(io_button[1+0-:1]),
+    .rst(resetbutton),
     .p1rollbtn(M_game_p1rollbtn),
     .p1holdbtn(M_game_p1holdbtn),
     .p2rollbtn(M_game_p2rollbtn),
     .p2holdbtn(M_game_p2holdbtn),
     .playerturn(M_game_playerturn),
+    .playerwin(M_game_playerwin),
     .p1curr(M_game_p1curr),
     .p1acc(M_game_p1acc),
     .p2curr(M_game_p2curr),
@@ -54,11 +63,11 @@ module au_top_0 (
     .currdice(M_game_currdice)
   );
   
-  wire [7-1:0] M_seg_segs;
-  reg [3-1:0] M_seg_char;
-  dice_seg_3 seg (
-    .char(M_seg_char),
-    .segs(M_seg_segs)
+  wire [7-1:0] M_display_dice_segs;
+  reg [3-1:0] M_display_dice_char;
+  dice_seg_3 display_dice (
+    .char(M_display_dice_char),
+    .segs(M_display_dice_segs)
   );
   
   always @* begin
@@ -69,16 +78,20 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
-    M_game_p1rollbtn = io_button[3+0-:1];
-    M_game_p2rollbtn = io_button[4+0-:1];
-    M_game_p1holdbtn = io_button[0+0-:1];
-    M_game_p2holdbtn = io_button[2+0-:1];
-    M_seg_char = M_game_currdice;
-    io_led[0+0+0-:1] = M_game_playerturn;
-    io_led[0+7+0-:1] = ~M_game_playerturn;
-    io_led[8+7-:8] = M_game_p2acc;
-    io_led[16+7-:8] = M_game_p2curr;
-    io_seg = ~M_seg_segs;
+    io_led[8+7-:8] = M_game_p1acc;
+    io_led[16+7-:8] = M_game_p2acc;
+    M_display_dice_char = M_game_currdice;
+    io_seg = ~M_display_dice_segs;
     io_sel = 4'he;
+    M_reset_cond_in = ~resetbutton;
+    rst = M_reset_cond_out;
+    M_game_p1rollbtn = p1rollbutton;
+    M_game_p2rollbtn = p2rollbutton;
+    M_game_p1holdbtn = p1holdbutton;
+    M_game_p2holdbtn = p2holdbutton;
+    display_p1turn_led = M_game_playerturn;
+    display_p2turn_led = ~M_game_playerturn;
+    display_dice_seg = M_display_dice_segs;
+    display_dice_sel = 4'he;
   end
 endmodule

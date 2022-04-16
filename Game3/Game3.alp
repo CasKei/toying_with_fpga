@@ -10,6 +10,7 @@
     <src>dice_seg.luc</src>
     <src>seven_seg.luc</src>
     <src>adder_16.luc</src>
+    <src>display_player_score.luc</src>
     <component>decoder.luc</component>
     <component>counter.luc</component>
     <src>game_CU.luc</src>
@@ -20,8 +21,7 @@
     <src>dice.luc</src>
     <component>edge_detector.luc</component>
     <src>boolean_16.luc</src>
+    <constraint>custom.acf</constraint>
     <constraint lib="true">au.xdc</constraint>
-    <constraint lib="true">io.acf</constraint>
-    <constraint lib="true">alchitry.acf</constraint>
   </files>
 </project>

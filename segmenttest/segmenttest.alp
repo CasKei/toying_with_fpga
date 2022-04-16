@@ -3,6 +3,7 @@
   <files>
     <src>seven_seg.luc</src>
     <component>pn_gen.luc</component>
+    <src>seven_seg_test_dosth.luc</src>
     <component>reset_conditioner.luc</component>
     <src>randomgen.luc</src>
     <component>button_conditioner.luc</component>

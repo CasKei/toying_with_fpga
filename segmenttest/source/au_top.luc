@@ -19,10 +19,9 @@ module au_top (
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;    
     .rst(rst) {
-      dice dice8;
+      seven_seg_test_dosth segtest;
     }  
   } 
-  dice_seg displayroll;
 
   
 
@@ -36,15 +35,12 @@ module au_top (
     led = 8h00;             // turn LEDs off
     io_led = 3x{{8h00}};    // turn LEDs off
        
+    segtest.value = 72;
     
-    dice8.rollbtn = 0;
-    dice8.rollbtn = io_button[0];
     
-    displayroll.char = dice8.out;
-    
-    io_seg = ~displayroll.segs;
-    io_sel = ~4h1;
-       
+    io_seg = segtest.seg_tolight;
+    io_sel = segtest.sel_tolight;
+
        
   }
 }
