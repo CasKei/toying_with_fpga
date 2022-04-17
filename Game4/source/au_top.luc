@@ -62,7 +62,7 @@ module au_top (
     //io_sel = 4hf;           // select no digits
     
     
-    // test
+    // io test
     //game.p1rollbtn = io_button[3];
     //game.p2rollbtn = io_button[4];
     //game.p1holdbtn = io_button[0];
@@ -99,22 +99,22 @@ module au_top (
     // p1curr seg
     display_p1curr.value = game.p1curr;
     display_p1curr_seg = ~display_p1curr.segs;
-    display_p1curr_sel = display_p1curr.digits;
+    display_p1curr_sel = ~display_p1curr.digits;
     
     // p2curr seg
     display_p2curr.value = game.p2curr;
     display_p2curr_seg = ~display_p2curr.segs;
-    display_p2curr_sel = display_p2curr.digits;
+    display_p2curr_sel = ~display_p2curr.digits;
     
     // p1acc seg
     display_p1acc.value = game.p1acc;
     display_p1acc_seg = ~display_p1acc.segs;
-    display_p1acc_sel = display_p1acc.digits;
+    display_p1acc_sel = ~display_p1acc.digits;
     
     // p2acc seg
     display_p2acc.value = game.p2acc;
     display_p2acc_seg = ~display_p2acc.segs;
-    display_p2acc_sel = display_p2acc.digits;
+    display_p2acc_sel = ~display_p2acc.digits;
     
   }
 }

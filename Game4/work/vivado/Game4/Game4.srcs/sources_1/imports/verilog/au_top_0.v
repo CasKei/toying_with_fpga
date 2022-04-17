@@ -137,15 +137,15 @@ module au_top_0 (
     display_dice_sel = 4'he;
     M_display_p1curr_value = M_game_p1curr;
     display_p1curr_seg = ~M_display_p1curr_segs;
-    display_p1curr_sel = M_display_p1curr_digits;
+    display_p1curr_sel = ~M_display_p1curr_digits;
     M_display_p2curr_value = M_game_p2curr;
     display_p2curr_seg = ~M_display_p2curr_segs;
-    display_p2curr_sel = M_display_p2curr_digits;
+    display_p2curr_sel = ~M_display_p2curr_digits;
     M_display_p1acc_value = M_game_p1acc;
     display_p1acc_seg = ~M_display_p1acc_segs;
-    display_p1acc_sel = M_display_p1acc_digits;
+    display_p1acc_sel = ~M_display_p1acc_digits;
     M_display_p2acc_value = M_game_p2acc;
     display_p2acc_seg = ~M_display_p2acc_segs;
-    display_p2acc_sel = M_display_p2acc_digits;
+    display_p2acc_sel = ~M_display_p2acc_digits;
   end
 endmodule
