@@ -15,7 +15,7 @@ module dice_seg_5 (
     
     case (char)
       1'h0: begin
-        segs = 7'h7f;
+        segs = 7'h3f;
       end
       1'h1: begin
         segs = 7'h06;

@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=C:/Users/cassi/Downloads/Apps/Vivado/2021.2/ids_lite/ISE/bin/nt64;C:/Users/cassi/Downloads/Apps/Vivado/2021.2/ids_lite/ISE/lib/nt64:C:/Users/cassi/Downloads/Apps/Vivado/2021.2/bin
+  PATH=C:/Xilinx/Vivado/2021.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2021.2/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2021.2/bin
 else
-  PATH=C:/Users/cassi/Downloads/Apps/Vivado/2021.2/ids_lite/ISE/bin/nt64;C:/Users/cassi/Downloads/Apps/Vivado/2021.2/ids_lite/ISE/lib/nt64:C:/Users/cassi/Downloads/Apps/Vivado/2021.2/bin:$PATH
+  PATH=C:/Xilinx/Vivado/2021.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2021.2/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2021.2/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/cassi/Workspace/repostorage/toying_with_fpga/Game5/work/vivado/Game5/Game5.runs/synth_1'
+HD_PWD='C:/Users/Lek Jie Wei/Desktop/SUTD/Term 4/Comp Struct/1D/toying_with_fpga/Game5/work/vivado/Game5/Game5.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
