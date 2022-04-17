@@ -69,6 +69,22 @@ module au_top (
     //io_sel = 4hf;           // select no digits
     
     
+    // io test
+    //game.p1rollbtn = io_button[3];
+    //game.p2rollbtn = io_button[4];
+    //game.p1holdbtn = io_button[0];
+    //game.p2holdbtn = io_button[2];
+    
+    //io_led[0][0] = game.playerturn;
+    //io_led[0][7] = ~game.playerturn;
+    
+    //io_led[1] = game.p1acc;
+    //io_led[2] = game.p2acc;
+    
+    //io_seg = ~display_dice.segs;
+    //io_sel = ~4h1;
+    
+    
     // inputs
     reset_cond.in = ~resetbutton; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
