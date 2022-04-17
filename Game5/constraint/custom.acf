@@ -102,27 +102,39 @@ pin p2rollbutton C8 pulldown;
 pin p2holdbutton C9 pulldown;
 
 // dice seg 
-pin display_dice_sel C48;
+//pin display_dice_sel C48;
 
-pin display_dice_seg[0] C45;
-pin display_dice_seg[1] C46;
-pin display_dice_seg[2] C49;
-pin display_dice_seg[3] C2;
-pin display_dice_seg[4] C3;
-pin display_dice_seg[5] C6;
-pin display_dice_seg[6] C43;
+//pin display_dice_seg[0] C45;
+//pin display_dice_seg[1] C46;
+//pin display_dice_seg[2] C49;
+//pin display_dice_seg[3] C2;
+//pin display_dice_seg[4] C3;
+//pin display_dice_seg[5] C6;
+//pin display_dice_seg[6] C43;
 
 // p1curr seg 
-pin display_p1curr_sel[0] A12;
-pin display_p1curr_sel[1] A15;
+//pin display_p1curr_sel[0] A12;
+//pin display_p1curr_sel[1] A15;
 
-pin display_p1curr_seg[0] A21;
-pin display_p1curr_seg[1] A18;
-pin display_p1curr_seg[2] A20;
-pin display_p1curr_seg[3] A11;
-pin display_p1curr_seg[4] A14;
-pin display_p1curr_seg[5] A9;
-pin display_p1curr_seg[6] A8;
+//pin display_p1curr_seg[0] A21;
+//pin display_p1curr_seg[1] A18;
+//pin display_p1curr_seg[2] A20;
+//pin display_p1curr_seg[3] A11;
+//pin display_p1curr_seg[4] A14;
+//pin display_p1curr_seg[5] A9;
+//pin display_p1curr_seg[6] A8;
+
+// for debug p1curr
+pin display_p1curr_sel[0] C48;
+pin display_p1curr_sel[1] C42;
+
+pin display_p1curr_seg[0] C49;
+pin display_p1curr_seg[1] C46;
+pin display_p1curr_seg[2] C49;
+pin display_p1curr_seg[3] C2;
+pin display_p1curr_seg[4] C3;
+pin display_p1curr_seg[5] C6;
+pin display_p1curr_seg[6] C43;
 
 // p1acc seg 
 pin display_p1acc_sel[0] A3;
