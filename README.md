@@ -26,7 +26,7 @@ Idea to display on 2 digit seven seg: Jiewei
 This is functional game, based on Game4, with the addition of working beta, regfile and control unit.\
 Managed to get dice to roll fair: Christy (her proudest achievement)\
 Created Game5: Christy\
-Debugging: Christy, Cassie\
+Debugging: Christy, Cassie
 
 ### Game4
 This is functional game, based on Game3, copied from Game3 as Game3 got corrupted.\ Functional on external inputs and outputs.\
